@@ -31,7 +31,7 @@ public class Quiz05 {
 					System.err.println("당신이 이겼다.");
 				}else {
 					System.out.println("컴퓨터가 이겼다.");
-				}
+				}//-사용자가 가위
 			}else if(num==1) {
 				if(com==0) {
 					System.out.println("당신이 이겼다.");
@@ -39,8 +39,7 @@ public class Quiz05 {
 					System.err.println("비겼다.");
 				}else {
 					System.out.println("컴퓨터가 이겼다.");
-				}
-				
+				}//사용자가 바위	
 			}else {
 				if(com==0) {
 					System.out.println("컴퓨터가 이겼다.");
@@ -48,13 +47,9 @@ public class Quiz05 {
 					System.err.println("당신이 이겼다.");
 				}else {
 					System.out.println("비겼다.");
-				}
+				}//사용자가 보
 			}
 		}
-		
 		sc.close();
-		
-		
-		//System.out.println((int)(Math.random()*3));
 }
 }
