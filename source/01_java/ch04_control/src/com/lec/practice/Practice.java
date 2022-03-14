@@ -1,4 +1,4 @@
-package com.lec.condition;
+package com.lec.practice;
 
 import java.util.Scanner;
 
@@ -12,6 +12,6 @@ public class Practice {
 		
 		System.out.println(num1>=0 ? num1:-num1);
 		
-		
+		sc.close();
 	}
 }
