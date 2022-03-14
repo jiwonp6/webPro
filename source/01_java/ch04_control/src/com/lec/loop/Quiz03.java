@@ -1,5 +1,5 @@
 package com.lec.loop;
-
+//구구단 5단 출력
 public class Quiz03 {
 	public static void main(String[] args) {
 		int tot = 1;
