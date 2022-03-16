@@ -1,6 +1,6 @@
 package com.lex.ex;
 //1~10까지 정수의 합 출력하고, 그 합이 짝수인지 홀수인지 출력
-public class Ex01_1 {
+public class Ex02 {
 	public static void main(String[] args) {
 // <1~to까지 누적하는 로직>	
 		int tot = sum(10);
@@ -33,8 +33,8 @@ public class Ex01_1 {
 */
 	}
 	
-//	<메소드1>	
-	private static int sum(int to) {	//1~to까지 누적한 결과 return
+//	<메소드1>	//1~to까지 누적한 결과 return
+	private static int sum(int to) {	//함수의 오버로딩 (매개변수 1개)
 		int result = 0;
 		for(int i=1 ; i<=to ; i++) {
 			result += i;
@@ -52,6 +52,7 @@ public class Ex01_1 {
 //	<메소드3>
 	private static String evenOdd(int value) {
 		return value%2==0 ? "짝수입니다." : "홀수입니다.";
+//	if 사용
 //		String result = null;
 //		if(value%2 == 0) {
 //			return "짝수입니다.";
@@ -62,14 +63,3 @@ public class Ex01_1 {
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
