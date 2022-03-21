@@ -3,9 +3,9 @@ package com.lec.ex;
 //Car c = new Car()
 //c.park()
 public class Car {						//class
-	private String color;	//색상	//객체1
-	private int cc;	//배기량	//객체2
-	private int speed;	//속도	//객체3
+	private String color;	//색상
+	private int cc;	//배기량	
+	private int speed;	//속도
 	public void drive( ) {				
 		speed = 60;
 		System.out.println(color + "색 차를 운전한다.\n지금 속도 : " + speed);
