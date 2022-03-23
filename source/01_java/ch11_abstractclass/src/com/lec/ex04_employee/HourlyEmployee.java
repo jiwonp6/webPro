@@ -1,0 +1,16 @@
+package com.lec.ex04_employee;
+
+public class HourlyEmployee extends Employee{
+	private int hoursWorked;
+	private int moneyPerHour;
+
+	public HourlyEmployee(String name, int hoursWorked, int moneyPerHour) {
+		super(name);
+		this.hoursWorked = hoursWorked;
+		this.moneyPerHour = moneyPerHour;
+	}
+	@Override
+	public int ComputePay() {
+		return hoursWorked*moneyPerHour;
+	}
+}

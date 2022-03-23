@@ -12,8 +12,8 @@ public abstract class Car {
 		this.displacement = displacement;
 		this.handle = handle;
 	}
-	//getter&setter
 	public abstract void getSpec();
+	//getter&setter
 	public String getColor() {
 		return color;
 	}
