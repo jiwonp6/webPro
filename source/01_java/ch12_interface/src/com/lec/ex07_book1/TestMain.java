@@ -11,8 +11,7 @@ public class TestMain {
 		int fn;		//기능번호(1:대출, 2:반납, 3:책list, 0:종료)
 		int idx;	//대출하거나 반납하려고 할 때 조회된 책의 index
 		String bTitle, borrower, checkOutDate;	//사용자에게 받을 책이름, 대출인, 대출일
-
-//do~while문
+	//do~while문
 		do {
 			System.out.println("1:대출, 2:반납, 3:책list, 0:종료");
 			fn = sc.nextInt();	
@@ -46,24 +45,35 @@ public class TestMain {
 						books[idx].checkOut(borrower, checkOutDate);
 					}
 				}
-				//6.대출메소드 호출
-				System.out.println();
+				break;
+			case 2://반납 : 1.책이름 2.책조회 3.반납처리
+					//1.책이름
+					System.out.println("반납할 책이름은? ");
+					bTitle = sc.next();
+					for(idx=0; idx<books.length; idx++) {	//확장for문 쓰면 인덱스를 가져올 수 없음
+						if(bTitle.equals(books[idx].getBookTitle())){
+							break;
+						}
+					}//2.책조회
+					if(idx == books.length) {
+						System.out.println("해당 도서는 본 도서관의 책이 아닙니다.");
+					}else {	//idx가 찾은 그 위치
+					//3.반납처리
+						books[idx].checkIn();
+					}
 				
 				break;
-			case 2:
-				System.out.println("반납진행하는 로직 들어갈 예정");
-				break;
 			case 3:
-				System.out.println("\t\t===책 list===");
+				System.out.println("\t===책 list===");
 				for(Book book : books) {
 					book.printState();				
 				}
 				break;
-			}
+		}
 		}while(fn!=0);
 			System.out.println("bye");
 		
-//while문
+	//while문
 //		while(true) {
 //			System.out.println("1:대출, 2:반납, 3:책list, 0:종료");
 //			fn = sc.nextInt();

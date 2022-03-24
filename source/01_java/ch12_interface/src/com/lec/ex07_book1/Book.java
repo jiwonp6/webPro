@@ -42,7 +42,7 @@ public class Book implements Ilendable {
 	@Override
 	public void printState() {
 		//삼항연산자
-		String msg = requestNo + "\t\""+bookTitle+"\""+"\t("+writer+"著)";
+		String msg = requestNo + "\t\""+bookTitle+"\""+"("+writer+"著)\"t";
 		msg = msg + ((state==STATE_NORMAL) ? "대출가능" : (state==STATE_BORROWED)? "대출중" : "시스템오류");
 		System.out.println(msg);
 		//if문

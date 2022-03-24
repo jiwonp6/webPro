@@ -8,8 +8,8 @@ public class TestMain {
 			temp.volumeDown(8);
 			temp.volumeUp();
 			temp.volumeUp(11);
+			temp.setMute(true);	//default ¸Þ¼Òµå
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~");
 		}
 	}
-
 }
