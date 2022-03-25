@@ -1,5 +1,5 @@
-package strategy1.step4.modularization;
-//4단계 : 기능을 부품화
+package strategy1.step5.modularization;
+//5단계 : 기능을 부품화 -> 유지보수를 간편하게
 public class TestMain {
 	public static void main(String[] args) {
 		Robot superR = new SuperRobot();
@@ -14,6 +14,8 @@ public class TestMain {
 			robot.actionMissile();
 			robot.actionKnife();
 		}
-		//lowR.setFly(new FlyYes());
+		//SuperRobot을 업그레이드 요청 : 날수있습니다. => 고공비행합니다.
+		//고공배행하는 부품 만들어 setFly만 호출
+		
 	}
 }

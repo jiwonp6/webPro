@@ -24,7 +24,6 @@ public class LowRobot extends Robot{
 	public void actionMissile() {
 		missile.missile();
 	}
-
 	@Override
 	public void actionKnife() {
 		knife.knife();
@@ -40,5 +39,4 @@ public class LowRobot extends Robot{
 		this.knife = knife;
 	}
 	
-
 }
