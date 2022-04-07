@@ -2,7 +2,7 @@ package com.lec.ex01_string;
 
 import java.util.Scanner;
 
-public class Quiz01_juminNo {
+public class Ex04_quiz01juminNo {
 	public static void main(String[] args) {
 		String juminNo;
 		System.out.println("주민 번호를 입력하세요('-'을 넣어 입력해주세요) :");

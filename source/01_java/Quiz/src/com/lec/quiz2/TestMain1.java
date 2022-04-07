@@ -9,12 +9,10 @@ import java.util.Date;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class MemberTestMain2 {
+public class TestMain1 {
 	public static void main(String[] args) {
 		OutputStream fos = null;
 
-		String todayfm = new SimpleDateFormat("MM/dd").format(new Date(System.currentTimeMillis()));
-		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd");
 		Scanner sc = new Scanner(System.in);
 
 		String name = null;
@@ -24,9 +22,9 @@ public class MemberTestMain2 {
 		Date today = new Date();
 		// Member member = new Member();
 
-		ArrayList<Member> arrayList = new ArrayList<Member>();
+		ArrayList<Customer> arrayList = new ArrayList<Customer>();
 		try {
-			fos = new FileOutputStream("src/com/lec/quiz2/member.txt");
+			fos = new FileOutputStream("src/com/lec/quiz2/customer.txt");
 			while (true) {
 				System.out.println("회원가입을 하시겠습니까?(y/n)");
 				String ans = sc.next();
@@ -50,9 +48,12 @@ public class MemberTestMain2 {
 						}
 					}
 					System.out.println("가입완료\n");
-					arrayList.add(new Member(name, tel, birth, address));
-				} else {
+					arrayList.add(new Customer(name, tel, birth, address));
+				} else if(ans.equalsIgnoreCase("n")){
 					break;
+				}else {
+					System.out.println("잘못입력하셨습니다.");
+					continue;
 				}
 			}
 			String line = "\n";
@@ -72,8 +73,7 @@ public class MemberTestMain2 {
 			try {
 				if (fos != null)
 					fos.close();
-			} catch (Exception ignore) {
-			}
+			} catch (Exception ignore) {}
 		}
 		sc.close();
 	}

@@ -1,8 +1,12 @@
 package com.lec.quiz2;
 
-import java.io.*;
-import java.util.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Scanner;
 
 public class MemberTestMain {
 	public static void main(String[] args) {

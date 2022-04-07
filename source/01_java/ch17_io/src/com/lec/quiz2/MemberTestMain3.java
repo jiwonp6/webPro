@@ -4,12 +4,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class MemberTestMain2 {
+public class MemberTestMain3 {
 	public static void main(String[] args) {
 		OutputStream fos = null;
 
@@ -22,9 +23,9 @@ public class MemberTestMain2 {
 		String address = null;
 		String birth = null;
 		Date today = new Date();
-		// Member member = new Member();
-
-		ArrayList<Member> arrayList = new ArrayList<Member>();
+		Integer key;
+		
+		HashMap<Integer, Member> member = new HashMap<Integer, Member>();
 		try {
 			fos = new FileOutputStream("src/com/lec/quiz2/member.txt");
 			while (true) {
@@ -50,22 +51,22 @@ public class MemberTestMain2 {
 						}
 					}
 					System.out.println("가입완료\n");
-					arrayList.add(new Member(name, tel, birth, address));
+					member.put(member.size(), new Member(name, tel, birth, address));
 				} else {
 					break;
 				}
 			}
 			String line = "\n";
-			String str = "\t\t" + "-----이상 " + arrayList.size() + "명 회원가입-----";
-			for (int i = 0; i < arrayList.size(); i++) {
-				fos.write(arrayList.get(i).toString().getBytes());
-				System.out.println(arrayList.get(i));
+			String str = "\t\t" + "-----이상 " + member.size() + "명 회원가입-----";
+			Iterator<Integer> iterator = member.keySet().iterator();
+			while(iterator.hasNext()) {
+				key = iterator.next();
+				fos.write(member.get(key).toString().getBytes());
+				System.out.println(member.get(key));
 				fos.write(line.getBytes());
 			}
 			fos.write(str.getBytes());
-
-			System.out.println("\t\t" + "-----이상 " + arrayList.size() + "명 회원가입-----");
-			arrayList.clear();
+			System.out.println("\t\t" + "-----이상 " + member.size() + "명 회원가입-----");
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		} finally {
