@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 --[X] VIEW, INLINE VIEW, TOP-N구문
     --1. VIEW : 가상의 테이블 (1)단순뷰 (2)복합뷰
     --(1)단순뷰 : 하나의 테이블로 구성한 뷰
@@ -378,4 +377,4 @@ SELECT RN, EMPNO, ENAME, HIREDATE
 SELECT RN, EMPNO, ENAME, HIREDATE
     FROM (SELECT ROWNUM RN, A.* FROM(SELECT * FROM EMP ORDER BY HIREDATE DESC) "A")
     WHERE RN BETWEEN 6 AND 10;
->>>>>>> 96d58a64e5ebb5b1e4ae407f3b35890afe1e7606
+

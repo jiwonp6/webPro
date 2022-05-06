@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package com.lec.ex1_person;
 
 import java.sql.Connection;
@@ -208,4 +207,4 @@ public class Person2 {
 		}
 	}
 }
->>>>>>> 96d58a64e5ebb5b1e4ae407f3b35890afe1e7606
+

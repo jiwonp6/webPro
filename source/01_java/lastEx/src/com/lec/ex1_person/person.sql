@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 -- 테이블 생성 (같은 이름의 테이블이 생성되었을 경우 DROP) & -- 더미데이터(JOB->PERSON)
 DROP TABLE JOB;
 CREATE TABLE JOB(
@@ -122,4 +121,4 @@ commit;
 SELECT * FROM PERSON;
 DELETE PERSON WHERE pNAME='김길순';
 COMMIT;
->>>>>>> 96d58a64e5ebb5b1e4ae407f3b35890afe1e7606
+

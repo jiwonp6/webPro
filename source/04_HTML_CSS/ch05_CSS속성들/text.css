@@ -1,0 +1,75 @@
+﻿/*페이지초기화*/
+
+
+* {
+    border: 1px solid gray;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    text-decoration: none;
+}
+
+#wrap {
+    position: relative;
+    width: 500px;
+    height: 800px;
+    margin: 0 auto;
+}
+
+#backgroud_image {
+    position: absolute;
+    background: url('0504/sulhyun.jpg')
+}
+
+#HEADER {
+    width: 480px;
+    height: 100px;
+    background-color: lightyellow;
+    margin: 10px;
+}
+
+#NAV {
+    width: 480px;
+    height: 100px;
+    margin: 10px;
+    overflow: hidden;
+}
+
+    #NAV #menu {
+        float: left;
+    }
+
+#menu > ul > li .submenu {
+    display: none;
+}
+
+#SECTION {
+    width: 480px;
+    height: 440px;
+    margin: 10px;
+    overflow: hidden;
+}
+
+#content {
+    margin: 10px;
+    width: 320px;
+    height: 420px;
+    float: left;
+}
+
+#banner {
+    margin: 10px;
+    width: 110px;
+    height: 420px;
+    float: left;
+}
+
+#FOOTER {
+    width: 480px;
+    height: 100px;
+    background-color: lightyellow;
+    margin: 10px;
+}
+
+        

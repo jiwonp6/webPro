@@ -1,0 +1,114 @@
+﻿
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+div {
+    text-align: center;
+    border:0.1px solid lightgray;
+}
+
+#wrap {
+    margin: 0 auto;
+    width: 910px;
+}
+
+#header{
+    height:120px;
+    width:910px;
+}
+    #header #header_nav {
+        overflow: hidden;
+        background-color:#2d1152;
+    }
+    #header #header_nav .gnb ul {
+        overflow:hidden;
+        float:left;
+    }
+    #header #header_nav .gnb ul li{
+        float:left;
+    }
+    #header #header_nav .gnb ul li a{
+        color:white;
+    }
+    #header #header_nav .survivalFootball{
+        float:right;
+        color:white;
+    }
+    #header #header_info {
+        clear: both;
+    }
+
+#content {
+    height: 1000px;
+    width: 910px;
+    overflow:hidden;
+}
+    #content #main_menu > ul{
+        width:155px;
+        height:450px;
+        float:left;
+    }
+    #content #main_menu > ul > li {
+        width: 155px;
+        height: 45px;
+        line-height:45px;
+    }
+    #content #main {
+        width: 620px;
+        height: 1000px;
+        float: left;
+    }
+    #content #main > ul> li:nth-child(1){
+        margin:5px 10px;
+        width: 600px;
+        height: 300px;
+        border: 1px solid lightgray;
+        box-sizing: border-box;
+    }
+    #content #main > ul> li:nth-child(2){
+        margin:5px 10px;
+        width: 600px;
+        height: 150px;
+        border: 1px solid lightgray;
+        box-sizing: border-box;
+    }
+    #content #main > ul> li:nth-child(3),
+    #content #main > ul> li:nth-child(4),
+    #content #main > ul> li:nth-child(5),
+    #content #main > ul> li:nth-child(6),
+    #content #main > ul> li:nth-child(7) {
+        margin: 5px 10px;
+        width: 600px;
+        height: 100px;
+        border: 1px solid lightgray;
+        box-sizing: border-box;
+    }
+    #content #main_banner {
+        float: left;
+        width: 250px;
+        height: 1000px;
+    }
+    #content #main_banner > ul > li:nth-child(1),
+    #content #main_banner > ul > li:nth-child(2),
+    #content #main_banner > ul > li:nth-child(3),
+    #content #main_banner > ul > li:nth-child(4),
+    #content #main_banner > ul > li:nth-child(5) {
+        margin: 0;
+        width: 10px;
+        height: 10px;
+        border: 1px solid red;
+    }
+#footer {
+    height: 100px;
+    width: 910px;
+}

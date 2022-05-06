@@ -1,0 +1,184 @@
+﻿*{
+    margin:0;
+    padding:0;
+}
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+div {
+   
+    text-align: center;
+    
+}
+#wrap {
+    margin: 0 auto;
+    width: 1060px;
+}
+#header {
+    height: 290px;
+    width: 1060px;
+}
+    #header .gnb {
+        height: 30px;
+        background-color: black;
+    }
+        #header .gnb > ul {
+            overflow: hidden;
+            width:900px;
+            margin : 0 auto;
+        }
+        #header .gnb > ul > li{
+            float:left;
+            margin:0 19px;
+            font-weight:bold;
+        }
+        #header .gnb > ul > li> a{
+            color:white;
+        }
+    #header .logo {
+        clear: both;
+        height: 130px;
+    }
+        #header .logo > p {
+            margin:40px auto 20px;
+            height:70px;
+            width:100px;
+            line-height:70px;
+            border: 1.5px solid lightgray;
+        }
+    #header .hitmenu {
+        height: 50px;
+    }
+        #header .hitmenu > ul {
+            overflow: hidden;
+           
+        }
+        #header .hitmenu > ul > li {
+            float: right;
+            border: 1.5px solid lightgray;
+            width:80px;   
+            line-height:40px;
+        }
+        #header .hitmenu > ul> li:nth-child(1){
+            border-radius:0 10px 10px 0;
+        }
+        #header .hitmenu > ul> li:nth-child(4){
+            border-radius:10px 0 0 10px;
+        }
+        #header .hitmenu > ul> li >a{
+            font-size:18px;
+            font-weight:bold;
+        }
+    #header .lnb {
+        height: 35px;
+        border-top: 1.5px dashed black;
+        border-bottom: 1.5px dashed black;
+    }
+        #header .lnb > ul {
+            overflow: hidden;
+        }
+        #header .lnb > ul > li {
+            float: left;
+            width:120px;
+            margin:5.5px;
+        }
+        #header .lnb > ul > li > a {
+            font-weight:bold;
+            line-height:20px;
+        }
+#content {
+    clear: both;
+    height: 810px;
+    width: 1060px;
+}
+    #content .section1{
+        height:400px;
+        width:1000px;
+        margin:0 auto;
+    }
+    #content .section1 .slide_banner > ul{
+        overflow:hidden;
+        height:400px;
+    }
+    #content .section1 .slide_banner > ul > li{
+        float:left;
+        border:1px solid lightgray;
+        line-height:398px;
+    }
+    #content .section1 .slide_banner > ul>li:nth-child(1){
+        width:700px;
+    }
+    #content .section1 .slide_banner > ul>li:nth-child(2){
+        width:295px;
+    }
+    #content .section2 {
+        height: 400px;
+        width: 1000px;
+        margin: 0 auto;
+    }
+    #content .section2 .hit_product > ul {
+        overflow: hidden;
+        height: 200px;
+        border: 1px solid lightgray;
+    }
+    #content .section2 .hit_product > ul > li {
+        float: left;
+        border: 1px solid lightgray;
+        margin:0 7px;
+        width:233px;
+        line-height:200px;
+    }
+    #content .section2 .md_product > ul {
+        overflow: hidden;
+        height: 200px;
+        border: 1px solid lightgray;
+    }
+    #content .section2 .md_product > ul > li {
+        float: left;
+        border: 1px solid lightgray;
+        margin:0 7px;
+        width:233px;
+        line-height:200px;
+    }
+#footer {
+    height: 100px;
+    width: 1060px;
+    overflow:hidden;
+    margin:0 30px;
+}
+    #footer .office_logo {
+        width: 332px;
+        height: 80px;
+        float: left;
+        border: 1px solid lightgray;
+    }
+    #footer .office_address {
+        width: 332px;
+        height: 80px;
+        float: left;
+        border: 1px solid lightgray;
+    }
+    #footer .shopping_info {
+        width: 332px;
+        height: 80px;
+        float: left;
+        border: 1px solid lightgray;
+    }
+    #footer .copyright {
+        width: 1000px;
+        height: 20px;
+        clear: both;
+       background-color:black;
+    }
+        #footer .copyright #background_image {
+            width: 1000px;
+            height: 20px;
+            background: url('copyright.png') no-repeat;
+            
+            margin: 0 350px;
+        }

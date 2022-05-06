@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 --1. EMP 에 저장된 사원 중 10번 부서 소속 사원의 정보를 추가한다
 CREATE TABLE SAM01(
     EMPNO NUMBER(4),     
@@ -58,4 +57,4 @@ SELECT * FROM USER_CONSTRAINTS;
 --SAM01 테이블에서 JOB이 정해지지 않은 사원을 삭제
 SELECT * FROM SAM01;
 DELETE FROM SAM01 WHERE JOB IS NULL;
->>>>>>> 96d58a64e5ebb5b1e4ae407f3b35890afe1e7606
+
