@@ -1,5 +1,5 @@
 package singleton1;
-
+//教臂沛 : 迭茄锅父 按眉积己
 public class SingletonClass {
 	private int i;
 	//按眉积己沁栏搁 弊 按眉 林家甫 return窍绊

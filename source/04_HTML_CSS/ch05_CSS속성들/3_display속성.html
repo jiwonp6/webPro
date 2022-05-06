@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        div{
+            width:100px;
+            height:100px;
+            border:1px solid black;
+            text-align:center;
+            font-weight:bold;
+        }
+        div:nth-child(1){
+            background-color:red;
+            display:block;
+        }
+        div:nth-child(2){
+            background-color:green; /* display속성은 div 태그 기본값을 가짐 */
+        }
+            div:nth-child(3) {
+                background-color: blue;
+                display: inline; /*inline은 height, width 안먹음. margin만 먹음 */
+                margin: 10px;
+            }
+        div:nth-child(4){
+            background-color:yellow;
+            display:inline;
+        }
+        div:nth-child(5){
+            background-color:black;
+            display:none;   /*display가 안보이게 함(공간도 안보임)*/
+        }
+        div:nth-child(6){
+            background-color:pink;
+            display:inline-block;   /*height, 윗여백, 아랫여백 지정 가능*/ /*space하나로 인해 4와 6사이 마진이 있는 것처럼 보임*/
+        }
+        div:nth-child(7){
+            background-color:mediumpurple;
+            display:inline-block;
+        }
+        
+    </style>
+</head>
+<body>
+    <div>content1</div>
+    <div>content2</div>
+    <div>content3</div>
+    <div>content4</div>
+    <div>content5</div>
+    <div>content6</div>
+    <div>content7</div>
+    <div>content8</div>
+</body>
+</html>

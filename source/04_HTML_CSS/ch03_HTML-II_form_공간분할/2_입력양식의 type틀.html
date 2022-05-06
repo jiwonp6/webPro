@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        td {
+            text-align: center; /*글씨 가운데 정렬*/
+            padding: 5px; /*안여백*/
+        }
+    </style>
+</head>
+<body>
+    <form action="#" method="get">
+        <table>
+            <tr>
+                <td>아이디</td>
+                <td>
+                    <input type="text" name="id" size="9" />
+                    <input type="button" value="중복확인" onclick="alert('중복확인 test');"/>
+                </td>
+            </tr>
+            <tr>
+                <td>비밀번호</td>
+                <td><input type="password" name="pw" /></td>
+            </tr>
+            <tr>
+                <td>전화번호</td>
+                <td>
+                    <input type="tel" name="phone1" size="1" />
+                    -
+                    <input type="tel" name="phone2" size="2" />
+                    -
+                    <input type="tel" name="phone3" size="1" />
+                </td>
+            </tr>
+            <tr>
+                <td>경력</td>
+                <td>
+                    <input type="number" name="career" min="0" max="50" />
+                </td>
+            </tr>
+            <tr>
+                <td>이메일</td>
+                <td>
+                    <input type="email" name="email" />
+                </td>
+            </tr>
+            <tr>
+                <td>사진</td>
+                <td><input type="file" name="filename" /></td>
+            </tr>
+            <tr>
+                <td>성별</td>
+                <td>
+                    <input type="radio" name="gender" value="m" />남
+                    <input type="radio" name="gender" value="w" checked="checked" />여
+                </td>
+            </tr>
+            <tr>
+                <td>사용언어</td>
+                <td>
+                    <input type="checkbox" name="lang" value="kor" checked="checked" /> 한국어
+                    <input type="checkbox" name="lang" value="eng" /> 영어
+                    <input type="checkbox" name="lang" value="jap" /> 일본어
+                    <input type="checkbox" name="lang" value="chn" /> 중국어
+                </td>
+            </tr>
+            <tr>
+                <td>국적</td>
+                <td>
+                    <select name="nation">
+                        <option value="kor">대한민국</option>   <!--option에 value를 생략하면 value = 대한민국-->
+                        <option value="usa">미국</option>
+                        <option value="jap">일본</option>
+                        <option value="chn">중국</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>좋아하는 음식</td>
+                <td>
+                    <select name="food" multiple="multiple" size="2">
+                        <option>김치찌개</option>
+                        <option>된장찌개</option>
+                        <option>섞어찌개</option>
+                        <option>부대찌개</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>자기소개</td>
+                <td>
+                    <textarea name="intro" cols="25" rows="3"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>생일</td>
+                <td>
+                    <input type="date" name="birth" />
+                </td>
+            </tr>
+            <tr>
+                <td>sns url</td>
+                <td>
+                    <input type="url" name="sns" />
+                </td>
+            </tr>
+            <tr>
+                <td>좋아하는 색<br />좋아하는정도</td>
+                <td>
+                    <input type="color" name="color" /><br />
+                    <input type="range" name="range" min="0" max="100" step="10" />100
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="회원가입" />
+                    <input type="reset" value="초기화" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

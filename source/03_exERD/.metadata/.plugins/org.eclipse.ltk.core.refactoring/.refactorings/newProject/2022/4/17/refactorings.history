@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="자원 &apos;newProject/ex1.exerd&apos;을(를) &apos;book.exerd&apos;(으)로 이름 바꾸기" description="&apos;ex1.exerd&apos; 자원 이름 바꾸기" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="ex1.exerd" name="book.exerd" stamp="1650259027577" updateReferences="true"/>
+</session>

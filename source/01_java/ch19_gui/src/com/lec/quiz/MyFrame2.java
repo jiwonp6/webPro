@@ -27,7 +27,7 @@ public class MyFrame2 extends JFrame implements ActionListener {
 	private JTextField txtName, txtTel, txtAge;
 	private ImageIcon iconIn, iconOut;
 	private JButton btnIn, btnOut;
-	private ArrayList<Person> person;
+	private ArrayList<Person> person = new ArrayList<Person>();
 
 //»ý¼ºÀÚ
 	public MyFrame2(String title) {

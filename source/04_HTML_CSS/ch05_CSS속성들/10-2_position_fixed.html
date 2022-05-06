@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            opacity: 0.7;
+        }
+
+        #div1 {
+            position: fixed; 
+            left: 0;
+            top: 0;
+            /*right:50px;
+            left:50px;*/
+            background-color: red;
+            z-index: 999;
+        }
+
+        #div2 {
+            position: fixed; 
+            top: 50px;
+            left: 50px;
+            background-color: green;
+            z-index: -999; /*위에 올려지는 순서 조정(z-index를 큰 값으로 하면 위로 올라옴)*/
+        }
+
+        #div3 {
+            position: absolute; /*절대좌표*/
+            top: 100px;
+            left: 100px;
+            background-color: blue;
+        }
+
+        #div4 {
+            width: 200px;
+            height: 200px;
+            position: absolute; /*절대좌표*/
+            top: 200px;
+            left: 200px;
+            background-color: yellow;
+        }
+
+        #div5 {
+            position: absolute; /*절대좌표*/
+            top: 50px;
+            left: 50px;
+            opacity: 1;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">div1</div>
+    <div id="div2">div2</div>
+    <div id="div3">div3</div>
+    <div id="div4">
+        div4
+        <div id="div5">div5</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        b{color : red;}
+    </style>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>회원 정보</legend>
+            <ul>
+                <li>
+                    <label for="name">이&nbs름 <b>*</b> </label><input type="text" name="name" id="name" />
+                    <!--id="name"은 label을 위해 만든것-->
+                </li>
+                <li>
+                    <label for="id">아이디<b>*</b></label><input type="text" name="id" id="id" />
+                </li>
+                <li>
+                    <label for="pw">비밀번호<b>*</b></label>
+                    <input type="password" name="pw" id="pw" required="required" />
+                </li>
+                <li>
+                    <label for="tel">전화번호</label>
+                    <input type="tel" name="tel" id="tel" />
+                </li>
+                <li>
+                    사용기술
+                    <input type="checkbox" name="tech" value="java" id="java" /><label for="java">자바</label>
+                    <input type="checkbox" name="tech" value="DBMS" id="DBMS" /><label for="DBMS">DBMS</label>
+                    <input type="checkbox" name="tech" value="HTML" id="HTML" /><label for="HTML">HTML</label>
+                    <input type="checkbox" name="tech" value="jsp" id="jsp" /><label for="java">jsp</label>
+                </li>
+                <li>
+                    성 별
+                    <input type="radio" name="gender" value="m" id="m" /><label for="m">남자</label>
+                    <input type="radio" name="gender" value="m" id="f" /><label for="f">여자</label>
+                </li>
+            </ul>
+            <center><input type="submit" /></center>
+        </fieldset>
+    </form>
+</body>
+</html>

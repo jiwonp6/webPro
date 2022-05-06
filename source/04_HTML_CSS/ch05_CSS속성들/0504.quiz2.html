@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 30px;
+            line-height: 120px;
+            text-align:center;
+            font-weight:bold;
+        }
+        #wrap {
+            width:1000px;
+            overflow: hidden;
+            border:1px solid lightgray;
+            margin:20px auto;
+        }
+        #wrap ul li {
+            width: 180px;
+            height: 120px;
+            float: left;
+            border-top: 1px solid red;
+            border-bottom: 1px solid red;
+            margin: 10px;
+            box-sizing: border-box;
+            list-style: none;
+        }
+        #wrap ul li a {
+            text-decoration: none;
+            display: block; /*a태그의 영역을 확장*/
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+       <ul>
+           <li><a href="#">menu1</a></li>
+           <li><a href="#">menu2</a></li>
+           <li><a href="#">menu3</a></li>
+           <li><a href="#">menu4</a></li>
+           <li><a href="#">menu5</a></li>
+       </ul>
+    </div>
+</body>
+</html>
