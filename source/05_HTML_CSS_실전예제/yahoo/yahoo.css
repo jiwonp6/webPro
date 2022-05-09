@@ -1,7 +1,12 @@
-﻿
+﻿@font-face {
+    font-family: 'Amarante';
+    src: url('font/Amarante-Regular.ttf');
+}
+
 * {
     margin: 0;
     padding: 0;
+    font-family:Amarante;
 }
 
 li {
@@ -14,28 +19,27 @@ a {
 
 div {
     text-align: center;
-    border:0.1px solid lightgray;
+   
 }
 
 #wrap {
-    margin: 0 auto;
-    width: 910px;
+    
 }
 
-#header{
-    height:120px;
-    width:910px;
+#header {
+    height: 120px;
 }
     #header #header_nav {
+        width:100%;
+        margin:0 auto;
+        height:25px;
         overflow: hidden;
         background-color:#2d1152;
     }
-    #header #header_nav .gnb ul {
-        overflow:hidden;
-        float:left;
-    }
     #header #header_nav .gnb ul li{
         float:left;
+        margin:0 10px;
+        line-height:25px;
     }
     #header #header_nav .gnb ul li a{
         color:white;
@@ -43,15 +47,75 @@ div {
     #header #header_nav .survivalFootball{
         float:right;
         color:white;
+        line-height:25px;
+        margin: 0 10px;
     }
     #header #header_info {
-        clear: both;
+        margin: 0 auto;
+        width: 1000px;
+        height: 95px;
+        overflow: hidden;
     }
+        #header #header_info .logo {
+            width: 300px;
+            height: 95px;
+            float: left;
+            margin: 10px 0;
+        }
+        #header #header_info .logo #background_image {
+            width: 200px;
+            height: 60px;
+            margin: 10px 10px 10px 100px;
+            background: url('css/yahoo_logo.png') no-repeat;
+        }
+        #header #header_info > form> .search {
+            float: left;
+            height: 95px;
+            width: 360px;
+            overflow: hidden;
+        }
+
+        #header #header_info .search > form > .search_banner > input {
+            border: 0;
+            border: 1px solid #3488d9;
+            border-radius: 5px;
+            height: 30px;
+            width: 200px;
+            background-color: white;
+            float: left;
+            margin: 30px 0;
+        }
+
+        #header #header_info .search > form > .btn_search > input {
+            border: 0;
+            float: left;
+            height: 30px;
+            width: 130px;
+            margin: 32px 10px;
+            border-color: none;
+            color: white;
+            background: url('css/search_btn.png') no-repeat;
+        }
+        #header #header_info .service {
+            float: left;
+            height: 95px;
+            width: 300px;
+        }
+        #header #header_info .service > ul > li {
+            float: left;
+            line-height: 95px;
+            margin: 0 20px;
+            
+        }
+            #header #header_info .service > ul > li >a{
+                color:#2d1152;
+            }
 
 #content {
     height: 1000px;
-    width: 910px;
-    overflow:hidden;
+    margin: 0 auto;
+    width: 1000px;
+    overflow: hidden;
 }
     #content #main_menu > ul{
         width:155px;
@@ -64,51 +128,107 @@ div {
         line-height:45px;
     }
     #content #main {
-        width: 620px;
+        width: 606px;
         height: 1000px;
         float: left;
     }
     #content #main > ul> li:nth-child(1){
-        margin:5px 10px;
+        margin:5px 3px;
         width: 600px;
         height: 300px;
         border: 1px solid lightgray;
         box-sizing: border-box;
     }
     #content #main > ul> li:nth-child(2){
-        margin:5px 10px;
+        margin:5px 3px;
         width: 600px;
         height: 150px;
         border: 1px solid lightgray;
         box-sizing: border-box;
     }
-    #content #main > ul> li:nth-child(3),
-    #content #main > ul> li:nth-child(4),
-    #content #main > ul> li:nth-child(5),
-    #content #main > ul> li:nth-child(6),
-    #content #main > ul> li:nth-child(7) {
-        margin: 5px 10px;
-        width: 600px;
+        #content #main #main_submenu > ul {
+            margin: 0 3px;
+            overflow: hidden;
+            background-color: #500095;
+            color: white;
+            width: 600px;
+            height: 50px;
+        }
+        #content #main #main_submenu > ul > li {
+            float: left;
+            line-height:50px;
+            margin: 0 20px;
+        }
+            #content #main #main_submenu > ul > li > a {
+                color: white;
+            }
+        #content #main > ul > li:nth-child(4),
+        #content #main > ul > li:nth-child(5),
+        #content #main > ul > li:nth-child(6),
+        #content #main > ul > li:nth-child(7) {
+            clear:both;
+            margin: 5px 3px;
+            width: 600px;
+            height: 100px;
+            border: 1px solid lightgray;
+            box-sizing: border-box;
+        }
+    #content #main_banner {
+        float: left;
+        width: 230px;
+        height: 1000px;
+    }
+    
+    #content #main_banner > ul > li:nth-child(1),
+    #content #main_banner > ul > li:nth-child(2){
+        margin: 5px 3px;
+        width: 220px;
         height: 100px;
         border: 1px solid lightgray;
         box-sizing: border-box;
     }
-    #content #main_banner {
-        float: left;
-        width: 250px;
-        height: 1000px;
-    }
-    #content #main_banner > ul > li:nth-child(1),
-    #content #main_banner > ul > li:nth-child(2),
     #content #main_banner > ul > li:nth-child(3),
-    #content #main_banner > ul > li:nth-child(4),
+    #content #main_banner > ul > li:nth-child(4){
+        margin: 5px 3px;
+        width: 220px;
+        height: 150px;
+        border: 1px solid lightgray;
+        box-sizing: border-box;
+    }
     #content #main_banner > ul > li:nth-child(5) {
-        margin: 0;
-        width: 10px;
-        height: 10px;
-        border: 1px solid red;
+        margin: 5px 3px;
+        width: 220px;
+        height: 200px;
+        border: 1px solid lightgray;
+        box-sizing: border-box;
     }
 #footer {
-    height: 100px;
-    width: 910px;
+    height: 110px;
+    margin: 0 auto;
+    width: 1000px;
+    overflow: hidden;
 }
+
+    #footer .office_logo {
+        margin:0 0 0 120px;
+        width: 200px;
+        height: 100px;
+        float: left;
+    }
+    #footer .office_logo #background_image {
+        width: 800px;
+        height: 100px;
+        background: url('css/yahoo_logo.png') no-repeat;
+    }
+    #footer .copyright {
+        float: left;
+        width: 600px;
+        height: 100px;
+        
+    }
+        #footer .copyright #background_image {
+            width: 600px;
+            height: 80px;
+            margin:10px 0 0 0;
+            background: url('css/address.png') no-repeat;
+        }

@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=yes,
+          maximum-scale=3.0, minimum-scale=0.7"/>
+    <title></title>
+    <style>
+        * {
+            margin:0px;
+            padding:0px;
+        }
+        li{
+            list-style:none;
+        }
+        a{
+            text-decoration:none;
+            text-align:center;
+        }
+        header {
+            height:45px;
+            line-height:45px;
+            text-align:center;
+            background:url('0510_imgEx1/bg_header.png');
+        }
+        header > h1{
+            color:white;
+        }
+        header .left {
+            position:absolute;
+            left:10px;
+            top:7px;
+        }
+        header .right {
+            position:absolute;
+            right:10px; top:7px;
+        }
+        #toggle {
+            display: none;
+        }
+        #toggle:checked ~ #gnb {
+            display:block;
+
+        }
+        #gnb{
+            display:none;
+
+        }
+        
+        #gnb > ul {
+            overflow: hidden;
+            border:5px solid gray;
+        }
+        #gnb > ul > li {    /* li 메뉴가 8개가 있어서 li하나당 12.5% 사용 가능 */
+            float:left;
+            width:10%;
+            margin:1.25%;
+            text-align:center;
+            border:1px solid gray;
+            box-sizing:border-box;  /* border를 width안으로 */
+        }
+        #lnb > ul {
+            overflow:hidden;
+        }
+        #lnb > ul > li {
+            text-align:center;
+            width:20%;
+            height:60px;
+            float:left;
+            border:1px solid white;
+            box-sizing:border-box;
+            background-color:#137163;
+            line-height:60px;
+        }
+        #lnb > ul > li > a {
+            color:white;
+            font-weight:bold;
+        }
+        #lnb > ul > li:first-child{
+            border-left:0;
+        }
+        #lnb > ul > li:last-child{
+            border-right:0;
+        }
+        #content{
+            padding:10px;
+            color:#333333;
+        }
+        #content .content_header{
+            border-bottom:1px solid lightgray;
+            padding:10px;
+        }
+        #content .content_body p:first-child{
+           color: #68a6d6;
+           font-weight:bold;
+           padding:10px;
+           /*말줄임태그*/
+           white-space:nowrap;
+           overflow:hidden;
+           text-overflow:ellipsis;
+        }
+        #content .content_body p:nth-child(2){
+            background: url('0510_imgEx1/bg_image.png') -500px, -200px;
+        }
+        footer{
+            text-align:center;
+        }
+        footer .info {
+            font-weight:bold;
+            font-size:1.2em;
+            margin:10px;
+        }
+        footer .address{
+            font-size:0.9em;
+            margin:10px;
+        }
+    </style>
+</head>
+<body>
+    <input type="checkbox" id="toggle" />
+    <header>
+        <a href="#" class="left">
+            <img src="0510_imgEx1/category.png" />
+        </a>
+        <h1>Mobile</h1>
+        <label for="toggle" class="right">
+            <img src="0510_imgEx1/menu.png" />
+        </label>
+    </header>
+    <div id="gnb">
+        <ul>
+            <li><a href="#">gnb1</a></li>
+            <li><a href="#">gnb2</a></li>
+            <li><a href="#">gnb3</a></li>
+            <li><a href="#">gnb4</a></li>
+            <li><a href="#">gnb5</a></li>
+            <li><a href="#">gnb6</a></li>
+            <li><a href="#">gnb7</a></li>
+            <li><a href="#">gnb8</a></li>
+        </ul>
+    </div>
+    <div id="lnb">
+        <ul>
+            <li><a href="#">lnb1</a></li>
+            <li><a href="#">lnb2</a></li>
+            <li><a href="#">lnb3</a></li>
+            <li><a href="#">lnb4</a></li>
+            <li><a href="#">lnb5</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <div class="content_header">
+            <h1>홍길동</h1>
+        </div>
+        <div class="content_body">
+            <p>첫 번째 p태그는 한줄로 출력, 내용이 길면 말줄임(...)AAAAAAAAAAAAAAAAAAA</p>
+            <p>
+                500년(연산군 6)을 전후하여 서울 근처에서 활약하던 농민무장대의 지도자. 양반지주층을 중심으로 토지소유가 확대되면서, 토지를 잃고 지배층의 착취에 시달리던 농민들은 자기가 살던 곳에서 도망쳤다. 이들은 산속으로 피해 무장대의 기본성원이 되어 양반지주나 관청을 습격했는데, 지배층들은 이들을 「도적」이라 했다. 15세기 말에서 16세기 초 연산군 통치기간에는 전국 곳곳에서 이러한 농민무장대가 일어났고, 그 가운데 대표적인 것이 홍길동이 이끄는 무장대였다. 홍길동은 양반관리의 복장을 하고 스스로 「첨지」라 하면서 무장한 많은 농민을 지휘해 여러 고을의 관청들을 습격했다. 결국 체포되어 의금부에서 취조당한 기록이 남아 있다. 뒤에 그에 대한 이야기는 &lt;홍길동전&gt;
+                    으로 소설화되기도 한다.
+            </p>
+        </div>
+    </div>
+    <footer>
+        <div class="logo">
+            <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTEyMzBfMTc3%2FMDAxNjQwODUyMjQ5NDU2.OO1NHDOZtzqgz0ROAuW76EMnxUhmunc4C_iHwBWAb4Ig.ZBg5YmYhaY2VZKRmR-wuBW3XECzfv9Eo_xL0ig50ARYg.PNG.care-ok%2F20210823.png&type=a340" />
+        </div>
+        <div class="info">
+            XX주식회사
+        </div>
+        <div class="address">
+            서울시 XX구 XX동 00-0 XX빌딩 803호
+        </div>
+    </footer>
+</body>
+</html>
