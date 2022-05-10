@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=2.0"/>
+    <title></title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+            font-family:'Gill Sans', 'Gill Sans MT'
+        }
+        li{
+            list-style:none;
+        }
+        a{
+            text-decoration:none;
+        }
+        header{
+            background-color:#ea8f00;
+        }
+        header #logo_wrap{
+            height:50px;
+            line-height:50px;
+            text-align:center;
+            position:relative;
+        }
+        header #logo_wrap img.menu {
+            position:absolute;
+            top:0;
+            left:0;
+        }
+        header #logo_wrap img.myinfo{
+            position:absolute;
+            top:0;
+            right:0;
+        }
+        header #logo_wrap a.logo{
+            color:#FFFFFF;  /*white*/
+        }
+        /*  input[type='text']는 100% width로,
+            input[type='submit']은 50x50으로 background image 입히기
+        */
+        header #search {
+            height:50px;
+            position:relative;  /*부모단 밖으로 빠져나오지 못하게함*/
+        }
+        header #search input[type='text']{
+            width:100%;
+            height:50px;
+            border:3px solid #ea8f00;
+            box-sizing:border-box;
+            padding: 5px 55px 5px 5px;
+            outline:none;   /*outline하지않으면 focus하면 border가 보이게 됨*/
+        }
+        header #search input[type='submit']{
+            width:50px;
+            height:50px;
+            background-image:url('0510_imgEx2/search.png');
+            border:none;
+            outline:none;
+            position:absolute;
+            top:0;
+            right:0;
+        }
+        #lnb ul {
+            overflow:hidden;
+            width:100%;
+            margin:5px 0;
+        }
+        #lnb ul li {
+            text-align: center;
+            float: left;
+            font-weight: bold;
+            border-right: 2px solid #ea8f00;
+            width:16.5%;
+            box-sizing:border-box;
+        }
+        #lnb ul li:last-child{
+            border-right: 0;
+        }
+        #lnb ul li a {
+            color:blue;
+        }
+        #section1 .row1, 
+        #section1 .row2, 
+        #section1 .row3{
+            overflow:hidden;
+        }
+        .row1 div,
+        .row2 div,
+        .row3 div{
+            float:left;
+            width:50%;
+            height:135px;
+            border:2px solid white;
+            box-sizing:border-box;
+        }
+        #section1 img{
+            width:100%;
+            height:inherit; /* 부모의 height를 그대로 상속받음 */
+        }
+        #section2 {
+            margin:5px;
+        }
+        #section2 ul li {
+            border:1px solid lightgray;
+            padding:8px;
+            /*말줄임태그*/
+            white-space:nowrap;
+            overflow:hidden;
+            text-overflow:ellipsis; /* ellipsis : 말줄임태그 */
+        }
+        #section3 ul li {
+            border : 1px solid lightgray;
+            margin:5px;
+            padding:5px;
+            position:relative;
+        }
+        #section3 ul li p.img{
+            position:absolute;
+            top:15px;
+            left:10px;
+        }
+        #section3 ul li p.txt{
+            width:100%-100px;
+            padding:5px 5px 5px 120px;
+        }
+        #section3 ul li p.txt span:first-child{
+            font-weight:bold;
+            font-size:1.2em;
+            color:darkblue;
+            display:block;
+            white-space:nowrap;
+            overflow:hidden;
+            text-overflow:ellipsis;
+        }
+        footer {
+            background-color: #ea8f00;
+            text-align:center;  /*글씨, 이미지를 가운데 정렬*/
+        }
+        footer p:last-child{
+            font-size:.8em;
+            padding-bottom:5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="logo_wrap">
+            <img src="0510_imgEx2/menu.png" class="menu" alt="메뉴 아이콘" />
+            <a href="ex2.html" class="logo"><h3>mobile logo</h3></a>
+            <img src="0510_imgEx2/myinfo.png" class="myinfo" alt="내정보 아이콘" />
+        </div>
+        <div id="search">
+            <form action="#">
+                <input type="text" name="query_word" />
+                <input type="submit" value="" />
+            </form>
+        </div>
+    </header>
+    <div id="lnb">
+        <ul>
+            <li><a href="#">lnb1</a></li>
+            <li><a href="#">lnb2</a></li>
+            <li><a href="#">lnb3</a></li>
+            <li><a href="#">lnb4</a></li>
+            <li><a href="#">lnb5</a></li>
+            <li><a href="#">lnb6</a></li>
+        </ul>
+    </div>
+    <section>
+        <div id="section1">
+            <div class="row1">
+                <div>
+                    <a href="https://sports.khan.co.kr/entertainment/sk_index.html?art_id=202205090930003&sec_id=540301&pt=nv">
+                        <img src="https://images.khan.co.kr/article/2022/05/09/l_2022050902000482000088581.webp" alt="1행 1열 기사" />
+                    </a>
+                </div>
+                <div>
+                    <a href="https://en.yna.co.kr/view/AEN20220509002900315?input=2106m">
+                        <img src="https://img2.yna.co.kr/photo/yna/YH/2022/04/04/PYH2022040414540000500_P4.jpg" alt="1행 2열 기사" />
+                    </a>
+                </div>
+            </div>
+            <div class="row2">
+                <div>
+                    <a href="http://mksports.co.kr/view/2022/403796/">
+                        <img src="http://file.mk.co.kr/meet/neds/2022/05/image_readtop_2022_403796_16518902835034885.jpg" alt="2행 1열 기사" />
+                    </a>
+                </div>
+                <div>
+                    <a href="https://www.mk.co.kr/star/broadcasting-service/view/2022/05/405999/">
+                        <img src="https://file2.nocutnews.co.kr/newsroom/image/2022/05/05/202205051120154577_0.jpg" alt="2행 2열 기사" />
+                    </a>
+                </div>
+            </div>
+            <div class="row3">
+                <div>
+                    <a href="http://mksports.co.kr/view/2022/403796/">
+                        <img src="http://file.mk.co.kr/meet/neds/2022/05/image_readtop_2022_403796_16518902835034885.jpg" alt="2행 1열 기사" />
+                    </a>
+                </div>
+                <div>
+                    <a href="https://www.mk.co.kr/star/broadcasting-service/view/2022/05/405999/">
+                        <img src="https://file2.nocutnews.co.kr/newsroom/image/2022/05/05/202205051120154577_0.jpg" alt="2행 2열 기사" />
+                    </a>
+                </div>
+            </div>
+        </div><!--3행 2열 기사 이미지와 alink-->
+        <div id="section2">
+            <ul>
+                <li><a href="https://newsis.com/view/?id=NISX20220509_0001864245&cID=10601&pID=10600">권아름, NCT 도영과 열애설 부인 "악플러 법적조치"</a></li>
+                <li><a href="https://tenasia.hankyung.com/music/article/2022043038904">NCT 쟈니·도영·정우, '100만 유튜버' 곽윤기와 만난다…프로 아이돌 비법</a></li>
+                <li><a href="https://newsis.com/view/?id=NISX20220509_0001864245&cID=10601&pID=10600">권아름, NCT 도영과 열애설 부인 "악플러 법적조치"</a></li>
+                <li><a href="https://tenasia.hankyung.com/music/article/2022043038904">NCT 쟈니·도영·정우, '100만 유튜버' 곽윤기와 만난다…프로 아이돌 비법</a></li>
+            </ul>
+        </div><!--기사 해드라인 list와 alink-->
+        <div id="section3">
+            <ul>
+                <li>
+                    <p class="img">
+                        <img src="https://via.placeholder.com/100X100" />
+                    </p>
+                    <p class="txt">
+                        <span>첫 번째 span부분은 말줄임 할 예정. 길면 말줄임 태그 효과가 보이고 짧으면 원래대로 보인다.</span>
+                        <span>두 번째 span부분은 다 나옴. 그래서 2줄 이상이 되기도 한다. 근데 span하니까 스팸이 먹고싶다... 흰 쌀밥에 스팸한조각 캬아 꿀맛인데 말이지.</span>
+                    </p>
+                </li>
+                <li>
+                    <p class="img">
+                        <img src="https://via.placeholder.com/100X100" />
+                    </p>
+                    <p class="txt">
+                        <span>첫 번째 span부분은 말줄임 할 예정. 길면 말줄임 태그 효과가 보이고 짧으면 원래대로 보인다.</span>
+                        <span>두 번째 span부분은 다 나옴. 그래서 2줄 이상이 되기도 한다. 근데 span하니까 스팸이 먹고싶다... 흰 쌀밥에 스팸한조각 캬아 꿀맛인데 말이지.</span>
+                    </p>
+                </li>
+            </ul>
+        </div><!--100X100 이미지와 가변길이-->
+    </section>
+    <footer>
+        <p>
+            <img src="0510_imgEx2/logo.png" alt="회사로고" />
+        </p>
+        <p>서울시 XX구 XX동 00-0 XX빌딩 402호</p>
+    </footer>
+</body>
+</html>

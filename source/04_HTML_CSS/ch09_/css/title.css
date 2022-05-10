@@ -1,0 +1,23 @@
+﻿/* css/title.css */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#wrap {
+    width: 600px;
+    margin: 10px auto;
+    border: 1px solid lightgray;
+    padding: 10px;
+}
+
+    #wrap .title {
+        text-align: center;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+    }
+
+    #wrap hr {
+        border: 1px solid red;
+    }

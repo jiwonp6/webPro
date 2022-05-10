@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" name="viewport"
+          content="width=device-width"/>
+    <title></title>
+    <style>
+        /* 페이지 초기화 */
+        * {
+            margin:0;
+            padding:0;
+        }
+        li {
+            list-style:none;
+        }
+        a {
+            text-decoration:none;
+        }
+        /* #top_bar */
+        #top_bar {
+            height: 70px;
+            line-height: 70px;
+            background-color: #ffd800;
+            /* 고정바 설정 */
+            position:fixed;
+            top:0;
+            left:0;
+            right:0;
+        }
+        #top_bar ul{
+            overflow:hidden;
+        }
+        #top_bar ul li{
+            float:left;
+            width:15%;
+            text-align:center;
+            border-right:2px dotted gray;
+        }
+        /* #left_bar */
+        #left_bar{
+            width:200px;
+            /* 고정바 설정 */
+            position:fixed;
+            left:0;
+            top:70px;
+            bottom:70px;
+            background-color:saddlebrown;
+        }
+        #left_bar ul li a {
+            display:block;
+            padding:10px 20px;
+            border-bottom:1px solid gray;
+            color:white;
+        }
+        /* #right_bar */
+        #right_bar {
+            width: 200px;
+            background-color: lightyellow;
+            /* 고정바 설정 */
+            position: fixed;
+            right: 0;
+            top: 70px;
+            bottom: 70px;
+        }
+        #right_bar ul {
+             height:100%;
+        }
+        #right_bar ul li {
+            height:29%;
+            border-bottom:1px dashed gray;
+            padding:2%;
+        }
+        #right_bar ul li img {
+            width:100%;
+            height:100%;
+            
+        }
+        /* #bottom_bar */
+        #bottom_bar{
+            height:70px;
+            line-height:70px;
+            text-align:center;
+            background-color:lightyellow;
+            /* 고정바 설정 */
+            position : fixed;
+            bottom:0;
+            left:0;
+            right:0;
+        }
+        /* #wrap */
+        #wrap {
+            margin:70px 200px;
+            padding:10px;
+        }
+        #wrap img{
+            float:left;
+            margin-right:10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="top_bar">
+        <ul>
+            <li><a href="#gnb1">GNB_1</a></li>
+            <li><a href="#gnb2">GNB_2</a></li>
+            <li><a href="#gnb3">GNB_3</a></li>
+            <li><a href="#gnb4">GNB_4</a></li>
+            <li><a href="#gnb5">GNB_5</a></li>
+            <li><a href="#gnb6">GNB_6</a></li>
+        </ul>
+    </div>
+    <div id="left_bar">
+        <ul>
+            <li><a href="#lnb1">LNB_1</a></li>
+            <li><a href="#lnb2">LNB_2</a></li>
+            <li><a href="#lnb3">LNB_3</a></li>
+            <li><a href="#lnb4">LNB_4</a></li>
+            <li><a href="#lnb5">LNB_5</a></li>
+            <li><a href="#lnb6">LNB_6</a></li>
+            <li><a href="#lnb7">LNB_7</a></li>
+            <li><a href="#lnb8">LNB_8</a></li>
+            <li><a href="#lnb9">LNB_9</a></li>
+        </ul>
+    </div>
+    <div id="right_bar">
+        <ul>
+            <li>
+                <a href="http://www.daum.net">
+                    <img src="https://blog.kakaocdn.net/dn/yElzG/btqw7QZODLs/iA6TBn80hto4lndolDKB00/img.jpg" alt="다음로고" />
+                </a>
+            </li>
+            <li>
+                <a href="http://www.google.com">
+                    <img src="data:image/png;base64,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" alt="구글로고" />
+                </a>
+            </li>
+            <li>
+                <a href="http://www.daum.net">
+                    <img src="https://blog.kakaocdn.net/dn/yElzG/btqw7QZODLs/iA6TBn80hto4lndolDKB00/img.jpg" alt="다음로고" />
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div id="bottom_bar">
+        <p>Copyright ⓒ joeun system Co. All rights reserved. 101 abc 123-ro Molra-ru, Seoul, Korea</p>
+    </div>
+    <div id="wrap">
+        <img src="https://via.placeholder.com/100x100" />
+        <p>
+            따뜻한 착목한는 열락의 힘있다. 돋고, 청춘을 꽃 예수는 밝은 위하여 날카로우나 산야에 가장 사막이다. 불어 것은 무엇을 들어 있는 구하지 얼마나 든 아름다우냐? 아름답고 같은 위하여서, 천지는 끓는 쓸쓸한 찾아다녀도, 끝에 쓸쓸하랴? 인간의 시들어 풍부하게 있는 만천하의 힘차게 이상은 그들에게 우리 사막이다. 밝은 얼마나 얼음 보는 있을 그들에게 거선의 우리의 많이 부패뿐이다. 천지는 그들을 무엇이 수 것이다.보라, 시들어 것이다. 이성은 공자는 관현악이며, 부패뿐이다. 이것이야말로 인생을 바이며, 속에서 것은 힘있다. 얼음이 그들은 대중을 곧 가슴이 속에 것은 끝까지 얼음과 교향악이다.
+
+            그들은 속잎나고, 물방아 봄바람을 가진 얼음과 봄날의 행복스럽고 것이다. 뜨고, 속에 그들은 부패를 있으며, 것이다. 구하지 새가 낙원을 작고 동력은 뿐이다. 가진 없으면, 피고 착목한는 오아이스도 물방아 것이다. 그림자는 그들은 같으며, 생의 없으면 가는 희망의 교향악이다. 않는 내는 하는 보는 이상의 옷을 심장은 그것을 쓸쓸하랴? 얼마나 이상 현저하게 뜨거운지라, 얼음이 것은 곧 것이다. 뭇 끓는 풀이 가슴이 그와 인생의 부패를 뜨고, 찾아 아니다. 생생하며, 희망의 싹이 할지라도 가치를 영원히 이것이다.
+
+            바이며, 유소년에게서 돋고, 이상의 인간의 부패뿐이다. 목숨을 목숨이 끝까지 미묘한 풍부하게 방황하여도, 행복스럽고 설산에서 영락과 것이다. 인간은 무엇을 방황하여도, 앞이 천하를 속잎나고, 이것이다. 하는 얼마나 거친 봄바람이다. 하는 더운지라 노래하며 우리의 유소년에게서 이상을 황금시대를 행복스럽고 피다. 현저하게 오아이스도 예수는 작고 물방아 바이며, 광야에서 보라. 아름답고 싶이 영원히 황금시대의 되는 그들을 칼이다. 내려온 간에 할지니, 이것을 인간이 산야에 것이다. 속잎나고, 방지하는 튼튼하며, 것이다. 인생을 얼음에 싹이 어디 두기 같이, 품었기 듣기만 얼음이 쓸쓸하랴? 힘차게 천지는 그들은 얼음이 가슴이 행복스럽고 아름다우냐?
+        </p>
+    </div>
+</body>
+</html>
