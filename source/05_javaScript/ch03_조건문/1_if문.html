@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        img {
+            width:500px;
+        }
+    </style>
+    <script>
+        //오전에 접속하면 오전 그림과 메세지가, 오후에 접속하면 오후 그림과 메세지 출력
+        //Date now = new Date();
+        //var date = new Date();
+        //var hour = date.getHours(); //0~23시
+        var hour = new Date().getHours();
+        if (hour < 12) {
+            document.write('<h3>상쾌한 오전입니다</h3>');
+            document.write('<img src="img/am.jpg" alt="오전사진">');
+        } else {
+            document.write('따스한 오후입니다');
+            document.write('<img src="img/pm.jpg" alt="오후사진">');
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        //자바 스크립트에서 배열 방의 갯수는 가변적
+        var arr = [277, 32.5, '홍길동', ];
+        document.write('배열방 갯수 : ' + arr.length + '<br>');
+        arr[0] = '이백칠십칠';
+        arr.push('3번째 인덱스에 추가');
+        document.write('배열에 push 후 방의 갯수 : ' + arr.length + '<br>');
+        var temp = arr.pop();  //pop은 마지막 인덱스의 배열방의 값부터 retrun 후 방 삭제
+        document.write('배열에 pop한 후 방 갯수 : ' + arr.length + '<br>');
+        document.write('삭제된 배열방의 값 : ' + temp);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

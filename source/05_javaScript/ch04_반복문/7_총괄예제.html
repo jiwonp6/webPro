@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var totScore = 0;
+        var cntwrong = 0;
+        var cntright = 0;
+        do {
+            var yesorno = confirm('누적할래?');
+            if (yesorno==true) {
+                var scoreStr = prompt("누적할 점수?", "0~100");
+                var score = Number(scoreStr);
+                if (!isNaN(scoreStr) && scoreStr != "" && scoreStr != null && score >= 0 && score <= 100) {
+                    totScore = Number(totScore)+Number(score);
+                    cntright++;
+                } else {
+                    alert("알맞은 수를 입력해주세요");
+                    cntwrong++;
+                }
+            } else {
+                break;   
+            }
+            var cnt = Number(cntwrong) + Number(cntright);
+        } while (true);
+        document.write(cnt + '번 입력'+'<br>');
+        document.write('누적점수 : ' + totScore + '<br>');
+        document.write('점수를 제대로 입력한 횟수 : ' + cntright + '<br>');
+        document.write('점수를 잘못 입력한 횟수 : ' + cntwrong + '<br>');
+    </script>
+</head>
+<body>
+
+</body>
+</html>

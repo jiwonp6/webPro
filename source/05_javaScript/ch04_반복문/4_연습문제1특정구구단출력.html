@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        do {
+            var su = Number(prompt("출력을 원하는 구구단은 몇 단?"));
+            if (isNaN(su) || su < 2 || su > 9 || (su - Math.trunc(su)) != 0) {
+                alert('2~9사이의 정수만 입력해 주세요.');
+            } else {
+                break;
+            }
+        } while (true);
+        document.write('<h3>' + su + '단 구구단</h3>');
+        for (i = 2; i <= 9; i++) {
+             document.write(su + " * " + i + "=" + su * i + '<br>');
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

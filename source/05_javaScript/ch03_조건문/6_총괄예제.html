@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        table{
+            border:1px solid lightgray;
+            padding:10px;
+            width:300px;
+        }
+        td{
+            text-align:center;
+            
+        }
+        td>#num1,
+        td>#num2{
+            height:30px;
+            width:150px;
+            text-align:center;
+            border:1px solid lightgray;
+            border-radius:2px;
+        }
+        td > #submit{
+            margin-top:10px;
+            height:30px;
+            width:80px;
+            font-size:1.2em;
+            font-weight:bold;
+            background-color:gray;
+            border:1px solid gray;
+        }
+        
+
+    </style>
+   
+    <script> 
+        function chk() {
+            if (form1.num1.value == "") {
+                alert("첫번째숫자를 입력해주세요");
+                return false;
+            } else if (form1.num2.value == "") {
+                alert("두번째숫자를 입력해주세요");
+                return false;
+            }
+            var su1 = Number(form1.num1.value);
+            var su2 = Number(form1.num2.value);
+            if (su1>su2) {
+                var big = su1-su2;
+                var msg = "<h3>첫번째수가 " + big + "만큼 더 크다</h3>";
+                document.body.innerHTML += msg;
+                msg1 = msg.substring(4);
+                msg1 = msg1.substring(0, msg1.indexOf('</h3>'));
+                alert(msg1);
+            } else if (su1 < su2) {
+                var big = su2 - su1;
+                var msg = "<h3>두번째수가 " + big + "만큼 더 크다</h3>";
+                document.body.innerHTML += msg;
+                msg1 = msg.substring(4);
+                msg1 = msg1.substring(0, msg1.indexOf('</h3>'));
+                alert(msg1);
+            }
+            return false;
+        }
+    </script>
+</head>
+<body>
+    <form id="form1" onsubmit="return chk()">
+        <table>
+            <tr>
+                <td>첫번째수</td>
+                <td><input type="number" id="num1" size="9" /></td>
+            </tr>
+            <tr>
+                <td>두번째수</td>
+                <td><input type="number" id="num2" size="9" /></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" id="submit" value="결과" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

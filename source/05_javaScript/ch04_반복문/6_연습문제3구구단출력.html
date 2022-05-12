@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        table{
+            margin: 100px auto;
+        }
+        td {
+            padding: 3px 10px;
+        }
+    </style>
+    <script>
+        document.write('<table>');
+        document.write('<caption>' + '구구단</caption>');
+        document.write('<tr>');
+        for (su = 2; su <= 9; su++) {
+            document.write('<th>' + su + '단</th>');
+        }
+        document.write('</tr>');
+        for (i = 1; i <= 9; i++) {
+            document.write('<tr>');
+            for (j = 2; j <= 9; j++) {
+                document.write('<td>' + j + " * " + i + " = " + j * i + '</td>');
+            }
+            document.write('</tr>');
+        }
+        document.write('</table>');
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

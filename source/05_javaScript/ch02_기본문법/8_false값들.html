@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        //0, '', NaN, null, undefined
+        var i;  //undefined
+        document.write("1. i값은 " + i + ", Boolean형으로는 " + Boolean(i) + '<br>');
+        i = 0;  //0
+        document.write("2. i값은 " + i + ", Boolean형으로는 " + Boolean(i) + '<br>');
+        i = Number("a");    //NaN
+        document.write("3. i값은 " + i + ", Boolean형으로는 " + Boolean(i) + '<br>');
+        i = "";
+        document.write("4. i값은 " + i + ", Boolean형으로는 " + Boolean(i) + '<br>');
+        i = null;
+        document.write("5. i값은 " + i + ", Boolean형으로는 " + Boolean(i) + '<br>');
+        document.write('<hr>');
+        document.write(("" == false) + " : == 연산자는 양변의 값이 일치할 경우 true return <br>");
+        document.write(("" === false) + " : === 연산자는 양변의 값과 자료형이 일치할 경우 true return <br>");
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

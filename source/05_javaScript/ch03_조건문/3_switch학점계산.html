@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var grade;
+        do {
+            grade = Number(prompt("학점을 입력해주세요"));
+            switch (Math.trunc(grade)) {   // Math <- 내림
+                case 4:
+                    document.write('A학점');
+                    break;
+                case 3:
+                    document.write('B학점');
+                    break;
+                case 2:
+                    document.write('C학점');
+                    break;
+                default 1:
+                    document.write('분발하세요');
+                    break;
+            }
+        } while (isNaN(grade) || grade <= 0 || grade>4.5);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

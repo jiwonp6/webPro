@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        document.write('<h2>JavaScript 기본 문법</h2>');
+        document.body.innerHTML += 'xxx';
+        window.onload = function () { //브라우저 창이 다 뜬 후에 실행
+            var list = '';
+            list += '<ul>';
+            list += '<li>HTML</li>';
+            list += '<li>JavaScript</li>';
+            list += '<li>jQuery</li>';
+            list += '<ul>';
+            document.body.innerHTML += list;
+        };
+    </script>
+</head>
+<body>
+    <h3>복합 대입 연산자(+=, -=, *=, /=, %=)</h3>
+</body>
+</html>
