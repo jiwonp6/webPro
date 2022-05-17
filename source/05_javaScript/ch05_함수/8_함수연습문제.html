@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var sum = sumAll(); // -999 (매개변수가 없으면 -999를 리턴)
+        document.write('sumAll() = ' + sum + '<br>');
+        var sum = sumAll(1); // 1 (매개변수가 1개 이상이면 누적값리턴)
+        document.write('sumAll(1) = ' + sum + '<br>');
+        var sum = sumAll(1, 2, 3, 4, 5); // 15
+        document.write('sumAll(1, 2, 3, 4, 5) = ' + sum + '<br>');
+        function sumAll() {
+            var result = 0;
+            if (arguments.length == 0) {
+                result = -999;
+            } else if (arguments.length >= 1) {
+                for (var idx = 0; idx < arguments.length; idx++) {
+                    result += arguments[idx];
+                }
+            }
+            return result;
+        }
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

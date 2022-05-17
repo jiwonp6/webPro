@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var col = ['white', 'black', 'red'];
+        var bgi = ['url("img/img01.png")', 'url("img/img02.png")', 'url("img/img03.png")'];
+        var s = 0;
+        var id = setInterval(function () {
+            document.write(new Date() + '<br>');
+            document.body.style.color = col[s % 3];
+            document.body.style.backgroundImage = bgi[s % 3];
+            document.body.style.backgroundSize = '100%';
+            s++;
+        }, 1000);
+        setTimeout(function () {    //일정시간 후에 콜백함수 한 번 실행
+            clearInterval(id);
+            document.write('DONE');
+        }, 10000);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

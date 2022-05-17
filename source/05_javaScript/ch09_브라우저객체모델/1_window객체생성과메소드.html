@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        /* for (var key in obj) {
+         *   document.write(key + " : " + obj[key] + '<br>');
+         * }
+         */       // 앞에서 까지 하던 거, 이제는 윈도우
+
+        for (var key in window) {
+            // document.write(++cnt + '. ' + key + ' : ' + window[key] + '<br>'); window 객체로 뭐가 있는지 전부
+            if (key == 'onload' || key == 'chk' || key == 'cnt') {
+                document.write(key + ' : ' + window[key] + '<br>');
+            }
+        }   //얘 먼저 혼자 있을 때는 onload만 실행
+
+        var cnt = 0;
+        function chk() { };
+        // = var chk = function () { };
+// window가 load될 때 수행할 함수
+        window.onload = function () {
+            alert('윈도우 로드');
+        };
+// onload에 function()이 들어옴...
+        for (var key in window) {
+            if (key == 'onload' || key == 'chk' || key == 'cnt') {
+                document.write(key + ' : ' + window[key] + '<br>');
+            }
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

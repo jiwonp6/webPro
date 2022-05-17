@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        //생성자함수
+        function Student(name, kor, eng) {
+            this.name = name;
+            this.kor = kor;
+            this.eng = eng;
+        }
+        Student.prototype.getSum = function () {
+            return this.kor + this.eng;
+        };
+        Student.prototype.getAvg = function () {
+            return this.getSum() / 2;
+        };
+        Student.prototype.toString = function () {
+            return this.name + '(' + this.kor + ', ' + this.eng + ')'
+                + ', 총점 : ' + this.getSum()
+                + ', 평균 : '+ this.getAvg();
+        };
+        var students = [new Student('홍길동', 99, 98), new Student('김길동', 69, 90), new Student('강길동', 100, 78), ];
+// 정렬 전
+        document.write('<h3>정렬 전 원 데이터</h3>');
+        students.forEach(function (data, idx) {
+            document.write(idx + ' : ' + data + '<br>');
+        });
+//원 데이터를 따로 저장(변수 할당해서)
+        originStudents = students;
+// 총점 기준으로 오름차순 정렬
+        document.write('<h3>총점 오름차순 정렬 후 데이터</h3>');
+        students.sort(function (left, right) {
+            return left.getSum() - right.getSum();  // return 음수면 left가 앞 양수면 right가 앞
+        });
+        students.forEach(function (data, idx) {
+            document.write(idx + ' : ' + data + '<br>');
+        });
+//이름 가나다순으로 정렬
+        document.write('<h3>이름 오름차순 정렬 후 데이터</h3>');
+        students.sort(function (left, right) {
+            if (left.name <= right.name) {
+                return -1;  // 음수 아무거나(return 음수면 left가 앞에)
+            } else if (left.name < right.name) {
+                return 1;   // 양수 아무거나(return 양수면 right가 앞에)
+            } else {
+                return 0;   // return 0 -> 위치 그대로
+            }
+        });
+        students.forEach(function (data, idx) {
+            document.write(idx + ' : ' + data + '<br>');
+        });
+//국어성적으로 오름차순 정렬
+        document.write('<h3>국어성적 오름차순 정렬 후 데이터</h3>');
+        students.sort(function (left, right) {
+            return left.kor - right.kor;  
+        });
+        students.forEach(function (data, idx) {
+            document.write(idx + ' : ' + data + '<br>');
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

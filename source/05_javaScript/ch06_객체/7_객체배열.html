@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var students = [{ name: '홍길동', kor: 99, mat: 90, eng: 98, sci: 100 },
+                        { name: '김길동', kor: 88, mat: 80, eng: 89, sci: 90 }];
+        students.push({ name: '신길동', kor: 98, mat: 80, eng: 89, sci: 90 });
+        students.push({ name: '박길동', kor: 77, mat: 70, eng: 79, sci: 80 });
+        students.push({ name: '유길동', kor: 66, mat: 60, eng: 69, sci: 70 });
+        //추가(추가할 때는 forEach문은X)
+        for (var idx in students) { //idx = 0~4
+            students[idx].getSum = function () {    //this.꼭 써줘야한다!
+                return this.kor + this.mat + this.eng + this.sci;
+            };
+            students[idx].getAvg = function () {
+                return this.getSum()/4;
+            };
+            students[idx].toString = function () {
+                var output = '';
+                for (var key in this) {
+                    if (key != 'getSum' && key != 'getAvg' && key != 'toString') {
+                        output += key + ' : ' + this[key] + '<br>';
+                    } else if (key == 'getSum' || key == 'getAvg') {
+                        output += key.substring(3).toUpperCase() + ' : ' + this[key]() + '<br>';
+                        // eg. getSum에서 3번째 인덱스부터 끝까지 출력 -> Sum
+                        // toUpperCase() -> 모두 대문자로
+                    }
+                }
+                return output;
+            };
+        }   //for
+
+//1. students 배열 출력 : 일반 for 문
+        var output = '';
+        for (var idx = 0; idx < students.length; idx++) {
+            output += idx + '번째 : ' + '<br>';
+            output += students[idx].toString();    //toString()은 생략가능
+            output += '<br>';
+        }
+        document.write(output);
+        alert(output.replaceAll('<br>', '\n'));  //추가로 <br>제거 과정 필요
+
+//2. students 배열 출력 : for-in 문
+        document.write('<hr>' +'<h4>for-in문 이용</h4>');
+        var output = '';
+        for (var idx in students) {
+            output += idx + '번째 : ' + '<br>';
+            output += students[idx];
+            output += '<br>';
+        }
+        document.write(output);
+
+//3. students 배열 출력 : forEach()함수 이용    //callback함수를 안에 써줘야 함
+        document.write('<hr>'+'<h4>forEach함수 이용</h4>');    
+        students.forEach(function (data, idx) {
+            document.write(idx + '번째' + '<br>');
+            document.write(data + '<br>');
+        });
+
+//replaceAll함수 제작
+        function replaceAll(str, oldStr, replaceStr) {  //str내의 oldStr->replaceStr
+            // = return str.split(oldStr).join(replaceStr);
+            var splitStr = str.split(oldStr);
+            var joinStr = splitStr.join(replaceStr);
+            return joinStr;
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

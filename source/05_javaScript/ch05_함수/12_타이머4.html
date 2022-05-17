@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        //경고창 순서 : 3-3-3(for문 다 돌고 alert 수행)
+        for (var i = 0; i < 3; i++) {
+            setTimeout(function () {
+                alert(i);
+            }, 0);
+        }
+
+        //경고창 순서 : 0-1-2
+        [0, 1, 2].forEach(function (data, idx) {
+            setTimeout(function () {
+                alert(data);
+                //data = 0일 때, alert(data) - 0초 후 타이머
+                //data = 1일 때, alert(data) - 0초 후 타이머
+                //data = 2일 때, alert(data) - 0초 후 타이머
+            }, 0);
+        });
+
+        for (var i = 0; i < 3; i++) {
+            var fun = function (j) {
+                setTimeout(function () { alert(j); }, 0);
+            }(i);
+        };
+        fun(i);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

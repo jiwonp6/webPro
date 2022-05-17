@@ -1,0 +1,31 @@
+◎ DDL, DML, DCL
+DDL(Data Definition Language)
+	: 데이터와 그 구조 정의
+DML(Data Manipulation Language)
+	: 데이터 검색, 수정 등
+DCL(Data Control Language)
+	: 데이터베이스 사용자의 권한 제어
+
+1. DDL
+	①CREATE : 데이터 베이스 객체 생성
+		-> 데이터형)
+			CHAR(size) : 고정 길이 문자 데이터
+			VARCHAR2(size) : 가변 길이 문자 데이터, 최대 크기 명시
+			NUMBER : 최대 40자리까지의 숫자
+			NUMBER(w) : w자리까지의 수치, 최대 38자리의 숫자
+			NUMBER(w, d) : w는 전체 길이, d는 소수점 이하 자릿수
+			DATE : BC 4712년 1월 1일~AD 4712년 12월 31일 사이의 날짜
+	②DROP : 데이터 베이스 객체를 삭제
+	③ALTER : 기존에 존재하는 데이터베이스 객체를 다시 정의
+	④TRUNCATE : 데이터베이스 객체 내용 삭제
+2. DML
+	①INSERT : 데이터베이스 객체에 데이터를 입력
+	②DELETE : 데이터베이스 객체에 데이터를 삭제
+	③UPDATE : 기존에 존재하는 데이터베이스 객체 안의 데이터수정
+	④SELECT : 데이터베이스 객체로부터 데이터를 검색
+3. DCL
+	①GRANT : 데이터 베이스 객체에 권한 부여
+	②REVOKE : 이미 부여된 데이터베이스 객체의 권한을 취소
+	③COMMIT : 트랜잭션 확정 (TCL)
+	④ROLLBACK : 트랜잭션 취소 (TCL)
+	⑤SAVEPOINT : 복귀지점 설정 (TCL)

@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var sec = 0;   //1, 2, 3초를 출력
+        var id = setInterval(function () {
+            sec++;
+            document.body.innerHTML += '<h4>' + sec + '초 지남</h4>';
+        }, 1000);
+        setTimeout(function () {
+            clearInterval(id);  // 타이머 중지
+            location.href = '7_history.html'; // 변경할 페이지 url
+            // = location = '7_history.html';
+            // = location.assign('7_history.html');
+
+        }, 3000);
+    </script>
+</head>
+<body>
+    <h1>잠시 후 페이지 이동이 있겠습니다.</h1>
+</body>
+</html>

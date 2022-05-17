@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        table{
+            border:3px solid #385d81;
+            padding:10px 30px;
+            margin:50px auto;
+            width:400px;
+            height:250px;
+        }
+        tr{
+            text-align:center;
+        }
+        td {
+            margin: 50px;
+            font-size: 20px;
+        }
+        #submit > td > input {
+            border: 3px solid #385d81;
+            border-radius: 5px;
+            background-color: #385d81;
+            color: white;
+            font-size:18px;
+            height:40px;
+            width : 90px;
+        }
+    </style>
+    <script>
+        function chk() {
+            var patternSpc = /[~`!@#$%^&*()_+{}|\\[\]\\]/;
+            var patternNum = /[0-9]/;
+            var matchEmail = /^\w{1,}[@]+\w{1,}[.]+\w{2,3}[.\w{2,3}]*$/;    //match함수 사용
+            if (frm.name.value.length < 1 || patternSpc.test(frm.name.value) == true || patternNum.test(frm.name.value) == true) {
+                alert('이름을 확인해주세요');
+                frm.name.focus();
+                return false;
+            } else if (matchEmail.test(frm.email.value) == false) {
+                alert('메일 형식을 확인해주세요');
+                frm.email.focus();
+                return false;
+            } else if (!frm.pw.value) {
+                alert('비밀번호는 필수입력사항입니다. 비밀번호를 입력해주세요');
+                frm.pw.focus();
+                return false;
+            } else if (patternSpc.test(frm.pw.value) == false || patternNum.test(frm.pw.value) == false) {
+                alert('비밀번호에는 특수문자와 숫자가 하나 이상 포함되어야 합니다.');
+                frm.pw.focus();
+                return false;
+            } else if (frm.pw.value != frm.pwChk.value) {
+                alert('두 비밀번호를 확인하세요');
+                frm.pw.value = '';
+                frm.pwChk.value = '';
+                frm.pw.focus();
+                return false;
+            } 
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form name="frm" onsubmit="return chk()">
+        <table>
+            <tr>
+                <td>이 름</td>
+                <td>
+                    <input type="text" name="name" size="20" placeholder="특수문자와 숫자는 사용할 수 없습니다"
+                          style="height:20px" />
+                </td>
+            </tr>
+            <tr>
+                <td>메 일</td>
+                <td>
+                    <input type="text" name="email" placeholder="메일 형식에 맞춰주세요"
+                           style="height:20px"/>
+                </td>
+            </tr>
+            <tr>
+                <td>비밀번호</td>
+                <td>
+                    <input type="password" name="pw" 
+                           style="height:20px"/>
+                </td>
+            </tr>
+            <tr>
+                <td>비번확인</td>
+                <td>
+                    <input type="password" name="pwChk" 
+                           style="height:20px"/>
+                </td>
+            </tr>
+            <tr id="submit">
+                <td colspan="2">
+                    <input type="submit" value="회원가입" />
+                    <input type="reset" value="취소" />
+                    <input type="button" value="로그인" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

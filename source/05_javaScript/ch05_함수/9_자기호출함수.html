@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        //다른 개발자의 로직에 영향 주지 않기 위해 -> 내부함수, 자기호출함수
+        (function () {
+            alert('자기호출함수');
+        })();
+        /*=> var fun = function () {
+        *       alert('자기호출함수');
+        *    };
+        *    fun();
+        * / 
+        
+        // 선언과 동시에 한번만 쓰일 수 있음
+        //cf. 익명함수 : 여러번 사용 가능
+    </script>
+</head>
+<body>
+
+</body>
+</html>

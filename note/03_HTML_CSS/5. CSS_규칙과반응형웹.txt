@@ -1,0 +1,17 @@
+◎ CSS3 규칙과 반응형 웹
+1. CSS3 규칙
+	(1) CSS파일 분리
+		: CSS를 HTML문서에서 분리
+	(2) link
+		: <link rel="stylesheet" href="css_title.css" />
+	   +) link태그에 media속성 이용 → CSS적용 
+		- media 종류
+			: all / aural(음성합성) / braille(점자표시) /
+			handheld(작은사이즈) / print(인쇄) /
+			projection(프로젝터표현) / screen(컴퓨터스크린) /
+			tv(음성영상동시출력) / embossed(인쇄된점자)
+	(3) import
+		: @import url(‘title.css’);
+		  link대신 사용가능, <style>태그 내부, 상단에 위치
+2. 반응형 웹
+	: PC환경 외 디바이스 → 어떻게 출력될것인지 (4. 스마트폰&태블릿 참조)

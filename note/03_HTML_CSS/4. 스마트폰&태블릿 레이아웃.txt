@@ -1,0 +1,13 @@
+◎ 스마트폰&태블릿 레이아웃
+1. Viewport
+	: 브라우저의 화면 설정 관련 정보 제공 방법
+	- width, height, initial-scale, user-scalable, minimum-scale, maximum-scale
+2. header 제작
+      ↓
+3. nav 제작
+      ↓
+4. 본문 제작
+      ↓
+5. Footer 제작
+
+	

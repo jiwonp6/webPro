@@ -1,0 +1,24 @@
+◎ 그룹함수
+	GROUP BY -> 그룹화	
+	HAVING -> 조건 비교
+1. 그룹함수
+	①SUM : 그룹의 누적 합계
+	②AVG : 그룹의 평균
+	③COUNT : 그룹의 총 개수
+	④MAX : 그룹의 최대값
+	⑤MIN : 그룹의 최소값
+	⑥STDDEV : 그룹의 표준편차
+	⑦VARIANCE : 그룹의 분산
+2. GROUP BY 절
+	: SELECT 컬럼명, 그룹함수
+      		 FROM 테이블명
+	   	[WHERE 조건(연산자)]
+	   	[GROUP BY 컬럼명] ;
+3. HAVING 절
+	: SELECT 컬럼명, 그룹함수
+		FROM 테이블명
+		[WHERE 조건(연산자)]
+	   	[GROUP BY 컬럼명]
+		[HAVING   그룹조건]
+		[ORDER BY 컬럼명] ;
+

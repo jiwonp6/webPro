@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var num = 273.5590332;  // var num = new Number(273.~);
+        document.write(num + '<br>');
+        document.write('지수형 표현 : ' + num.toExponential(5) + '<br>');
+        document.write('소수점 한자리까지 표현 : ' + num.toFixed(1) + '<br>');
+        document.write('소수점 한자리에서(반올림) 표현 : ' + Math.round(num) + '<br>');
+        document.write('소수점 한자리까지(반올림) 표현 : ' + Math.round(num * 10) / 10 + '<br>');
+        document.write('숫자를 4개만 출력 : ' + num.toPrecision(4) + '<br>');   // 반올림과 유사
+        document.write('소수점 한자리에서(내림) 표현 : ' + Math.trunc(num) + '<br>');
+    </script>
+</head>
+<body>
+
+</body>
+</html>

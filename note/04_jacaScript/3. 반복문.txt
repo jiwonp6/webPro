@@ -1,0 +1,14 @@
+◎ 반복문
+1. 배열
+	: 어떤 자료형도 배열 요소 가능
+	- length() : array.length
+	- push() : array.push(a); <-a를 넣음
+	- 문자열
+2. 반복문
+	- while문
+	- do~while문
+	- for문
+	- for in 문
+		: for(var i in array) {  }
+	- forEach 문
+		: array.forEach(function (data, i) {  }

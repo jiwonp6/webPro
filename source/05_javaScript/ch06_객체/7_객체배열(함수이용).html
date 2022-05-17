@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        //var s = { name: '홍길동', kor: 99, mat: 90, eng: 98, sci: 100 }; // 앞선예제
+        //var s = makeStudent('홍길동', 90, 99, 98, 100);  // makeStudent라는 함수 호출
+
+//오탈자 방지 함수 ---> 나중에는 생성자함수 만들 예정
+        function makeStudent(name, kor, mat, eng, sci) {
+            var resultObj = {
+                name: name,
+                kor: kor,
+                mat: mat,
+                eng: eng,
+                sci: sci,
+                getSum: function () {
+                    return this.kor + this.mat + this.eng + this.sci;
+                },
+                getAvg: function () {
+                    return this.getSum() / 4;
+                },
+                toString: function () {
+                    var output = '';
+                    for (var key in this) {
+                        if (key != 'getSum' && key != 'getAvg' && key != 'toString') {
+                            output += key + ' : ' + this[key] + '<br>';
+                        } else if (key == 'getSum' || key == 'getAvg') {
+                            output += key.substring(3).toUpperCase() + ' : ' + this[key]() + '<br>';
+                        }
+                    }
+                    return output;
+                },
+            };
+            return resultObj;
+        }   //function
+//함수에 데이터 추가
+        var students = [];
+        students.push(makeStudent('홍길동', 100, 100, 90, 100));
+        students.push(makeStudent('유길동', 90, 98, 80, 70));
+        students.push(makeStudent('신길동', 100, 98, 99, 90));
+//출력
+        students.forEach(function (data, idx) {
+            document.write(idx + '번째 : <br>' + data + '<br>');
+        }); //  콜백함수 : 매개변수안의 함수
+        document.write('<hr>');
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

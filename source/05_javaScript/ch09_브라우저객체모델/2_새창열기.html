@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+// window 객체 : open()
+        var child = window.open('', '', 'width=450, height=500,left=80,top=80');//window. 생략가능
+        /* open(속성1, 속성2, 속성3)  //open 객체는 속성 3개 이상 필요
+         * 속성1 : 열릴 새 창의 url
+         * 속성2 : 윈도우의 이름
+         * 속성3 : width, height, left, top, etc...
+         */
+        if (child) {
+            child.document.write('<h2>새창</h2>');
+        } else {
+            alert('팝업 차단을 해제하셔야 새 창이 열립니다.');
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

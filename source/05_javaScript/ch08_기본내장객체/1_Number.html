@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        /* 기본자료형과 객체자료형의 차이
+         * Integer iObj = new Integer(10);
+         * iObj.toString() 가능
+         * int i = 10;
+         * i.toString() 불가
+         */
+// 기본데이터타입(number, string, boolean) v.s. 객체데이터 타입(typeof->Object, array, etc)
+        var priNum = 273.21;    //기본 데이터 타입, ----> var priNum = new Number(273.21);로 변환해버림
+        var objNum = new Number(273.21);
+        document.write('priNum의 타입 : ' + typeof (priNum) + '<br>'); //number
+        document.write('objNum의 타입 : ' + typeof (objNum) + '<br>'); //object
+        //constructor : 생성자함수
+        document.write('priNum 생성자 함수 : ' + priNum.constructor + '<br>');
+        document.write('objNum 생성자 함수 : ' + objNum.constructor + '<br>');
+        //Number.toFixed(1) : 소수점 1자리까지만    (Number는 생성자함수 -> 객체만 취급)
+        document.write(priNum.toFixed(1) + '<br>'); //priNum은 number타입이지만 Number의 객체처럼 취급( 데이터가 숫자여서 )
+        if (priNum.constructor == objNum.constructor) {
+            document.write('priNum과 objNum의 저장된 타입은 같다');
+        } else {
+            document.write('priNum과 objNum의 저장된 타입은 다르다');
+        }
+//(1)내장객체 Number에 메소드 추가
+        Number.prototype.method1 = function () {
+            alert('Number타입은 다 쓸 수 있음');
+        };
+        priNum.method1();
+        objNum.method1();
+//(2)objNum에 메소드 추가 가능
+        objNum.method2 = function() {
+            alert('objNum에 추가');
+        };
+        objNum.method2();
+        //priNum.method2();   //불가
+//(3)priNum에 메소드 추가 불가능
+        priNum.method3 = function () {
+            alert('안될듯');
+        };
+        //priNum.method3(); //  불가능
+//(4)Object에 메소드 추가
+        Object.prototype.method4 = function () {
+            document.write('<hr>' + this);
+        };
+        priNum.method4();
+        objNum.method4();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

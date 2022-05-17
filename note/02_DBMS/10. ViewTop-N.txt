@@ -1,0 +1,27 @@
+◎ ViewTop-N
+* View
+1. View
+	: 행과 칼럼으로 구성된 가상 테이블, 
+	이미 존재하는 테이블에 제한적으로 접근하도록 하기 위함
+		- 단순뷰 : 하나의 테이블로 구성한 뷰
+		- 복합뷰 : 하나 이상의 기본 테이블로 구성한 뷰
+		- Inline뷰 : FROM 절 상의 서브쿼리
+2. View 제한조건
+	① 테이블에 NOT NULL로 만든 컬럼들이 뷰에 다 포함되어 있어야 함
+	② WITH READ ONLY옵션
+		-> 갱신 불가, 읽기전용
+	③ WITH CHECK 옵션
+		- > 뷰의 조건에 해당되는 데이터만 삽입, 삭제, 수정가능
+3. 문법
+	: CREATE [OR REPLACE] VIEW view_name
+		AS subquery
+		[WITH CHECK OPTION]
+		[WITH READ ONLY]
+* Top-N
+1. Top-N
+	: 컬럼의 값 중 N개의 가장 큰 값 또는 작은 값을 기준으로 질의하는 것
+2. 문법
+	: SELECT [column_list] ROWNUM
+		FROM (SELECT [column_list] FROM table 
+			ORDER BY TOP-N_column)
+		WHERE ROWNUM <= N;

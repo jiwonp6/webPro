@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+//생성자함수 만들기
+        function Student(name, kor, mat, eng, sci) {
+            this.name = name;
+            this.kor = kor;
+            this.mat = mat;
+            this.eng = eng;
+            this.sci = sci;
+        }
+        Student.prototype.getSum = function () {
+            return this.kor + this.mat + this.eng + this.sci;
+        };
+        Student.prototype.getAvg = function () {
+            return this.getSum() / 4;
+        };
+        Student.prototype.toString = function () {
+            var output = '';
+            for (var key in this) {
+                if (key != 'getSum' && key != 'getAvg' && key != 'toString') {
+                    output += key + ' : ' + this[key] + '<br>';
+                } else if (key == 'getSum') {
+                    output += '총점 : ' + this[key]() + '<br>';
+                } else if (key == 'getAvg') {
+                    output += '평균 : ' + this[key]() + '<br>';
+                }
+            }
+            return output;
+        };
+
+        var students = [new Student('홍길동', 100, 100, 100, 100),
+        new Student('유길동', 90, 98, 80, 70),
+        new Student('신길동', 100, 98, 99, 90),
+            new Student('지울놈', 10, 8, 9, 10)];
+        students.forEach(function (data, idx) {
+            document.write(idx + '번째<br>' + data + '<br>');
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

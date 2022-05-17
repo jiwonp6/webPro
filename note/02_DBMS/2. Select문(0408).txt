@@ -1,0 +1,26 @@
+◎ Select문
+
+1. 사용법
+SELECT [DISTINCT] 나타내고 싶은 값들
+	FROM 테이블명
+	[WHERE 조건]
+	[ORDER BY 정렬순서 ASC/DESC];
+
+* 주의사항
+	" "는 별칭을 지정해 줄때 사용
+ 	'  '는 문자열이나 날짜를 적을 때 사용
+
+2. 논리 연산자
+	(java에서의) && / || ---> AND / OR
+
+3. 연결 연산자
+	(java에서의) + ---> || ('또는'의 의미가 아님)
+
+4. 연산자
+	DISTINCT : 중복제거
+	BETWEEN a AND b : a 부터 b까지
+	IN(   list   ) : list값 중 어느 하나와 일치
+	LIKE pattern : pattern과 일치하는지 검색 (pattern <--- % / _ 이 사용됨)
+	IS NULL : NULL값 O
+	NOT ~~~ : 부정
+	

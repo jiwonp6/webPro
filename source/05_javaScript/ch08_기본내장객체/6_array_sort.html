@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var arr1 = new Array('big', 'abc', 'zyx');  //['big', 'abc', 'zyx']
+        var arr2 = [52, 103, 273, 32, 57];
+// 정렬 - ascii 코드 순으로 정렬
+        document.write('arr1 정렬 전 : ' + arr1 + '<br>');
+        arr1.sort();    
+        document.write('arr1 정렬 후 : ' + arr1 + '<br>');
+// 숫자 크기순 정렬 X (첫번째 자리 수의 아스키코드 비교 후 정렬함)
+        document.write('arr2 정렬 전 : ' + arr2 + '<br>');
+        arr2.sort();    
+        document.write('arr2 정렬 후 : ' + arr2 + '<br>');
+// 숫자 정렬 -> 콜백함수 이용
+        arr2.sort(function (left, right) {
+            return left - right;    //오름차순 정렬
+            //return right - left;  //내림차순 정렬
+        });
+        document.write('arr2 콜백함수 이용해서 정렬 후 : ' + arr2 + '<br>');
+// 배열 요소의 순서를 뒤집는 함수
+        arr2.reverse();
+        document.write('arr2 순서 뒤집은 후 : ' + arr2 + '<br>'); //(오름차순->)내림차순 정렬
+// 0번 부터 3번 앞까지(0~2)
+        var sliceArr2 = arr2.slice(0, 3);
+        document.write('arr2 top3 (0~2) : ' + arr2 + '<br>');
+        
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

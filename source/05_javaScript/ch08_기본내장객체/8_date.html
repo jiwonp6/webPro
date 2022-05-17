@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="intervalDay.js"></script>
+    <script>
+        var now = new Date();
+        document.write('지금 : ' + now + '<br>');
+        document.write('오늘 날짜 : ' + now.toLocaleString() + '<br>');
+        document.write('날짜 : ' + now.toLocaleDateString() + '<br>');
+        document.write('시간 : ' + now.toLocaleTimeString() + '<br>');
+        var limitday = new Date(2022, 8-1, 18, 15, 20, 0);    // 수료시점 8/18 오후 3시 20분, (달은 0월부터 시작)
+        var day = limitday.intervalDay(now);
+        // = day = now.intervalDay(limitday);   if로 바껴도 상관없게 처리해놨음.
+        document.write('수료일 : ' + limitday.toLocaleDateString() + '<br>');
+        document.write('남은 날짜 : ' + day + '일' + '<br>');
+    </script>
+</head>
+<body>
+
+</body>
+</html>

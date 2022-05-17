@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        document.write('pow(4, 2) = ' + pow(4, 2) + '<br>');
+        //선언된 함수의 매개변수보다 많은 매개변수로 호출 :  뒷 부분은 무시
+        document.write('pow(3, 2, 2) = ' + pow(3, 2, 2) + '<br>');
+        document.write('pow(3, 2, 2, "a") = ' + pow(3, 2, 2, "a") + '<br>');
+        //선언된 함수의 매개변수보다 적은 매개변수로 호출 : 
+        document.write('pow(4) = ' + pow(4) + '<br>');  //false 리턴 -> 1
+        document.write('pow() = ' + pow() );  //false 리턴 -> 1
+
+        function pow(x, y) {    //x의 y승을 리턴하는 함수 : pow(4,2)
+            var result = 1;
+            for (var i = 1; i <= y; i++) {  //y번 반복
+                result *= x;
+            }
+            return result;
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

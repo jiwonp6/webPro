@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        //*.json파일 타입
+        var student = { 'name': '홍길동', 'age': 25 };
+        student.name = '김길동';
+        document.write(student.name + ' ' + student['name'] +'<br>');
+        student['name'] = '신길동';
+        document.write(student.name + ' ' + student['name'] + '<br>');
+//객체의 속성 추가(추가는 됨)
+        student.kor = 100;  
+        student.mat = 99;
+        student.hobby = '프로그래밍 구현';
+        document.write(student.kor + ' ' + student['mat'] + ' ' + student.hobby + '<br>');
+
+            //student.toString = function () { };
+        document.write('<hr>' + student + '<br>');
+            //document.write(student.toString());
+            //document.write(student);
+        student.toString = function () {
+            var output = '';
+            for (var key in this) { // this : 내 객체
+                if (key != 'toString') {
+                    output += key + ' : ' + this[key] + '<br>';
+                }
+            }
+            return output;
+        };
+        document.write(student + '<hr>');
+        //객체 속성 제거
+        delete (student.hobby);
+        delete (student.age);
+        document.write('객체 속성 제거 후 :' + '<br>'+ student + '<br>');
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

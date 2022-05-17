@@ -1,0 +1,10 @@
+◎ Sequencce
+1. Sequence
+	: 순차적인 번호 자동으로 생성, 주로 primary key로 사용
+2. 사용법
+	: CREATE SEQUENCE 시퀀스명 
+		[INCREMENT BY n]  [START WITH n] 
+		[MAXVALUE n] [MINVALUE n]
+		[CYCLE | NOCYCLE]
+		[CACHE n | NOCACHE];
+	

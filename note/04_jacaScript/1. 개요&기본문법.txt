@@ -1,0 +1,24 @@
+◎ 개요 & 기본문법
+1. 자료형
+	- 문자열( ' ' = " " )
+	- 숫자( 정수, 유리수 구분 X )
+	- 불( != )
+	- Undefined( 변수선언X, 초기화X )
+2. 연산자
+	- 복합대입( += -= *= /= %= ) 
+	- 증감
+3. 출입력
+	- alert 함수 : 경고메세지 대화상자
+	- confirm 함수 : 확인받기 위한 대화상자( true/false )
+	- prompt 함수 : 입력받을 수 있는 대화상자
+4. 자료형 반환(문자, 숫자 : 문자열이 우선)
+	- Number(ob) : (강제)다른자료형 -> 숫자 => NaN
+	- parseInt(string, [진수]), parseFloat(string) : 문자열 -> 정수, 실수( 문자열 타입의 숫자만 )
+	- String(ob) : 다른자료형 -> 문자열
+	- isNaN(숫자) : 숫자O=false / 숫자X=true
+5. 불자료형 변환
+	- Boolean(); : Boolean형으로 변환( false로 변환 ) (boolean형 말고는 다 object)
+	ex. Boolean(0), Boolean(NaN), Boolean(''), Boolean(null), Boolean(undefined), Boolean(false)
+6. 일치연산자
+	- == : 양변의 값이 일치 -> true
+	- === : 양변의 자료형과 값이 일치 -> true

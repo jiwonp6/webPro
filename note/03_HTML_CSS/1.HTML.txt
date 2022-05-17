@@ -1,0 +1,54 @@
+◎ HTML
+	- 글자관련태그
+	- 목록 태그
+	- 표 태그
+	- 이미지 태그
+	- 오디오 태그 
+	- 비디오 태그
+1. 태그(이름 + 속성 + 속성값)
+	: 열린태그/ 닫힌태그
+(1) 글자관련태그
+	: h1(제목), p(본문), br(개행), a(앵커), b, I, sup, del 태그
+(2) 목록 태그
+	: ul(순서X), ol(순서O), li(목록 요소)
+
+(3) 표 태그(table)
+	: tr(표 내부 행), th(행 내부의 열, 제목), td(행 내부의 열, 일반)
+(4) 이미지 태그(img)
+	: src(경로 지정), alt(이미지X->글자), width(너비), height(높이)
+(5) 오디오 태그(audio)
+	: src(경로지정), preload(재생 전 로딩 여부 지정), autoplay(자동 재생 여부 지정), loop(반복 여부 지정), conrols(재생 도구 출력 여부 지정)
+(6) 비디오 태그(video)
+	: 오디오 태그와 비슷
+(7) 입력 양식 태그(form)
+	①action : 전달 위치 지정
+	②method: 전달 방식 선택 
+		- get : url에 포함되어 전송(query String 형식)
+			<name=”n1”/><name=”n2”/>일 때, url에 “?n1=value&n2=value”에 추가하여 
+		- post : 데이터가 눈에 보이지 않게 전송
+			(url X, 데이터 영역 이용해서 데이터 전송O ->파라미터 길이 제한X)
+	③button : 버튼 생성
+	④checkbox : 체크박스 생성
+	⑤file : 파일 입력 양식 생성
+	⑥hidden : 안보이게 함
+	⑦image : 이미지 형태 생성
+	⑧password : 비밀번호 입력 양식 생성
+	⑨radio : 라디오 버튼 생성
+	⑩reset : 초기화 버튼 생성
+	⑪submit : 제출 버튼 생성
+	⑫text : 글자 입력 양식 생성
+	⑬autofocus : 포커스 자동 설정
+	⑭placeholder : 각 필드의 입력 형식 힌트제공
+	⑮required : 필수 입력 필드
+	⑯min, max : 숫자의 범위 설정
+	⑰pattern : 조건 사용한 일반식 표시
+(8) 공간분할 태그(레이아웃 태그)
+	: div(block형식으로 공간 분할), span(inline형식으로 공간 분할)
+(9) 레이아웃
+	- div이용
+		:div로 header/content/footer 나눔
+	- 시멘틱 이용
+		: header/nav(aside, section, article)/footer
+
+
+
