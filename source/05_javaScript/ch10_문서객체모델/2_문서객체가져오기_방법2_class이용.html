@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        window.onload = function () {
+            // getElementByClassName()의 return값은 배열로 
+            var clock1 = document.getElementsByClassName('clock1');
+            clock1[0].innerHTML = new Date().toLocaleString();
+            var clock2 = document.getElementsByClassName('clock2')[0];  //clock2라는 이름의 class중 첫번째것 : [0]
+            clock2.value = new Date().toLocaleString();
+            clock2.style = 'color:red;'
+            // = clock2.style.color = 'red';
+            clock2.style.fontSize = '20px'; 
+            //style에 한꺼번에 넣어서 다 바꿀 수도 있다.
+            // = clock2.style.cssText = 'color:blue; font-size:100px; font-weight:bold;';
+        };
+    </script>
+</head>
+<body>
+    <h1 class="clock1">시간</h1>
+    <input type="text" class="clock2" value="시간"/>
+</body>
+</html>

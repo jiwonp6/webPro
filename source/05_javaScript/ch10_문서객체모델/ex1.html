@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        table{
+            margin:0 auto;
+        }
+        td{
+            width:30px;
+            height:100px;
+            border: 1px solid black;
+        }
+        h6{
+            text-align:center;
+        }
+    </style>
+    <script>
+        var color = ['red', 'orange', 'yellow', 'green', 'blue', 'navy', 'violet', 'white'];
+        window.onload = function () {
+            var tds = document.querySelectorAll('td');
+            for (var idx in tds) {
+                tds[idx].style.backgroundColor = color[idx];
+            }
+        };
+        function changeColor(n) {
+            document.body.style.backgroundColor = color[n];
+        }
+    </script>
+</head>
+<body>
+    <h6>중간예제1. 마우스 올리면 바탕화면 색도 해당 색상으로</h6>
+    <table>
+        <tr onmouseout="changeColor(7)">
+            <td onmouseover="changeColor(0)"></td>
+            <td onmouseover="changeColor(1)"></td>
+            <td onmouseover="changeColor(2)"></td>
+            <td onmouseover="changeColor(3)"></td>
+            <td onmouseover="changeColor(4)"></td>
+            <td onmouseover="changeColor(5)"></td>
+            <td onmouseover="changeColor(6)"></td>
+        </tr>
+    </table>
+</body>
+</html>

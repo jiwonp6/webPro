@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function append() {
+            document.body.innerHTML += '<h1>HEADER</h1>';
+        }
+        function remove() {
+            var h = document.getElementsByTagName('h1');
+            document.body.removeChild(h[0]);
+        }
+        /* = function remove() {
+         *   var h = document.getElementsByTagName('h1')[0];
+         *   document.body.removeChild(h);
+         * }
+         */
+        function removeall() {
+            var h = document.getElementsByTagName('h1');
+            for (var idx = h.length - 1; idx >= 0; idx-- ) {
+                document.body.removeChild(h[idx]);
+            }
+            //cnt = h.length;   //h.length가 바껴서 먼저 선언 후 사용
+            //for (var i = 0; i < cnt; i++) {
+            //    document.body.removeChild(h[0]);
+            //}
+        }
+    </script>
+</head>
+<body>
+    <button onclick="remove()">h1태그 제거하기</button>
+    <button onclick="removeall()">h1태그 싹 제거하기</button>
+    <button onclick="append()">h1태그 추가하기</button>
+    <h1>HEADER</h1>
+    <h1>HEADER</h1>
+</body>
+</html>

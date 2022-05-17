@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        table {
+            margin: 0 auto;
+            width:300px;
+            height:150px;
+            border:1px solid black;
+        }
+        td{
+            overflow:hidden;
+        }
+        td > p {
+            float:left;
+            margin:0 11px 20px 11px;
+        }
+    </style>
+    <script>
+        function naver() {
+            var child = window.open('http://naver.com', '', 'width=450, height=500,left=80,top=80');
+        }
+        function daum() {
+            location.href="http://daum.net";
+        }
+        function google() {
+            location.href="http://google.com";
+        }
+        function youtube() {
+            location.href="http://youtube.com";
+        }
+
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                <h2>메뉴</h2>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p><input type="button" value="네이버" onclick="naver()" /></p>
+                <p><input type="button" value="다음" onclick="daum()" /></p>
+                <p><input type="button" value="구글" onclick="google()" /></p>
+                <p><input type="button" value="유튜브" onclick="youtube()" /></p>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

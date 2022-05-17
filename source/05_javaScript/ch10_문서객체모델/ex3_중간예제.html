@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        table {
+            margin: 0 auto;
+        }
+        tr{
+            z-index:-99999;
+        }
+        td {
+            width: 30px;
+            height: 100px;
+            border: 1px solid black;
+        }
+        td:last-child{
+        }
+        h6 {
+            text-align: center;
+        }
+    </style>
+    <script>
+        var color = ['red', 'orange', 'yellow', 'green', 'blue', 'navy', 'violet', 'white'];
+        window.onload = function () {
+            var tds = document.querySelectorAll('td');
+            for (var idx in tds) {
+                tds[idx].style.backgroundColor = color[idx];
+            }
+        };
+
+        function changeColor(n) {
+            var h2 = document.createElement('h2');
+            var textNode = document.createTextNode('야호 집에 갑니다');
+            h2.appendChild(textNode);
+            document.body.appendChild(2);
+        }
+        
+        function reset() {
+            
+        }
+
+    </script>
+</head>
+<body>
+    <h6>ddd</h6>
+    <table>
+        <tr onmouseout="reset()">
+            <td onmouseover="changeColor(0)"></td>
+            <td onmouseover="changeColor(1)"></td>
+            <td onmouseover="changeColor(2)"></td>
+            <td onmouseover="changeColor(3)"></td>
+            <td onmouseover="changeColor(4)"></td>
+            <td onmouseover="changeColor(5)"></td>
+            <td onmouseover="changeColor(6)"></td>
+        </tr>
+    </table>
+</body>
+</html>
