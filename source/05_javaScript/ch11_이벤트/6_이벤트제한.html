@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        window.onload = function () {
+            document.querySelector('form').onsubmit = function () {
+                var pw = document.getElementsByName('pw')[0];
+                var pw1 = document.querySelector('input[name="pw1"]');
+                if (pw.value != pw1.value) {
+                    alert('비밀번호를 확인하세요');
+                    pw.value = '';
+                    pw1.value = '';
+                    pw.focus();
+                    return false;   //디폴트 이벤트 제한
+                }
+                // return true; 디폴트이므로 안적어도 상관없음    
+            };
+        };
+    </script>
+</head>
+<body>
+    <form><!--submit 이벤트는 디폴트 이벤트-->
+        PW : <input type="password" name="pw" /><br />
+        PW : <input type="password" name="pw1" /><br />
+        <input type="submit" />
+    </form>
+</body>
+</html>

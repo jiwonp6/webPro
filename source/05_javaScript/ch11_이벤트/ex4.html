@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    
+    <script>
+        window.onclick = function () {
+            var x = event.offsetX;
+            var y = event.offsetY;
+            var img = document.querySelector('img');
+            var p = document.querySelector('p');
+            img.style.position = "absolute";
+            img.style.left = (x-33.5) + 'px';
+            img.style.top = (y-28.5) + 'px';
+            p.innerHTML = 'x : ' + event.offsetX + ', y : ' + event.offsetY;
+            p.style.position = "absolute";
+            p.style.left = (x-20-33.5) + 'px';
+            p.style.top = (y + 40 - 28.5) + 'px';
+        };
+    </script>
+</head>
+<body>
+    <img src="img/car.gif" />
+    <p></p>
+</body>
+</html>

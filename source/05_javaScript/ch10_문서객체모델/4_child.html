@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+    #wrap {
+        width:450px; 
+        margin: 0 auto;
+    }
+    #wrap h1{
+        color:red; 
+        margin-top:50px; 
+        text-align:center;
+    }
+    #wrap h3{
+      padding:20px; 
+      margin:10px; 
+      border:1px solid red;
+      text-align:center; 
+      border-radius: 10px;
+      font-size: .9em;
+      cursor:pointer;
+    }
+  </style>
+    <script>
+        let modifyName; // 전역변수
+        window.onload = function () {
+            // parent와 child간 데이터 통신
+            // parent 할 일 : child창 open()하기
+            // child 할 일 : opener(=parent)의 데이터를 받아 내 문서객체에 뿌리기
+            var name = opener.document.getElementById('name').value;    //반드시 id로 받아야함
+            var date = opener.document.getElementById('date').value;
+            var parentData = document.getElementById('parentData');
+            if (date != '') {
+                parentData.innerHTML += '넘어온 이름 : ' + name + ' 날짜 : ' + date;
+            } else {
+                parentData.innerHTML += '넘어온 이름 : ' + name + ' 날짜 : 선택 안 함';
+            }
+            modifyName = document.getElementById('modifyName');
+            //modifyName.value = name;    // input태그임으로 value
+            modifyName.setAttribute('value', name);
+
+            
+            
+        };
+        //function sendData() {
+            
+        //    opener.document.getElementById('part').value = h3.split('로', 1);
+        //        close();
+        //}
+
+        function sendData(part) {
+            opener.document.getElementById('name').value = modifyName.value;    //받은 값을 바꾸는 것이 아니라 값 자체를 변경시켜줌
+            opener.document.getElementById('part').innerHTML = part;    //span태그이므로 innerHTML로 넣어줘야한다.
+            close();
+        }
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <h1>인사정보시스템</h1>
+        <hr />
+        <h2 id="parentData"></h2>
+        <h2>이름수정 가능<input type="text" id="modifyName"/></h2>
+        <hr />
+        <h3 onclick="sendData('인사')">인사로하고 닫기</h3>
+        <h3 onclick="sendData('재무')">재무로하고 닫기</h3>
+        <h3 onclick="sendData('총무')">총무로하고 닫기</h3>
+        <h3 onclick="sendData('개발')">개발로하고 닫기</h3>
+    </div>
+</body>
+</html>

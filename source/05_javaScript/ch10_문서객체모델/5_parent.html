@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function childOpen() {
+            var child = open('5_child.html', '', 'width=600,height=700,left=100');
+            if (!child) {
+                alert('팝업을 해제해 주세요');
+            }
+        }
+        function chk() {
+            if (chkOk.value == '0') {
+                alert('아이디 중복확인 후 회원가입이 가능합니다.');
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="return chk()">
+        <p>아이디<input type="text" id="id" /><input type="button" value="중복확인" onclick="childOpen()" /></p>
+        <p><input type="hidden" name="chkOk" id="chkOk" value="0"/></p>
+        <p><input type="submit" value="회원가입"/></p>
+    </form>
+</body>
+</html>

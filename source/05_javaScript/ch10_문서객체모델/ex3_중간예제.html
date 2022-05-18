@@ -23,23 +23,24 @@
         }
     </style>
     <script>
-        var color = ['red', 'orange', 'yellow', 'green', 'blue', 'navy', 'violet', 'white'];
+        var message;
+        var color = ['red', 'orange', 'yellow', 'green', 'blue', 'navy', 'violet'];
         window.onload = function () {
             var tds = document.querySelectorAll('td');
             for (var idx in tds) {
-                tds[idx].style.backgroundColor = color[idx];
+                tds[idx].style.cssText = 'background-color:' + color[idx];
             }
         };
-
         function changeColor(n) {
-            var h2 = document.createElement('h2');
-            var textNode = document.createTextNode('야호 집에 갑니다');
-            h2.appendChild(textNode);
-            document.body.appendChild(2);
+            message = document.querySelector('.message');
+            message.innerHTML = '야호 집에 갑니다';
+            message.style.color = color[n];
+            document.body.style.backgroundColor = 'black';
         }
         
         function reset() {
-            
+            document.body.style.backgroundColor = 'white';
+            message.innerHTML = '';
         }
 
     </script>

@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        table{
+            margin: 20px auto;
+            width:150px;
+            height:150px;
+            background-color:forestgreen;
+        }
+        td{
+            background-color:white;
+            border:1px solid green;
+            width:50px;
+            height:50px;
+        }
+    </style>
+    <script>
+        window.onkeyup = function () {
+            var tds = document.querySelectorAll('td');
+            if (event.keyCode >= 96 && event.keyCode < 105) {
+                for (var idx = 0; idx < tds.length; idx++) {
+                    tds[idx].style.backgroundColor = 'white';
+                }
+                tds[event.keyCode - 97].style.backgroundColor = 'yellow';
+            } else if (event.keyCode >= 48 && event.keyCode < 57) {
+                for (var idx = 0; idx < tds.length; idx++) {
+                    tds[idx].style.backgroundColor = 'white';
+                }
+                tds[event.keyCode - 49].style.backgroundColor = 'red';
+            }
+        };
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+        </tr>
+
+    </table>
+</body>
+</html>

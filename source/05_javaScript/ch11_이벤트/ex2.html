@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var srcs = ['img/0over.jpg', 'img/1over.jpg', 'img/2over.jpg', 'img/3over.jpg'];
+        var resetSrcs = ['img/0out.jpg', 'img/1out.jpg', 'img/2out.jpg', 'img/3out.jpg'];
+        function changeColor(n) {
+            var imgs = document.querySelectorAll('img');
+            if (n < 4) {
+                imgs[n].src = srcs[n];
+            } else if (n == 4) {
+                for (var idx = 0; idx < 4; idx++) {
+                    imgs[idx].src = resetSrcs[idx];
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <div onmouseout="changeColor(4)">
+        <img onmouseover="changeColor(0)" src="img/0out.jpg" />
+        <img onmouseover="changeColor(1)" src="img/1out.jpg" />
+        <img onmouseover="changeColor(2)" src="img/2out.jpg" />
+        <img onmouseover="changeColor(3)" src="img/3out.jpg" />
+    </div>
+</body>
+</html>

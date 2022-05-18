@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        let idChk;
+        window.onload = function () {
+            var id = opener.document.getElementById('id').value;
+            idChk = document.getElementById('idChk');
+            idChk.setAttribute('value', id);
+        };
+        function useId() {
+            opener.document.getElementById('id').value = idChk.value;
+            opener.document.getElementById('chkOk').value = "1";
+            close();
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <p>ID<input type="text" id="idChk" /></p>
+        <p><input type="button" value="아이디 사용" onclick="useId()"/></p>
+    </div>
+</body>
+</html>

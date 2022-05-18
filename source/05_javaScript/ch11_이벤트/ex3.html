@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function clicked(n) {
+            var imgs = document.querySelector('img');
+            if (n == 1) {
+                imgs.src = 'img/but2.gif';
+            } else if (n == 0) {
+                imgs.src = 'img/but1.gif';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <img onmouseup="clicked(0)" onmousedown="clicked(1)" src="img/but1.gif"/>
+    </div>
+</body>
+</html>
