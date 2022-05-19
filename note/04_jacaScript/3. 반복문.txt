@@ -11,4 +11,9 @@
 	- for in 문
 		: for(var i in array) {  }
 	- forEach 문
-		: array.forEach(function (data, i) {  }
+		: array.forEach(function (data, i) {  });
+3. break문, continue문
+
+
+	java와 비슷하다...
+	

@@ -1,0 +1,20 @@
+◎ 객체
+1. 객체
+	: 다양한 데이터 O (cf. ↔기본형(7개))
+		eg. 서랍장 속 파일(property)의 이름표
+	  let user = new Object();
+	  let user = { key : value };
+		eg. 서랍장(user) 속 파일(property)의 이름표(key) -> 값 : value
+2. 속성과 메서드
+	- 요소(element) : 배열 내부의 값
+	- 속성(property) : 객체 내부의 값
+		- 메서드 : 객체 속성 중 함수형 속성
+3. 객체출력 : 반복문(for-in/forEach)
+4. 객체 관련 키워드
+	- in
+	- with
+5. 객체 속성 추가, 제거
+	- 추가
+		: 
+	- 제거
+		: delete 이용

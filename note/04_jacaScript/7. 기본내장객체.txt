@@ -1,0 +1,34 @@
+◎ 기본내장객체
+	* 기본 자료형        vs       객체
+	                 모두 값 출력함
+	숫자, 문자열, 불린        속성, 메소드 O
+	속성, 메소드 X
+	(기본자료형에 
+	속성, 메소드 추가 
+	→ 객체로 변환)
+1. Object 객체
+	: 자바 스크립트의 최상위 객체
+	var object = { };
+	var object = new Object( );
+	* 메소드
+		- constructor( ) : 객체의 생성자 함수
+		- toString( ) : 객체 → 문자열
+		- valueOf( ) : 객체의 값
+		- typeof( ) : 자료형 검사
+		- 자료형 비교를 위해 : constructor( )메소드 사용
+		- 모든 객체에 메서드 추가 : Object.prototype.test = function ( ) { }
+2. Number 객체
+	: 1.7976931348623157e+308까지 수 O
+	* 메소드
+		- toExponential( ) : 지수표시 수 문자열
+		- toFixed( ) : 
+		- toPrecision( ) : 
+3. String 객체
+	: 자신 변화 X하고 리턴
+4. Array 객체
+	: 
+5. Date 객체
+	: 
+6. Math 객체
+	: 
+

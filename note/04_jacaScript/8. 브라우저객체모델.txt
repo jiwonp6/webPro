@@ -1,0 +1,33 @@
+◎ 브라우저객체모델
+	: 웹 브라우저 관련 객체 집합	      
+1. window 객체 
+	→ screen 객체 : 화면 전체 관련 객체
+	→ navigator 객체 : 웹 브라우저 관련 객체
+	→ location 객체 : 주소 관련 객체
+	→ history 객체 : 기록 관련 객체
+	→ document 객체 : HTML문서 관련 객체
+2. window 객체 생성
+	- open( url, name, features, replace ) 
+		: 새로운 window 객체 생성
+	* window 형태 옵션
+	- height 
+	- width
+	- location : 주소 입력창 O/X
+	- menubar : 메뉴 O/X
+	- resizable : 화면 크기 조절 가능 O/X
+	- status : 상태표시줄 O/X
+	- toolbar : 상태표시줄 O/X
+3. window 객체 기본 메소드
+	- moveBy(x, y) : window 위치 상대적 이동
+	- moveTo(x, y) : window 위치 절대적 이동
+	- resizeBy(x, y) : window 상대적 크기
+	- resizeTo(x, y) : window 절대적 크기
+	- scrollBy(x, y) : window scroll 위치 상대적 이동
+	- scrollTo(x, y) : window scroll 위치 절대적 이동
+	- focus( ) : window 초점
+	- blur( ) : window 초점 제거
+	- close( ) : 닫기
+4. screen 객체
+	: 운영체제 화면이 속성을 가지는 객체( 웹 브라우저 화면X )
+5. location 객체
+	: 
