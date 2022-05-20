@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script></script>
+</head>
+<body>
+	<!-- get방식 : url이 바뀜 -->
+	<a href="../Ex1?id=김&pw=ppp">Ex1 서블릿에게 id와 pw넘기기(GET방식)</a>	<!-- .. : root -->
+	<hr>
+	<button onclick="location.href='../Ex1?id=김&pw=ppp';">Ex1 서블릿에게 id와 pw넘기기(GET방식)</button><!-- url이 바뀜 = get방식 -->
+	<hr>
+	<form action="../Ex1" method="get">
+		<p>ID<input type="text" name="id" value="한글"></p>
+		<p>PW<input type="password" name="pw"></p>
+		<p><input type="submit" value="Ex1 서블릿에게 id와 pw넘기기(GET방식)"></p>
+	</form>	
+	<hr>
+	<!-- post방식 : url 변화X, form태그X → POST방식 불가능 -->
+	<form action="../Ex1" method="post">
+		<p>ID<input type="text" name="id" value="한글"></p>
+		<p>PW<input type="password" name="pw"></p>
+		<p><input type="submit" value="Ex1 서블릿에게 id와 pw넘기기(POST방식)"></p>
+	</form>
+</body>
+</html>
