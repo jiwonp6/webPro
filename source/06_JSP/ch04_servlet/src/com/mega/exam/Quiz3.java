@@ -46,7 +46,16 @@ public class Quiz3 extends HttpServlet {
 				"	width: 90%;\r\n" + 
 				"}");
 		out.println("</style>");
+		out.println("<body>");
+		out.println("<table>");
+		out.println("<tr>");
+		out.println("<th>");
+		out.println("반갑습니다 "+name+"님");
 		
+		out.println("</th>");
+		out.println("</tr>");
+		out.println("</table>");
+		out.println("</body>");
 
 	}
 

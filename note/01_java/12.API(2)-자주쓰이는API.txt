@@ -1,0 +1,51 @@
+◎ 자주 쓰이는 API 클래스 - 1
+1. 문자열 관련 클래스(String)
+	: 객체데이터(기초데이터처럼 사용 가능)
+	* 주요 메소드
+		- String concat(String str) : 저장된 문자열과 str문자열 결합
+		- String substring(int begin) : 시작위치부터 마지막까지의 문자열 반환
+		- int length() : 문자열 길이 반환
+		- String toUpperCase() : 대문자로 반환
+		- String toLowerCase() : 소문자로 반환
+		- char charAt(int index) : index 위치의 문자 반환
+		- int indexOf(char ch) : 첫번째 ch문자 위치 반환
+		- int lastIndexOf(char ch) : 마지막 ch문자 위치 반환
+		- boolean equals(String str) : 지정된문자열과 str문자열 같은지 비교
+		- boolean equalslgnoreCase(String str) : 대소문자구분X 지정된문자열과 str문자열 같은지 비교
+		- String trim() : 문자열 앞뒤 공백제거
+		- String replace(char old, char new) : 문자열 내 old문자 → new문자 반환
+		- String  repalceAll(String old, String new) : 문자열 내 old문자열 → new 반환
+	* 문제점
+		: 초기화된 데이터 값 변화 → 새롭게 메모리 생성(메모리 과소비)
+	     ↓
+	StringBuffer, StringBuilder 이용
+2. StringBuffer, StringBuilder
+	: 객체 내부 buffer에 문자열 내용 저장 → 수정 작업(새로운 객체 생성X)
+	* 주요 메소드
+		- append(String str) : 문자열 str 추가
+		- insert(int index, String str) : 특정 index에 문자열 str 추가
+		- delete(int start, int end) : index위치 start ~ end앞 까지 삭제
+		- deleteCharAt(int index) : index위치 특정 문자 하나 삭제
+		- int capacity() : 문자열 크기 반환
+		- ensureCapacity(int size) : 버퍼 크기 size만큼 늘리는 메소드
+		- trimToSize() : 과도한 버퍼 크기 적당하게 줄이는 메소드
+3. System.currentTimeMillis( )
+	: 1970년도 부터 현재까지의 밀리세컨
+4. StringTokenizer	
+	: 문자열 분할
+5. 날짜 관련 API
+	: Calendar(싱글톤클래스, Calendar cal = Calendar.getInstance( ); )
+	  GregorianCalendar
+6. Math
+	- Math.pow(a, b) : a^b
+	- Math.abs(a) : |a|
+	- Math.sqrt(a) : a의 제곱근
+	- Math.min(a, b) : a와 b중 작은 값
+	- Math.max(a, b) : a와 b중 큰 값
+	- Math.sin(A) : sinA
+	- Math.cos(A) : cosA
+	- Math.tan(A) : tanA
+	- Math.ceil(a) : a의 올림
+	- Math.round(a) : a의 반올림
+	- Math.floor(a) : a의 버림
+	- Math.random( ) : double타입의 난수 발생

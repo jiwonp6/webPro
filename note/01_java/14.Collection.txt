@@ -1,0 +1,42 @@
+◎ Collection
+1. collection(자료구조)
+	: 데이터 그룹, 다수의 데이터를 처리하는 method 제공하는 API (cf. 배열)
+	* Collection 클래스
+		- List 계열
+			: 순서O 데이터 집합, 중복O
+		- Map 계열
+			: key - value, 순서O, 키는 중복X, 값은 중복O
+		- Set 계열
+			: 순서X, 중복X
+		- Iterator(반복자, 인터페이스)
+			: 데이터를 반복적으로 검색
+2. List 계열
+	: 배열과 비슷, but, 크기고정X
+	- ArrayList
+		: 인덱스 O, 데이터 중복 O
+		① add(객체)
+		② add(index, 객체)
+		③ set(index, 객체)
+		④ get(index)
+		⑤ size()
+		⑥ remove(index)
+		⑦ remove(객체)
+		⑧ contains(객체) : 주어진 객체 저장 여부 boolean 값으로 반환
+		⑨ isEmpty()
+		⑩ clear()
+	- LinkedList
+		: Arraylist와 달리 불연속적으로 존재하는 데이터 연결
+	- Vector
+3. Map 계열
+	: 키 값으로 데이터 액세스, index X
+	- HashMap
+		① put(key, 객체)
+		② remove(객체)
+4. Set 계열
+	: 데이터 순서(index) X, 중복X
+		(중복된 데이터의 의미 : hashcode( )값이 같거나 equal( )메소드의 결과값에 의해 해석)
+	- HashSet
+		① add(객체)
+		② remove(객체)
+
+

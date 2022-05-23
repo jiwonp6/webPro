@@ -1,0 +1,27 @@
+◎ 자주 쓰이는 API 클래스 - 2
+1. Scanner, sysout
+	- Scanner : 문자열 등의 값을 사용자로 부터 받아올 때 사용
+2. Wrapper
+	: 기초데이터 → 객체데이터 변환
+	*   기초 데이터		객체 데이터
+		byte		Byte
+		short		Short
+		int		Integer
+		long		Long
+		float		Float
+		boolean		Boolean
+		char		Char
+3. Timer
+	- Timer
+		 : 일정 시간이 되면 TimerTask객체 작동되도록 함 
+	- TimerTask(추상클래스)
+4. Decimalformat
+	: 문자열 포맷 정의 가능, 서식에 맞춰 값 변경(패턴화)
+	* 사용
+	DecimalFormat("000000000"); : 10진수 빈자리 0으로 채움
+	DecimalFormat("#########"); : 10진수 빈자리 0지움
+	DecimalFormat("0.00000"); : 소수점
+	DecimalFormat("0,000.00000"); : 단위구분( , ), 10진수 빈자리는 0으로 채움
+	DecimalFormat("#,###.#####"); : 단위구분( , ), 10진수 빈자리는 0으로 채우지 않음
+	DecimalFormat("#.##%"); : %값으로 반환
+	DecimalFormat("#.##E0"); : 지수문자

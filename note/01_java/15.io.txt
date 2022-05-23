@@ -1,0 +1,28 @@
+◎ i/o (자바 파일 입출력)
+1. 입출력(InputOutput)
+	* 자바에서의 입출력 → API
+	- Input
+		: 파일 데이터 읽음
+	- Output
+		: 파일 데이터 쓴다
+2. 종류
+		이미지동영상 데이터용(1byte단위)	문자열용(2byte단위)
+	입력 API		InputStream		Reader
+	출력 API		OutputStream		Writer
+3. 스트림
+	: 데이터 운반시 사용되는 연결 통로, 단방향통신(입출력 동시X → 동시 위해 2개의 스트림 필요)
+	- 데이터 읽는 단계
+		: 파일(연결통로) 염 -> 파일 데이터 읽음(필요한 만큼 반복) -> 파일 닫음
+	- 데이터 쓰는 단계
+		: 파일(연결통로) 염 -> 파일에 데이터 씀 -> 파일 닫음
+4. 사용법
+- InputStream
+- OutputStream
+	* 파일 읽고 쓰기 동시 → 파일 복사
+- Reader
+	* BufferedReader, BufferedWriter 클래스
+		: 속도↑ 위한 보조 스트림
+- Writer
+5. 메소드 사용
+	- 생성/삭제 메소드
+	- 정보 메소드

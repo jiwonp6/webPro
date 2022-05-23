@@ -1,0 +1,9 @@
+◎ 패턴(pattern)
+1. 패턴
+	: 효율적으로 개발 가능하도록 만들어 놓은 프레임
+2. 싱글톤 패턴 (singleton pattern, 전역의 개념)
+	: 유일한 객체 생성 → 여러 상황에서 동일한 객체로 접근
+	* 호출 시(eg.)
+	SingletonClass singletonObject = SingletonClass.getSingletonClass( );
+3. 스트레티지 패턴(strategy pattern)
+	: 기능을 정의, 각각을 캡슐화 → 사용(기능 부품화, 표준화 하는 것)

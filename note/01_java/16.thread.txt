@@ -1,0 +1,41 @@
+◎ Thread
+1. 프로세스
+	: 프로그램(보조기억장치 내 파일) 실행 → 메모리에 상주
+2. 스레드
+	: 하나의 프로그램이 동시에 여러 일을 수행할 수 있도록 해주는 것
+	* 멀티스레드
+	- n개의 스레드 → 객체 하나 공유
+	- n개의 스레드 → 각각 n개의 객체 사용
+	- 장점
+		: 자원 효율적사용, 응답성↑, 작업분리 → 코드간결
+	- 단점
+		: 동기화 주의, 교착상태 주의
+
+3. 스레드 사용
+	* 문법
+	① Runnable 인터페이스 구현
+		: public class 클래스명 implements Runnable{
+			public void run( ){
+				실행할 작업;
+			}
+		  }
+	② Thread 클래스 상속
+		: public class 클래스명 extends Thread{
+			public void run( ){
+				실행할 작업;
+			}
+		  }
+	- main함수
+		Thread threadA = new 클래스명( );	// 스레드 생성
+		threadA.start( );	// 스레드 시작
+		threadA.sleep( );	// 스레드 일시정지
+4. 동기화(synchronized)
+	: 하나의 자원, 여러 태스크가 사용하려 할 때 → 하나의 태스크만 사용할 수 있도록 하는 것
+	(먼저 수행되는 스레드의 모든 작업이 끝날 때까지 다른 스레드 대기되도록 함)
+	* 문법
+		: public synchronized void run() {
+			실행할 작업;
+		  }
+
+
+
