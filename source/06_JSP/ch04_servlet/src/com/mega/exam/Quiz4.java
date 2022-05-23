@@ -10,12 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 //Servlet implementation class Quiz3
-@WebServlet("/Quiz3")
-public class Quiz3 extends HttpServlet {
+@WebServlet("/Quiz4")
+public class Quiz4 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     //@see HttpServlet#HttpServlet()
-    public Quiz3() {
+    public Quiz4() {
         super();
     }
 
@@ -31,7 +31,7 @@ public class Quiz3 extends HttpServlet {
 		out.println("<body>");
 		out.println("<table>");
 		out.println("<tr>");
-		out.println("<th  colspan='2'>");
+		out.println("<th colspan='2'>");
 		out.println("반갑습니다 "+name+"님");
 		out.println("</th>");
 		out.println("</tr>");
@@ -50,7 +50,9 @@ public class Quiz3 extends HttpServlet {
 		out.println("글내용");
 		out.println("</th>");
 		out.println("<th>");
+		out.println("<pre>");
 		out.println(textArea);
+		out.println("</pre>");
 		out.println("</th>");
 		out.println("</tr>");
 		

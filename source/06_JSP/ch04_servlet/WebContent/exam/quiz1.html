@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script>
+		window.onload = function btn() {
+			document.querySelector('form').onsubmit = function () {
+				var opt = document.querySelectorAll('option');
+				var cnt = 0;
+				for(var i=0; i<opt.length; i++){
+					cnt = cnt + opt[i].selected;
+				}
+				if(!cnt){
+					alert('출력하고 싶은 구구단을 한 개 이상 선택해주세요.');
+					return false;
+				}
+			};
+		};
+	</script>
+</head>
+<body>
+	<form action="../Quiz1" method="post">
+		<h2>2~9단까지 원하는 구구단 입력</h2>
+		<select name="su" multiple="multiple" size="3">
+			<option value="2" >2단</option>
+			<option value="3" >3단</option>
+			<option value="4" >4단</option>
+			<option value="5" >5단</option>
+			<option value="6" >6단</option>
+			<option value="7" >7단</option>
+			<option value="8">8단</option>
+			<option value="9">9단</option>
+		</select>
+		<p><input type="submit"></p>
+	</form>
+</body>
+</html>

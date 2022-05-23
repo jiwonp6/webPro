@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link href = "/ch04_servlet/css/style.css" rel="stylesheet">
+</head>
+<body>
+	<form action="../Quiz4" method="post">
+			<h2>게시판</h2>
+		<table>
+			<tr>
+			<td>제목</td>
+			<td>
+				<input type="text" name="title">
+			</td>
+			</tr>
+			<tr>
+			<td>작성자</td>
+			<td>
+				<input type="text" name="name">			
+			</td>
+			</tr>
+			<tr>
+			<td>내용</td>
+			<td>
+				<textarea name="textArea" cols="30" rows="2"></textarea>	
+			</td>
+			</tr>
+			<tr>
+			<td colspan="2">
+				<input type="submit" value="저장">
+				<input type="reset" value="초기화">
+			</td>
+			</tr>
+			
+		</table>
+	</form>
+</body>
+</html>
