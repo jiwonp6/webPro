@@ -30,4 +30,15 @@
 4. screen 객체
 	: 운영체제 화면이 속성을 가지는 객체( 웹 브라우저 화면X )
 5. location 객체
-	: 
+	: 브라우저 주소 관련 객체
+	- href : 문서 url주소
+	- host : 호스트이름 + 포트번호
+	- hostname : 호스트이름
+	- port : 포트번호
+	- portname : 디렉토리 경로 
+	- hash : 앵커이름(#~)
+	- search : 요청 매개변수
+	- protocol : 프로토콜 종류
+	- reload( ) : 새로고침
+	- assign(link): 현재 위치 이동, 뒤로가기O(cf. replace(link))
+	- replace(link) : 현재 위치 이동, 뒤로가기X(cf. assign( ))

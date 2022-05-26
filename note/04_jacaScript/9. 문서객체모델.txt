@@ -1,0 +1,21 @@
+◎ 문서객체모델
+	: HTML페이지 인식 방식으로 document객체 관련 객체 집합
+1. 용어
+	: 태그를 js에서 이용가능 객체 → 문서 객체
+	  노드 = 각 요소 (html, head, title, "index", body, hl, "TextNode", img)
+
+ 2. 문서 객체 생성
+	(1) 텍스트 노드O
+		①Document 객체 노드 생성
+		②문서 객체 연결
+	(2) 텍스트 노드X
+	(3)
+3. 문서 객체 가져오기
+	(1) getElementById(id)
+	(2) getElementsByClassName(“class명”)
+	(3) getElementsByName(name); 
+	(4) getElementsByTagName(‘태그명’);
+	(5) document.querySelector(선택자) 
+	(6) document.querySelectorAll(선택자); 
+4. 문서 객체 제거
+	(1) removeChild(child)
