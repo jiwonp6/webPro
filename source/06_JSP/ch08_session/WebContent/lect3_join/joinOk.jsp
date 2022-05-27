@@ -23,9 +23,9 @@
 		writer.println("비밀번호 : "+pw);
 		writer.println("이름 : "+name);
 		writer.close();
+		//세션의 id속성은 유지 그 외는 날림
 		session.removeAttribute("pw");
 		session.removeAttribute("name");
-		//세션의 id속성은 유지 그 외는 날림
 		response.sendRedirect("result.jsp?msg=success");
 	}else if(agree.equals("n")){	//약관동의X(세션림)
 		session.invalidate();	//유효한 섹션속성 모두 삭제

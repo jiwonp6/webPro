@@ -1,0 +1,32 @@
+◎ JDBC(Java Database Connectivity)
+1. 데이터베이스
+	테이블 = 컬럼(속성, 필드) + 로우(엔티티), 연관된 데이터들 → 표 처럼
+2. JDBC 프로그래밍
+	- JDBC
+		: 자바 패키지 일부, 프로그래밍 인터페이스, 자바 DB 프로그래밍 API
+	  	  자바프로그램 <-- 데이터 --> DB  
+	- JDBC 드라이버
+		: DBMS와 통신 담당 자바 클래스
+	- JDBC URL
+		: DBMS와의 연결 위한 식별 값
+3. 단계
+	① JDBC 드라이버 로드 
+		: Class.forName( )
+		↓
+	② DB 연결 
+		: DriverManager.getConnection( )
+		↓
+	③ Statement 생성 
+		: SQL문 수행할 객체 생성
+		↓
+	④ SQL문 전송 
+		: executeQuery( ), executeUpdate( ) 
+		↓
+	⑤ 결과 받기 
+		: java.sql.ResultSet
+		↓
+	⑥ 로직 수행 
+		: 원하는 로직 수행 
+		↓
+	⑦ 연결 해제(DB 끊기) 
+		: java.sql.Connection.close( )

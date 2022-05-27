@@ -1,1 +1,42 @@
-◎ GUI
+◎ GUI(Graphic User Interface)
+1. GUI
+	: 그래픽 가미하여 사용하기 쉽게 만들어 놓은 것( ↔ CUI)
+2. awt 컴포넌트
+	: 그래픽 요소 만들기 위한 컴포넌트
+3. Java.awt 패키지
+	: gui 구축 위한 클래스 모임
+	- 컴포넌트 배치
+		: BoderLayout, GridLayout, FlowLayout
+	- GUI 구성
+		: Button, Label, Canvas, Checkbox, Choice, Scrollbar, List, Menu, TextComponent, TextArea, TextField, CheckboxGroup
+	- 그래픽 출력
+		: Color, Font, Rectable, Point, Graphics, Image
+	- 컨테이너, 그외
+		: Frame, Panel, Window, Container, FileDialog, Demension, Event
+	* awt 사용법
+		- 컴포넌트 생성(①객체 선언 - 컴포넌트 부착 ②객체생성) → 이벤트 처리
+4. Swing 컴포넌트
+	① 패널/컨테이너에 container로 얻음(getContentPane()) → 레이아웃 셋팅
+	② 컴포넌트 추가 및 크기 확인
+	③ 컴포넌트 add
+	④ 전체 화면 크기 확인
+	* 레이아웃 종류
+	BorderLayout	JFrame의 기본 레이아웃,
+			 (상,하,좌,우,중앙 배치)
+	FlowLayout	왼쪽 → 오른쪽 일렬 배치
+			(생성자로 정렬방식 지정O)
+	GridLayout	행, 열로 배치
+	GridBagLayout	행, 열로 배치
+			(각 영역 크기 지정O)
+	BoxLayout	행/열 방향 일렬 배치
+			(크기 벗어나도 줄바꿈X)
+	CardLayout	한 화면 안에서 겹쳐 슬라이드처럼 사용
+			(하나의 프레임, 여러 화면 보여주고 싶을 때 사용)
+	GroupLayout	순차적 배열, 병렬 배열로 나누고 두 개 결합하여 그룹화
+	SpringLayout	컴포넌트에 "스프링" 연결
+			(컴포넌트들 → 다른 컴포넌트 기준으로 배치)
+	
+	
+
+
+
