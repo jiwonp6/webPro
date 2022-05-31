@@ -1,0 +1,1 @@
+SELECT * FROM EMP;	--실행은 실행하고자하는 SQL문을 블럭잡고 alt + x => result탭에 결과
