@@ -1,0 +1,22 @@
+◎자바빈
+1. 빈
+	: 반복적인 작업 효율적으로 하기 위함
+	  데이터(속성) + 기능(메소드)
+	  jsp페이지 → 액션태그 이용 → 빈 사용(빈의 내부 데이터 처리)
+	  데이터 객체 만들기 위한 클래스 만드는 것
+2. 사용
+	① useBean : 특정 Bean 사용한다고 명시
+	② scope 
+		- page : 빈 생성된 페이지 내에서만 사용 가능
+		- request : 요청된 request 범위 내에서만 사용 가능
+		- session : 하나의 웹 브라우저 당 1개의 session객체 생성. 
+			 웹브라우저 생명주기와 동일하게 사용 가능
+		- application : 하나의 웹어플리케이션 당 1개의 application 객체 생성
+			      웹 어플리케이션 생명주기와 동일하게 사용 가능
+3. setProperty 
+	: 데이터 값 설정할 때 사용 (자바에서의 setter역할)
+	 <jsp:setProperty name="student" property="name" value="value"/>
+4. getProperty 
+	: 데이터 값 가져올 때 사용 (자바에서의 getter 역할)
+	 <jsp:getProperty name="student" property="name" />
+

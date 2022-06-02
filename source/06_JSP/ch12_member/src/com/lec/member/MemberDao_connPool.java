@@ -5,9 +5,15 @@ import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Timestamp;
 
-public class MemberDao {
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
+public class MemberDao_connPool {
 	public static final int SUCCESS = 1;	// 회원가입, 정보수정 시 성공 리턴값
 	public static final int FAIL = 0;	// 회원가입, 정보수정 시 실패 리턴값
 	public static final int MEMBER_EXISTENT = 0;	// 중복된 id일 때 리턴값
@@ -16,20 +22,17 @@ public class MemberDao {
 	public static final int LOGIN_FAIL_ID = -1;	//로그인 시 id 오류일 때 리턴값
 	public static final int LOGIN_FAIL_PW = 0;	//로그인 시 pw 오류일 때 리턴값
 	
-	//singleton	- 생성자에 대한 언급 필요(생성자를 private으로 언급해주어 외부에서 new 하지 못하게 함)
-	private static MemberDao instance;	//자기가 자기 클래스 참조
-	public static MemberDao getInstance() {	// instance==null이면 객체 한번도 생성X
-		if(instance==null) {
-			instance = new MemberDao();
-		}
-		return instance;
-	}
-	private MemberDao() { }	// 생성자
 	//conn 객체 리턴하는 함수
-	private Connection getConnection() throws Exception {	//모든 exception 넘김
-		Class.forName("oracle.jdbc.OracleDriver");// (1)
-		Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521", "scott", "tiger");
-		//커넥션풀 이용X
+	private Connection getConnection() throws SQLException {	//모든 exception 넘김
+		//커넥션풀 이용O(커넥션 풀의 DataSource안의 conn객체 이용)
+		Connection conn = null;
+		try {
+			Context ctx = new InitialContext();		//임폴트 조심 !!!, try-catch조심 !!!(try-catch 사용)
+			DataSource ds = (DataSource)ctx.lookup("java:comp/env/jdbc/Oracle11g");	// jdbc/Oracle11g : 커넥션풀 이름
+			conn = ds.getConnection();	//드라이버 이름 잘못 쳤을 수 있음 → throws 사용
+		} catch (NamingException e) {
+			System.out.println("커넥션퓰이름 오류 : "+e.getMessage());
+		}	
 		return conn;
 	}
 	// 1. 회원가입 시 ID 중복체크를 위한 SQL : public int confirmId(String id)

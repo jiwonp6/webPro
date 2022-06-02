@@ -1,0 +1,23 @@
+◎ Session
+1. 세션
+	: 서버와의 관계  유지 수단, 웹 컨테이너에 정보 저장하는 내장 객체 변수
+	  * cf. 쿠키	↔ 세션
+	클라이언트 	    저장X
+	특정 위치에 저장 	    서버상에 객체로 존재	
+2. 사용
+	① 클라이언트 요청 : 웹브라우저
+	② session 자동 생성
+	③ Session 속성 설정 : session 내부 객체의 메소드 이용
+
+3. 문법
+	① setAttribute() : 세션에 데이터 저장
+	② getAttribute() : 세션에서 데이터 얻음
+	③ getAttributeNames() : 세션에 저장된 모든 데이터 이름(유니크 키값) 얻음
+	④ getId() : 자동 생성된 세션 키값 얻음
+	⑤ getMaxInactiveInterval() : 세션 유효시간 얻음(가장 최근 요청시점 기준으로 카운트)
+	    (C:\webPro\IDE\apache-tomcat-9.0.63\conf\web.xml 참조/
+		디폴트 유효기간 30분, 수정O)
+	⑥ removeAttribute() : 세션 특정 데이터 하나 제거
+	⑦ invalidate() : 세션의 모든 데이터 삭제
+
+	

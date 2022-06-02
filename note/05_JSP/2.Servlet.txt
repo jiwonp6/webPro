@@ -1,0 +1,22 @@
+◎ Servlet
+1. Servlet
+	: 동적 웹어플리케이션 구현, java thread 이용해 동작
+2. 과정
+	: Client 요청 ↔ 	WAS 		    ↔ DB
+			- servlet컨테이너 만듦
+			- 요청O → 스레드 생성
+	* 요청 처리
+		요청 방식에 따라 doGet이나 doPost 메서드 재정의해서 처리
+		service 메서드 재정의해서 사용
+		get, post 방식 상관X -> 호출
+			- get방식 : 정보 전송 = url(보안↓)
+			- post방식 : 정보전송 = header(보안↑)
+3. 생명주기
+	: (Servlet 객체 생성 → init() 호출 → service() doGet() doPost() 호출 → destory() 호출 → 서버종료)
+	 최초 요청 시 객체 생성 → 메모리에 로딩 → (이후 요청)기존 객체 재사용
+	=> 동작속도 빠름
+3. Web.xml
+	:  url경로와 해당 경로의 요청 처리하는 서블릿 사이 매핑 정의
+4. Context Path
+	: WAS에서 웹어플리케이션 구분하기 위한 path
+5. 

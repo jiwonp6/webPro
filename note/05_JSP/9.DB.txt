@@ -1,0 +1,24 @@
+◎ 웹프로그래밍에서의 DB
+1. JDBC
+	: JAVA 프로그램에서 SQL문 실행해 데이터 관리 위한 JAVA API.
+	 별도 프로그램 만들 필요X
+2. Statement객체
+	- executeQuery(); 
+		: SQL문 실행 후 여러 개의 결과값 생기는 경우 사용 (ex. Select)
+	- executeUpdate(); 
+		: SQL문 실행 후 테이블의 내용만 변경되는 경우 사용 (ex. insert, delete, update)
+	- executeQuery() 
+		executeQuery() 실행 후 반환되는 레코드 셋
+			첫번째 로우 데이터
+			두번째 로우 데이터
+			…
+			N번째 마지막 로우 데이터
+			END
+		ResultSet.next(); 다음 레코드로 이동
+		ResultSet.previous(); 이전 레코드로 이동
+		ResultSet.first(); 처음 레코드로 이동
+		ResultSet.last(); 마지막 레코드로 이동
+		get메소드 : getString, getInt
+
+
+	

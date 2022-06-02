@@ -1,0 +1,9 @@
+◎ 액션태그(Action tag)
+1. 액션태그
+	: JSP 페이지에서 특정 동작 지시하는 태그
+	- 표준 액션(standard action) : JSP 페이지에서 바로 사용가능
+	- 커스텀 액션(custom action) : 별도 라이브러리 설치 필요
+2. forward, include, param 태그
+	- forward : 현재 페이지 → 특정 페이지
+	- include : 현재 페이지에 특정 페이지 삽입
+	- param : forward나 include 태그에 데이터 전달 목적으로 사용

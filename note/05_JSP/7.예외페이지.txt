@@ -1,0 +1,7 @@
+◎ 예외페이지
+1. 예외페이지
+	: 특정 상황 예외 발생시 프로세스 멈추면X
+2. 사용
+	page지시자 사용 : <%@ page errorPage="exceptionPage.jsp" %>	
+				exceptionPage에서는 <%@ page isErrorPage=”true”%>
+	web.xml 이용 : url매핑/ initParameter/ context 파라미터 등 지정
