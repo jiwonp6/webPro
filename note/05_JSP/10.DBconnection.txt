@@ -1,0 +1,7 @@
+◎DBconnection
+	=> DAO, DTO 
+		: DB에 접근 하기 위한 로직 & 비지니스 로직을 분리하기 위해 사용
+1. DAO(Data Access Object)
+	: [DB 접속 → 데이터 추가, 삭제, 수정 등의 작업] 클래스
+2. DTO(Data Transfer Object)
+	: 데이터만 하나로 모아 객체에 담음
