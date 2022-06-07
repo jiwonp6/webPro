@@ -14,7 +14,7 @@
 <body>
 	<table>
 		<caption>게시판</caption>
-		<tr><td><a href="<%=conPath %>/writeForm.jsp">글쓰기</a></td></tr>
+		<tr><td><a href="<%=conPath%>/board/writeForm.jsp">글쓰기</a></td></tr>
 	</table>
 	<table>
 		<tr><th>글번호</th><th>작성자</th><th>글제목</th><th>메일</th><th>조회수</th></tr>
