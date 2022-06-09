@@ -1,0 +1,11 @@
+@charset "UTF-8";
+#mainForm_wrap{
+			margin : 0 auto;
+			height:500px;
+			weight:1000px;
+		}
+		.main_h{
+			text-align: center;
+			line-height:400px;
+			color: #FFCC00;
+		}

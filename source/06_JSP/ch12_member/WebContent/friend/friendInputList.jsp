@@ -13,12 +13,13 @@
 </head>
 <body>
 	<form action="friendInputListPro.jsp" method="post" name="join_frm">
-			<p>친구이름<input type="text" name="name">
+			<p>
+			친구이름<input type="text" name="name">
 			전화<input type="text" name="phone1" value="010" size="2">
-						 - <input type="text" name="phone2" size="2">
-						 - <input type="text" name="phone3" size="2">
-			
-			<input type="submit" value="추가"></p>
+			 - <input type="text" name="phone2" size="2">
+			 - <input type="text" name="phone3" size="2">
+			<input type="submit" value="추가">
+			</p>
 		<table>
 		<tr>
 			<td>순번</td>
@@ -37,7 +38,6 @@
 			}
 		%>
 		</table>
-	
 	</form>
 </body>
 </html>

@@ -1,34 +1,39 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<% String conPath = request.getContextPath(); %>
+<% 
+String conPath = request.getContextPath(); 
+if(session.getAttribute("customer")!=null){	//로그인 상태
+	response.sendRedirect("main.jsp");
+}
+%>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
-	<link href="<%=conPath %>/member_css/login.css" rel="stylesheet">
+	<link href="../css/login.css" rel="stylesheet">
 </head>
 <body>
 	<jsp:include page="header.jsp"/>
 	<div id="loginForm_wrap">
 		<div id="login_title">로그인</div>
-		<form action="<%=conPath %>/member/loginPro.jsp" method="post">
+		<form action="loginPro.jsp" method="post">
 			<table>
 				<tr>
-				<th><label for="id">아이디</label></th>
-				<td><input type="text" name="id" id="id" required="required" autofocus="autofocus"
-						value="<%
-							String id = (String)session.getAttribute("id");
-								if(id!=null){
-									out.print(id);
-								}%>"
-				></td>
+					<th>아이디</th>
+					<td><input type="text" name="id" id="id" required="required" autofocus="autofocus"
+							value="<%
+									String id = (String)session.getAttribute("id");
+									if(id!=null){
+										out.print(id);
+									}
+									%>"
+					></td>
 				</tr>
 				<tr>
-				<th><label for="pw">비밀번호</label></th>
-				<td><input type="password" name="pw" id="pw" required="required"></td>
+					<th>비밀번호</th>
+					<td><input type="password" name="pw" id="pw" required="required"></td>
 				</tr>
-				<tr><td></td></tr>
 				<tr>
 					<td colspan="2">
 						<input type="submit" value="로그인" class="loginBtn_style">
@@ -50,7 +55,7 @@
 				</tr>
 			</table>
 			<p id="login_join">아직 회원이 아니신가요?<a href="join.jsp">회원가입</a></p>
-		</form>
+		</form>	
 	</div>
 	<jsp:include page="footer.jsp"/>
 </body>
