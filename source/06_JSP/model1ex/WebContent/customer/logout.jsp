@@ -6,10 +6,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
-	<link href="../css/style.css" rel="stylesheet">
+	<link href="../css/logout.css" rel="stylesheet">
 </head>
 <body>
+	<%
+	session.invalidate();
+	%>
 	<jsp:include page="../main/header.jsp"/>
+	<script>
+		location.href="main.jsp";
+	</script>
 	<jsp:include page="../main/footer.jsp"/>
 </body>
 </html>

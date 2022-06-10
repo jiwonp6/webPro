@@ -6,13 +6,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
-	<link href="../css/join.css" rel="stylesheet">
+	<link href="../css/main.css" rel="stylesheet">
 </head>
 <body>
-<jsp:include page="../main/header.jsp"/>
-<div id="joinForm_wrap">
-	
-</div>
-<jsp:include page="../main/footer.jsp"/>
+	<jsp:include page="header.jsp"/>
+	<div id="mainForm_wrap">
+		<h1 class="main_h">Main</h1>
+	</div>
+	<jsp:include page="footer.jsp"/>
 </body>
 </html>
