@@ -36,6 +36,5 @@ SELECT COUNT(*) CNT FROM BOOK;
 --5. 책 상세보기(bID로 dtO가져오기)
 SELECT * FROM BOOK
     WHERE bID = 1;
-
 COMMIT;
 
