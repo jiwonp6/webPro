@@ -11,19 +11,16 @@
 <body>
 	<%
 	request.setCharacterEncoding("utf-8");
-	String id = request.getParameter("id");
-	String pw = request.getParameter("pw");
+	String cid = request.getParameter("cid");
+	String cpw = request.getParameter("cpw");
 	CustomerDao cDao = CustomerDao.getInstance();
-	int result = cDao.loginCheck(id,pw);
+	int result = cDao.loginCheck(cid,cpw);
 	if(result==CustomerDao.SUCCESS){	//로그인 성공
-		CustomerDto customer = cDao.getCustomer(id);
+		CustomerDto customer = cDao.getCustomer(cid);
 		session.setAttribute("customer", customer);
-		session.setAttribute("id", id);
-		session.setAttribute("name", customer.getCname());
-		session.setAttribute("pw", pw);
-		response.sendRedirect("main.jsp?msg=success");
+		response.sendRedirect("../main/main.jsp?msg=success");
 	}else if(result==CustomerDao.FAIL){	
-		response.sendRedirect("login.jsp?msg=xx");
+		response.sendRedirect("loginForm.jsp?msg=xx");
 	}
 	%>
 </body>

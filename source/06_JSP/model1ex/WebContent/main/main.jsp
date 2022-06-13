@@ -9,7 +9,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
-	<link href="<%=conPath %>/css/style.css" rel="stylesheet">
+	<link href="<%=conPath %>/css/bstyle.css" rel="stylesheet">
 </head>
 <body>
 	<jsp:include page="../main/header.jsp"/>
@@ -56,7 +56,7 @@
 				if(i==currentPage){
 					out.println("[ <b>"+i+"</b> ]");
 				}else{
-					out.println("[ <a href='"+conPath+"/main/main.jsp?pageNum"+i+"'>"+i+"</a> ]");
+					out.println("[ <a href='"+conPath+"/main/main.jsp?pageNum="+i+"'>"+i+"</a> ]");
 				}
 			}
 			if(endPage<pageCnt){

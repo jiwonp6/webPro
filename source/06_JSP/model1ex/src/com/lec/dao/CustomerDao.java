@@ -79,8 +79,8 @@ public class CustomerDao {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, dto.getCid());
-			pstmt.setString(2, dto.getCname());
-			pstmt.setString(3, dto.getCpw());
+			pstmt.setString(2, dto.getCpw());
+			pstmt.setString(3, dto.getCname());
 			pstmt.setString(4, dto.getCtel());
 			pstmt.setString(5, dto.getCemail());
 			pstmt.setString(6, dto.getCaddress());
@@ -147,8 +147,8 @@ public class CustomerDao {
 				String caddress = rs.getString("caddress");
 				String cgender = rs.getString("cgender");
 				Date cbirth = rs.getDate("cbirth");
-				Timestamp rdate = rs.getTimestamp("rdate");
-				dto = new CustomerDto(cid, cpw, cname, ctel, cemail, caddress, cgender, cbirth, rdate);
+				Timestamp crdate = rs.getTimestamp("crdate");
+				dto = new CustomerDto(cid, cpw, cname, ctel, cemail, caddress, cgender, cbirth, crdate);
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());

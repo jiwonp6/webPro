@@ -17,9 +17,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
-	<link href="../css/style.css" rel="stylesheet">
+	<link href="<%=conPath %>/css/bstyle.css" rel="stylesheet">
 </head>
 <body>
+	<jsp:include page="../main/header.jsp"/>
 	<%	//한글 인코딩처리 - multipartRequest 객체 생성 - 첨부된 파일명 get - 그 외 파라미터에 입력된 정보 get - insert
 	request.setCharacterEncoding("utf-8");
 	String path = request.getRealPath("bookImg");
@@ -49,7 +50,7 @@
 			File serverFile = new File(path+"/"+img);
 			try{
 				is = new FileInputStream(serverFile);
-				os = new FileOutputStream("D:\\pjw\\webPro\\source\\06_JSP\\ch14_fileUp\\WebContent\\bookImg\\"+img);
+				os = new FileOutputStream("D:\\pjw\\webPro\\source\\model1ex\\WebContent\\bookImg\\"+img);
 				byte[] bs = new byte[(int)serverFile.length()];
 				while(true){
 					int readbyteCnt = is.read(bs);
@@ -96,9 +97,7 @@
 	<pre><%=bcontent %></pre>	<!-- enter까지 그대로 -->
 	<h3>책 가격 : <del><%=bprice %></del><%=bprice*(100-bdiscount)/100 %>원</h3>
 	<h3>할인율 : <%=bdiscount %>%</h3>
-	<a href = "ex3_list_board.jsp">책 전체 리스트(게시판 스타일)</a>
-	<a href = "ex3_list_boardp.jsp">책 리스트(paging 게시판 스타일)</a>
-	<a href = "ex3_list_product.jsp">책 전체 리스트(쇼핑몰 스타일)</a>
-	<a href = "ex3_list_productp.jsp">책 리스트(paging 쇼핑몰 스타일)</a>
+	<a href = "bookList.jsp">책 리스트(paging 쇼핑몰 스타일)</a>
+	<jsp:include page="../main/footer.jsp"/>
 </body>
 </html>

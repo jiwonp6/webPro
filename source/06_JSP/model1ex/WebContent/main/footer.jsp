@@ -10,6 +10,9 @@
 </head>
 <body>
 	<footer>
+		<div class="footer_h">
+			
+		</div>
 		<div class="office_logo">
 			<img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png">
 		</div>

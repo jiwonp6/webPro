@@ -6,10 +6,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
-	<link href="<%=conPath %>/서버프로그램평가/css/join.css" rel="stylesheet">
+	<link href="<%=conPath %>/css/join.css" rel="stylesheet">
 	<script>
 		function chk() {
-			if(frmJoin.pw.value!=frmJoin.pwChk.value){
+			if(frmJoin.cpw.value!=frmJoin.pwChk.value){
 				alert("비밀번호를 확인해주세요");
 				return false;
 			}
@@ -24,11 +24,11 @@
 		<table>
 			<tr>
 				<th>아이디</th>
-				<td><input type="text" id="id" name="id" class="id" required="required" autofocus="autofocus"></td>
+				<td><input type="text" id="cid" name="cid" class="cid" required="required" autofocus="autofocus"></td>
 			</tr>
 			<tr>
 				<th>비밀번호</th>
-				<td><input type="password" id="pw" name="pw" class="pw" required="required"></td>
+				<td><input type="password" id="cpw" name="cpw" class="pw" required="required"></td>
 			</tr>
 			<tr>
 				<th>비밀번호확인</th>
@@ -36,19 +36,19 @@
 			</tr>
 			<tr>
 				<th>이름</th>
-				<td><input type="text" id="name" name="name" class="name" required="required"></td>
+				<td><input type="text" id="cname" name="cname" class="name" required="required"></td>
 			</tr>
 			<tr>
 				<th>전화</th>
-				<td><input type="text" id="tel" name="tel" class="tel" required="required"></td>
+				<td><input type="text" id="ctel" name="ctel" class="tel" required="required"></td>
 			</tr>
 			<tr>
 				<th>이메일</th>
-				<td><input type="email" id="email" name="email" class="email" ></td>
+				<td><input type="email" id="cemail" name="cemail" class="email" ></td>
 			</tr>
 			<tr>
 				<th>주소</th>
-				<td><input type="text" id="address" name="address" class="address" ></td>
+				<td><input type="text" id="caddress" name="caddress" class="address" ></td>
 			</tr>
 			<tr>
 				<th>생년월일</th>
@@ -57,8 +57,8 @@
 			<tr>
 				<th>성별</th>
 				<td>
-					<input type="radio" id="gender" name="gender" value="m" checked="checked">남자
-					<input type="radio" id="gender" name="gender" value="w">여자
+					<input type="radio" id="cgender" name="cgender" value="m" checked="checked">남자
+					<input type="radio" id="cgender" name="cgender" value="w">여자
 				</td>
 			</tr>
 			<tr>

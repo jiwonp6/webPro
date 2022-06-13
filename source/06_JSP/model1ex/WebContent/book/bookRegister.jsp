@@ -6,10 +6,11 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
-	<link href="<%=conPath %>/css/style.css" rel="stylesheet">
+	<link href="<%=conPath %>/css/bstyle.css" rel="stylesheet">
 </head>
 <body>
-	<form action="ex2_bookRegisterPro.jsp" method="post" enctype="multipart/form-data">
+<jsp:include page="../main/header.jsp"></jsp:include>
+	<form action="bookRegisterPro.jsp" method="post" enctype="multipart/form-data">
 		<table>
 			<caption>책등록</caption>
 			<tr>
@@ -44,5 +45,6 @@
 			</tr>
 		</table>
 	</form>	
+<jsp:include page="../main/footer.jsp"></jsp:include>
 </body>
 </html>

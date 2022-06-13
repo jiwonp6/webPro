@@ -14,7 +14,7 @@
 	%>
 	<jsp:include page="../main/header.jsp"/>
 	<script>
-		location.href="main.jsp";
+		location.href="../main/main.jsp";
 	</script>
 	<jsp:include page="../main/footer.jsp"/>
 </body>

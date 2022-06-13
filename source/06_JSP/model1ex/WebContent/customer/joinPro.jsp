@@ -23,13 +23,14 @@
 	int result = cDao.confirmCid(dto.getCid());
 	if(result == CustomerDao.SUCCESS){	//아이디 중복X
 		result = cDao.insertCustomer(dto);	//회원가입
+		System.out.println(result);
 		if(result == CustomerDao.SUCCESS){
-			session.setAttribute("id", dto.getCid());
-			session.setAttribute("name", dto.getCname());
+			session.setAttribute("cid", dto.getCid());
+			session.setAttribute("cname", dto.getCname());
 			%>
 			<script>
 				alert('회원가입 감사합니다. 로그인 후 이용해 주세요');
-				location.href='login.jsp';
+				location.href='../customer/loginForm.jsp';
 			</script>
 			<%
 		}

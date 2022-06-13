@@ -8,9 +8,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
-	<link href="../css/style.css" rel="stylesheet">
+	<link href="../css/bstyle.css" rel="stylesheet">
 </head>
 <body>
+<jsp:include page="../main/header.jsp"/>
 	<%
 	int bid = Integer.parseInt(request.getParameter("bid"));
 	String pageNum = request.getParameter("pageNum");
@@ -44,7 +45,7 @@
 		<tr>
 			<td>
 				<button>구매</button>
-				<button onclick="location.href='ex3_list_productp.jsp?pageNum=<%=pageNum %>'">목록</button>
+				<button onclick="location.href='bookList.jsp?pageNum=<%=pageNum %>'">목록</button>
 			</td>
 		</tr>
 		<tr>
@@ -54,5 +55,6 @@
 			</td>
 		</tr>
 	</table>
+<jsp:include page="../main/footer.jsp"/>
 </body>
 </html>

@@ -17,8 +17,8 @@
 		%>
 			<ul>
 				<li><a href="<%=conPath%>/fileboard/fboardList.jsp">고객센터</a></li>
-				<li><a href="<%=conPath%>/joinForm.jsp">회원가입</a></li>
-				<li><a href="<%=conPath%>/loginForm.jsp">로그인</a></li>
+				<li><a href="<%=conPath%>/customer/joinForm.jsp">회원가입</a></li>
+				<li><a href="<%=conPath%>/customer/loginForm.jsp">로그인</a></li>
 			</ul>
 		<%
 		}else{
@@ -26,8 +26,8 @@
 			<ul>
 				<li><a href="#"><%=((CustomerDto)session.getAttribute("customer")).getCname() %></a></li>
 				<li><a href="<%=conPath%>/fileboard/fboardList.jsp">고객센터</a></li>
-				<li><a href="<%=conPath%>/logout.jsp">로그아웃</a></li>
-				<li><a href="<%=conPath%>/modifyForm.jsp">정보수정</a></li>
+				<li><a href="<%=conPath%>/customer/logout.jsp">로그아웃</a></li>
+				<li><a href="<%=conPath%>/customer/modifyForm.jsp">정보수정</a></li>
 			</ul>
 		<%
 		}
@@ -41,11 +41,11 @@
 				<%
 				if(session.getAttribute("customer")!=null){
 				%>
-					<li><a href="<%=conPath%>/book/bookList.jsp">도서보기</a></li>
+					<li><a href="<%=conPath%>/book/bookRegister.jsp">도서등록</a></li>
 				<%
 				}
 				%>
-				<li><a href="<%=conPath%>/book/bookRegister.jsp">도서등록</a></li>
+					<li><a href="<%=conPath%>/book/bookList.jsp">도서보기</a></li>
 			</ul>
 		</div>
 	</header>

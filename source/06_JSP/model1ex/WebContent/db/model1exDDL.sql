@@ -1,5 +1,5 @@
--- 테이블/시퀀스 drop & create
--- CUSTOMER 테이블
+-- ?��?���?/?��???�� drop & create
+-- CUSTOMER ?��?���?
 DROP TABLE CUSTOMER;
 CREATE TABLE CUSTOMER(
     cID VARCHAR2(50) PRIMARY KEY,
@@ -12,7 +12,7 @@ CREATE TABLE CUSTOMER(
     cBIRTH DATE NOT NULL,
     cRDATE DATE DEFAULT SYSDATE
 );
--- BOOK 테이블 & 시퀀스
+-- BOOK ?��?���? & ?��???��
 DROP TABLE BOOK;
 DROP SEQUENCE BOOK_SEQ;
 CREATE SEQUENCE BOOK_SEQ
@@ -20,16 +20,18 @@ CREATE SEQUENCE BOOK_SEQ
     NOCACHE
     NOCYCLE;
 CREATE TABLE BOOK(
-    bID NUMBER(5) PRIMARY KEY,  -- 책번호
-    bTITLE VARCHAR2(100) NOT NULL,   -- 책제목
-    bPRICE NUMBER(7) NOT NULL,  -- 책가격 
-    bIMAGE1 VARCHAR2(30),    -- 책 대표 이미지(첨부안할경우 : noImg.png)
-    bIMAGE2 VARCHAR2(30),    -- 책 부가 이미지(첨부안할경우 : NOTHING.JPG)
-    bCONTENT VARCHAR2(4000),    -- 책 설명(한글 1,333글자 이내)
-    bDISCOUNT NUMBER(3) NOT NULL,    -- 할인율(0~100% 이내) 지원이는 바보다 지원이는 몽총이다 이만.G1G1
-    bRDATE DATE DEFAULT SYSDATE     -- 책 등록일
+    bID NUMBER(5) PRIMARY KEY,  -- 책번?��
+    bTITLE VARCHAR2(100) NOT NULL,   -- 책제�?
+    bPRICE NUMBER(7) NOT NULL,  -- 책�?�? 
+    bIMAGE1 VARCHAR2(30),    -- �? ???�� ?��미�?(첨�??��?��경우 : noImg.png)
+    bIMAGE2 VARCHAR2(30),    -- �? �?�? ?��미�?(첨�??��?��경우 : NOTHING.JPG)
+    bCONTENT VARCHAR2(4000),    -- �? ?���?(?���? 1,333�??�� ?��?��)
+    bDISCOUNT NUMBER(3) NOT NULL,    -- ?��?��?��(0~100% ?��?��) �??��?��?�� 바보?�� �??��?��?�� 몽총?��?�� ?���?.G1G1
+    bRDATE DATE DEFAULT SYSDATE     -- �? ?��록일
 );
--- FILEBOARD 테이블 & 시퀀스
+select * from book;
+select * from customer;
+-- FILEBOARD ?��?���? & ?��???��
 DROP SEQUENCE FILEBOARD_SEQ;
 CREATE SEQUENCE FILEBOARD_SEQ
     MAXVALUE 9999999
@@ -37,17 +39,17 @@ CREATE SEQUENCE FILEBOARD_SEQ
     NOCYCLE;
 DROP TABLE FILEBOARD;
 CREATE TABLE FILEBOARD(
-    fNUM NUMBER(7) PRIMARY KEY, -- 글번호
-    cID VARCHAR2(50) REFERENCES CUSTOMER(cID),  -- 작성자 ID
-    fSUBJECT VARCHAR2(250) NOT NULL,    -- 글 제목
+    fNUM NUMBER(7) PRIMARY KEY, -- �?번호
+    cID VARCHAR2(50) REFERENCES CUSTOMER(cID),  -- ?��?��?�� ID
+    fSUBJECT VARCHAR2(250) NOT NULL,    -- �? ?���?
     fCONTENT VARCHAR2(4000),    -- 본문
-    fFILENAME VARCHAR2(50), -- 첨부파일명
+    fFILENAME VARCHAR2(50), -- 첨�??��?���?
     fPW VARCHAR2(50) NOT NULL,  -- 비번
-    fHIT NUMBER(7) DEFAULT 0 NOT NULL,    -- 조회수
-    fREF NUMBER(7) NOT NULL,    -- 글 그룹
-    fRE_STEP NUMBER(7) NOT NULL,    -- 그룹내 출력순서
-    fRE_LEVEL NUMBER(7) NOT NULL,   -- 들여쓰기 정도
-    fIP VARCHAR2(50) NOT NULL,  -- 글쓴 컴퓨터 IP
-    fRDATE DATE DEFAULT SYSDATE NOT NULL-- 글 등록 시점
+    fHIT NUMBER(7) DEFAULT 0 NOT NULL,    -- 조회?��
+    fREF NUMBER(7) NOT NULL,    -- �? 그룹
+    fRE_STEP NUMBER(7) NOT NULL,    -- 그룹?�� 출력?��?��
+    fRE_LEVEL NUMBER(7) NOT NULL,   -- ?��?��?���? ?��?��
+    fIP VARCHAR2(50) NOT NULL,  -- �??�� 컴퓨?�� IP
+    fRDATE DATE DEFAULT SYSDATE NOT NULL-- �? ?���? ?��?��
 );
 COMMIT;

@@ -12,11 +12,11 @@ public class CustomerDto {
 	private String caddress;
 	private String cgender;
 	private Date cbirth;
-	private Timestamp rdate;
+	private Timestamp crdate;
 	//생성자
 	public CustomerDto() { }	//빈태그 사용하기 위해
 	public CustomerDto(String cid, String cpw, String cname, String ctel, String cemail, String caddress,
-			String cgender, Date cbirth, Timestamp rdate) {
+			String cgender, Date cbirth, Timestamp crdate) {
 		this.cid = cid;
 		this.cpw = cpw;
 		this.cname = cname;
@@ -25,7 +25,7 @@ public class CustomerDto {
 		this.caddress = caddress;
 		this.cgender = cgender;
 		this.cbirth = cbirth;
-		this.rdate = rdate;
+		this.crdate = crdate;
 	}
 	//setter&getter
 	public synchronized String getCid() {
@@ -77,15 +77,15 @@ public class CustomerDto {
 		this.cbirth = cbirth;
 	}
 	public synchronized Timestamp getRdate() {
-		return rdate;
+		return crdate;
 	}
 	public synchronized void setRdate(Timestamp rdate) {
-		this.rdate = rdate;
+		this.crdate = rdate;
 	}
 	//toString - 에러확인차 사용
 	@Override
 	public String toString() {
 		return "CustomerDto [cid=" + cid + ", cpw=" + cpw + ", cname=" + cname + ", ctel=" + ctel + ", cemail=" + cemail
-				+ ", caddress=" + caddress + ", cgender=" + cgender + ", cbirth=" + cbirth + ", rdate=" + rdate + "]";
+				+ ", caddress=" + caddress + ", cgender=" + cgender + ", cbirth=" + cbirth + ", crdate=" + crdate + "]";
 	}
 }

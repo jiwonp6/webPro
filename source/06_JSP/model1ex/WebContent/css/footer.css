@@ -16,6 +16,10 @@ footer div.office_address ul li{
 	font-size: 0.8em;
 	list-style: none;
 }
+footer div.footer_h{
+	width:1000px;
+	height:30px;
+}
 footer div.copyright{
 	clear: both;
 	border: 0;

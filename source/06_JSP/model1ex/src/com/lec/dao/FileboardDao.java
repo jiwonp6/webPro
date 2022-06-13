@@ -125,7 +125,7 @@ public class FileboardDao {
 			pstmt.setString(5, dto.getFpw());
 			pstmt.setString(6, dto.getFip());
 			result = pstmt.executeUpdate();
-			System.out.println("원글쓰기성공");
+			System.out.println("원글쓰기성공 : " + dto);
 		} catch (SQLException e) {
 			System.out.println(e.getMessage()+"원글쓰기실패 : "+dto);
 		} finally {
@@ -201,7 +201,7 @@ public class FileboardDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT * FROM FILEBOARD WHERE FNUM = ?";
+		String sql = "SELECT F.*, CNAME, CEMAIL FROM FILEBOARD F, CUSTOMER C WHERE F.CID = C.CID AND FNUM=?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -264,10 +264,10 @@ public class FileboardDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = " UPDATE FILEBOARD" + 
-				"        SET FSUBJECT = ?" + 
-				"            FCONTENT = ?" + 
-				"            FFILENAME = ?" + 
-				"            FPW = ?" + 
+				"        SET FSUBJECT = ?," + 
+				"            FCONTENT = ?," + 
+				"            FFILENAME = ?," + 
+				"            FPW = ?," + 
 				"            FIP = ?" + 
 				"        WHERE FNUM = ?";
 		try {
