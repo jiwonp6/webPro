@@ -31,7 +31,7 @@
 		<form action="fboardUpdatePro.jsp" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="fnum" value="<%=fnum%>"> 
 			<input type="hidden" name="pageNum" value="<%=pageNum%>">
-			<input type="hidden" name="dbfilename" value="<%=dto.getFfilename()%>">
+			<input type="hidden" name="dbfilename" value="<%=dto.getFfilename()==null ? "":dto.getFfilename()%>">
 			<table>
 				<caption><%=fnum%>번 글 수정</caption>
 				<tr>
