@@ -7,56 +7,57 @@ CREATE SEQUENCE BOARD_SEQ
 DROP TABLE BOARD;
 CREATE TABLE BOARD (
     bID NUMBER(6) PRIMARY KEY,
-    bNAME VARCHAR2(50) NOT NULL,    --ÀÛ¼ºÀÚ ÀÌ¸§
+    bNAME VARCHAR2(50) NOT NULL,    --ï¿½Û¼ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
     bTITLE VARCHAR2(100) NOT NULL,
     bCONTENT VARCHAR2(1000),
-    bDATE DATE DEFAULT SYSDATE NOT NULL,    -- ÀÛ¼º½ÃÁ¡
-    bHIT NUMBER(6) DEFAULT 0 NOT NULL,  -- Á¶È¸¼ö
-    bGROUP NUMBER(6) NOT NULL,  -- ±Û ±×·ì
-    bSTEP NUMBER(6) NOT NULL,   -- ±Û ±×·ì³» Ãâ·Â ¼ø¼­
-    bINDENT NUMBER(6) NOT NULL, -- µé¿©¾²±â
+    bDATE DATE DEFAULT SYSDATE NOT NULL,    -- ï¿½Û¼ï¿½ï¿½ï¿½ï¿½ï¿½
+    bHIT NUMBER(6) DEFAULT 0 NOT NULL,  -- ï¿½ï¿½È¸ï¿½ï¿½
+    bGROUP NUMBER(6) NOT NULL,  -- ï¿½ï¿½ ï¿½×·ï¿½
+    bSTEP NUMBER(6) NOT NULL,   -- ï¿½ï¿½ ï¿½×·ì³» ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    bINDENT NUMBER(6) NOT NULL, -- ï¿½é¿©ï¿½ï¿½ï¿½ï¿½
     bIP VARCHAR2(20) NOT NULL
 );
 -- DUMMY DATA
 SELECT * FROM BOARD;
 INSERT INTO BOARD (bID, bNAME, bTITLE, bCONTENT, bGROUP, bSTEP, bINDENT, bIP)
-    VALUES (BOARD_SEQ.NEXTVAL, '¹Ú¹Ú¹Ú', '±Û1', '-', BOARD_SEQ.CURRVAL, 0, 0, '192.168.10.30');
+    VALUES (BOARD_SEQ.NEXTVAL, 'ï¿½Ú¹Ú¹ï¿½', 'ï¿½ï¿½1', '-', BOARD_SEQ.CURRVAL, 0, 0, '192.168.10.30');
 INSERT INTO BOARD (bID, bNAME, bTITLE, bCONTENT, bGROUP, bSTEP, bINDENT, bIP)
-    VALUES (BOARD_SEQ.NEXTVAL, '½Å½Å½Å', '±Û2', '-', BOARD_SEQ.CURRVAL, 0, 0, '192.168.10.30');
+    VALUES (BOARD_SEQ.NEXTVAL, 'ï¿½Å½Å½ï¿½', 'ï¿½ï¿½2', '-', BOARD_SEQ.CURRVAL, 0, 0, '192.168.10.30');
 SELECT * FROM BOARD
     ORDER BY bGROUP DESC, BSTEP;
 INSERT INTO BOARD (bID, bNAME, bTITLE, bCONTENT, bGROUP, bSTEP, bINDENT, bIP)
-    VALUES (BOARD_SEQ.NEXTVAL, '´ä´ä´ä', '±Û1-1', '´ä±ÛÀÓ', 1, 1, 1, '192.168.10.30');
--- DAO¿¡ µé¾î°¥ QUERY
--- ±Û¸ñ·Ï (startRow ~ endRow)
-SELECT * FROM BOARD ORDER BY BGROUP DESC, BSTEP;    -- ±Û Ãâ·Â ¼ø¼­
+    VALUES (BOARD_SEQ.NEXTVAL, 'ï¿½ï¿½ï¿½ï¿½', 'ï¿½ï¿½1-1', 'ï¿½ï¿½ï¿½ï¿½ï¿½', 1, 1, 1, '192.168.10.30');
+-- DAOï¿½ï¿½ ï¿½ï¿½î°¥ QUERY
+-- ï¿½Û¸ï¿½ï¿½ (startRow ~ endRow)
+SELECT * FROM BOARD ORDER BY BGROUP DESC, BSTEP;    -- ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 SELECT *
-    FROM (ROWNUM RN, A.* FROM (SELECT * FROM BOARD ORDER BY BGROUP DESC, BSTEP) A)
+    FROM (select ROWNUM RN, A.* FROM (SELECT * FROM BOARD ORDER BY BGROUP DESC, BSTEP) A)
     WHERE RN BETWEEN 2 AND 3;
             
--- ÀüÃ¼ ±Û °³¼ö
+-- ï¿½ï¿½Ã¼ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 SELECT COUNT(*) CNT FROM BOARD;
--- ¿ø±Û¾²±â
+-- ï¿½ï¿½ï¿½Û¾ï¿½ï¿½ï¿½
 INSERT INTO BOARD (bID, bNAME, bTITLE, bCONTENT, bGROUP, bSTEP, bINDENT, bIP)
-    VALUES (BOARD_SEQ.NEXTVAL, '¹Ú¹Ú¹Ú', '±Û1', '-', BOARD_SEQ.CURRVAL, 0, 0, '192.168.10.30');
--- bID·Î Á¶È¸¼ö ¿Ã¸®±â
+    VALUES (BOARD_SEQ.NEXTVAL, 'ï¿½Ú¹Ú¹ï¿½', 'ï¿½ï¿½1', '-', BOARD_SEQ.CURRVAL, 0, 0, '192.168.10.30');
+-- bIDï¿½ï¿½ ï¿½ï¿½È¸ï¿½ï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½
 UPDATE BOARD
     SET bHIT = bHIT+1
     WHERE bID ='1';
--- ±Û »ó¼¼º¸±â(bID·Î DTO°¡Á®¿À±â)
+-- ï¿½ï¿½ ï¿½ó¼¼ºï¿½ï¿½ï¿½(bIDï¿½ï¿½ DTOï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 SELECT * FROM BOARD WHERE bID='1';
--- ´äº¯±Û ¾²±âÀü STEP A (±âÁ¸ÀÇ ´äº¯±ÛÀÇ Ãâ·Â ¼ø¼­¸¦ +1)  : 1¹ø±ÛÀÇ ´äº¯±Û ¾µ ¿¹Á¤
-SELECT * FROM BOARD WHERE bGROUP = 1;   -- 1¹ø ±Û GROUP Ãâ·Â
+-- ï¿½äº¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ STEP A (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½äº¯ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ +1)  : 1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½äº¯ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+SELECT * FROM BOARD WHERE bGROUP = 1;   -- 1ï¿½ï¿½ ï¿½ï¿½ GROUP ï¿½ï¿½ï¿½
 UPDATE BOARD SET bSTEP = bSTEP+1 WHERE BGROUP=1 AND BSTEP>0;
--- ´äº¯±Û ¾²±â
+-- ï¿½äº¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 INSERT INTO BOARD (BID, BNAME, BTITLE, BCONTENT, BGROUP, BSTEP, BINDENT, BIP)
-    VALUES (BOARD_SEQ.NEXTVAL, '¹Ú´ä', '±Û1-2', NULL, 1, 1, 1, '127.0.0.1');
--- ±Û ¼öÁ¤
+    VALUES (BOARD_SEQ.NEXTVAL, 'ï¿½Ú´ï¿½', 'ï¿½ï¿½1-2', NULL, 1, 1, 1, '127.0.0.1');
+-- ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 UPDATE BOARD 
-    SET BNAME ='°­°­°­',
-        BTITLE ='¼öÁ¤±Û',
-        BCONTENT = '¼öÁ¤µÈº»¹®',
+    SET BNAME ='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+        BTITLE ='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+        BCONTENT = 'ï¿½ï¿½ï¿½ï¿½ï¿½Èºï¿½ï¿½ï¿½',
         BIP = '192.1.1.1'
     WHERE BID=2;
--- ±Û »èÁ¦
+-- ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 DELETE FROM BOARD WHERE BID=2;
+commit;

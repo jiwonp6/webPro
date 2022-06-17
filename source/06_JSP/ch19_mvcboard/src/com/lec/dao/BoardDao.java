@@ -14,7 +14,6 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 import com.lec.dto.BoardDto;
-import com.lec.dto.MemberDto;
 
 public class BoardDao {
 	public static final int SUCCESS = 1; // 회원가입시
@@ -40,7 +39,7 @@ public class BoardDao {
 		PreparedStatement pstmt = null;
 		ResultSet         rs    = null;
 		String sql = "SELECT *" + 
-				"    FROM (ROWNUM RN, A.* FROM (SELECT * FROM BOARD ORDER BY BGROUP DESC, BSTEP) A)" + 
+				"    FROM (SELECT ROWNUM RN, A.* FROM (SELECT * FROM BOARD ORDER BY BGROUP DESC, BSTEP) A)" + 
 				"    WHERE RN BETWEEN ? AND ?";
 		try {
 			conn = ds.getConnection();
@@ -53,7 +52,7 @@ public class BoardDao {
 				String bname  = rs.getString("bname");
 				String btitle  = rs.getString("btitle");
 				String bcontent  = rs.getString("bcontent");
-				Date bdate   = rs.getDate("bdate");
+				Timestamp bdate   = rs.getTimestamp("bdate");
 				int bhit    = rs.getInt("bhit");
 				int bgroup    = rs.getInt("bgroup");
 				int bstep    = rs.getInt("bstep");
@@ -166,7 +165,7 @@ public class BoardDao {
 				String bname  = rs.getString("bname");
 				String btitle  = rs.getString("btitle");
 				String bcontent  = rs.getString("bcontent");
-				Date bdate   = rs.getDate("bdate");
+				Timestamp bdate   = rs.getTimestamp("bdate");
 				int bhit    = rs.getInt("bhit");
 				int bgroup    = rs.getInt("bgroup");
 				int bstep    = rs.getInt("bstep");
@@ -184,6 +183,7 @@ public class BoardDao {
 			}catch (SQLException e) {
 				// TODO: handle exception
 			}
+		}
 		return dto;
 	}
 	//bid로 dto가져오기 = 수정하기 + 답변글 쓰기(form, 조회수올리기 미포함)
@@ -203,7 +203,7 @@ public class BoardDao {
 					String bname  = rs.getString("bname");
 					String btitle  = rs.getString("btitle");
 					String bcontent  = rs.getString("bcontent");
-					Date bdate   = rs.getDate("bdate");
+					Timestamp bdate   = rs.getTimestamp("bdate");
 					int bhit    = rs.getInt("bhit");
 					int bgroup    = rs.getInt("bgroup");
 					int bstep    = rs.getInt("bstep");
@@ -221,6 +221,7 @@ public class BoardDao {
 				}catch (SQLException e) {
 					// TODO: handle exception
 				}
+			}
 			return dto;
 		}
 	//답변글 쓰기 전 step a
@@ -296,7 +297,7 @@ public class BoardDao {
 			pstmt.setString(3, bcontent);
 			pstmt.setString(4, bip);
 			pstmt.setInt(5, bid);
-			pstmt.executeUpdate();
+			result = pstmt.executeUpdate();
 		}catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}finally {
@@ -319,7 +320,7 @@ public class BoardDao {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, bid);
-			pstmt.executeUpdate();
+			result = pstmt.executeUpdate();
 		}catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}finally {

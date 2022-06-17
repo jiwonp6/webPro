@@ -1,20 +1,20 @@
 package com.lec.dto;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 public class BoardDto {
 	private int bid;
 	private String bname;
 	private String btitle;
 	private String bcontent;
-	private Date bdate;
+	private Timestamp bdate;
 	private int bhit;
 	private int bgroup;
 	private int bstep;
 	private int bindent;
 	private String bip;
 	public BoardDto() {	}
-	public BoardDto(int bid, String bname, String btitle, String bcontent, Date bdate, int bhit, int bgroup, int bstep,
+	public BoardDto(int bid, String bname, String btitle, String bcontent, Timestamp bdate, int bhit, int bgroup, int bstep,
 			int bindent, String bip) {
 		this.bid = bid;
 		this.bname = bname;
@@ -51,10 +51,10 @@ public class BoardDto {
 	public void setBcontent(String bcontent) {
 		this.bcontent = bcontent;
 	}
-	public Date getBdate() {
+	public Timestamp getBdate() {
 		return bdate;
 	}
-	public void setBdate(Date bdate) {
+	public void setBdate(Timestamp bdate) {
 		this.bdate = bdate;
 	}
 	public int getBhit() {
