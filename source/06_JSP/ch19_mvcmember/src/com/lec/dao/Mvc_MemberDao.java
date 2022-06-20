@@ -17,6 +17,8 @@ import com.lec.dto.Mvc_MemberDto;
 public class Mvc_MemberDao {
 	public final static int SUCCESS = 1;
 	public final static int FAIL = 0;
+	public final static int NONEXISTENT = 1;
+	public final static int EXISTENT = 0;
 	private DataSource ds;	//null값으로 초기화 돼있음
 	// 싱글톤
 	private static Mvc_MemberDao instance = new Mvc_MemberDao();
@@ -49,6 +51,7 @@ public class Mvc_MemberDao {
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
+			
 		} finally {
 			try {
 				if(rs   !=null) rs.close();
@@ -80,6 +83,7 @@ public class Mvc_MemberDao {
 				Date mrdate = rs.getDate("mrdate");
 				dto = new Mvc_MemberDto(mid, mpw, mname, memail, mphoto, mbirth, maddress, mrdate);
 			}
+			System.out.println("id로 가져온 dto : "+dto);
 		}catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}finally {
@@ -93,7 +97,7 @@ public class Mvc_MemberDao {
 	}
 	//(3)회원 ID 중복체크
 	public int IdChk(String mid) {
-		int result = FAIL;
+		int result = EXISTENT;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -103,8 +107,8 @@ public class Mvc_MemberDao {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, mid);
 			rs = pstmt.executeQuery();
-			if(rs.next()) {
-				result = SUCCESS;
+			if(!rs.next()) {
+				result = NONEXISTENT;
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -180,13 +184,13 @@ public class Mvc_MemberDao {
 		return result;
 	}
 	//(6)회원리스트(TOP-N구문)
-	public ArrayList<Mvc_MemberDto> listBoard(int startRow, int endRow){
+	public ArrayList<Mvc_MemberDto> listMember(int startRow, int endRow){
 		ArrayList<Mvc_MemberDto> dtos = new ArrayList<Mvc_MemberDto>();
 		Connection        conn  = null;
 		PreparedStatement pstmt = null;
 		ResultSet         rs    = null;
 		String sql = "SELECT *" + 
-				"    FROM (SELECT ROWNUM RN, A.* FROM (SELECT mID, mNAME, mPHOTO FROM MVC_MEMBER ORDER BY mRDATE DESC) A)" + 
+				"    FROM (SELECT ROWNUM RN, A.* FROM (SELECT * FROM MVC_MEMBER ORDER BY mRDATE DESC) A)" + 
 				"    WHERE RN BETWEEN ? AND ?";
 		try {
 			conn = ds.getConnection();
@@ -239,5 +243,26 @@ public class Mvc_MemberDao {
 			}catch (SQLException e) {}
 		}
 		return totalCnt;
+	}
+	//회원탈퇴
+	public int delete(String mid) {
+		int result = FAIL;
+		Connection        conn  = null;
+		PreparedStatement pstmt = null;
+		String sql = "DELETE FROM MVC_MEMBER WHERE mid=?";
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mid);
+			result = pstmt.executeUpdate();
+		}catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}finally {
+			try {
+				if(pstmt!=null) pstmt.close();
+				if(conn!=null)  conn.close();
+			}catch (SQLException e) {}
+		}
+		return result;
 	}
 }

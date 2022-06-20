@@ -36,10 +36,11 @@
 				<td><input type="date" name="birth"></td>
 			</tr>
 			<tr>
-				<td colspan="2"><input type="button" value="회원가입"
-					onclick="infoConfirm()"> <input type="reset" value="초기화">
-					<input type="button" value="회원목록"
-					onclick="location='${conPath}/memberList.do'"></td>
+				<td colspan="2">
+					<input type="button" value="회원가입"	onclick="infoConfirm()"> 
+					<input type="reset" value="초기화">
+					<input type="button" value="회원목록" onclick="location='${conPath}/memberList.do'">
+				</td>
 			</tr>
 		</table>
 	</form>

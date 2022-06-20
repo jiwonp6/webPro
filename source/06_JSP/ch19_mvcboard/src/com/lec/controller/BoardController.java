@@ -86,5 +86,4 @@ public class BoardController extends HttpServlet {
 		RequestDispatcher dp = request.getRequestDispatcher(viewPage);
 		dp.forward(request, response);
 	}
-
 }
