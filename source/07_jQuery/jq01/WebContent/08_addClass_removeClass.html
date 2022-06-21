@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script	 src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<style>
+		table td{
+			width:100px;
+			height:100px;
+			background-color:#AAFFAA;
+		}
+		.tdRed{
+			background-color:red;
+		}
+	</style>
+	<script>
+		$(document).ready(function(){
+			$('td').click(function(){	/* = $('td').on('click', function(){ */
+				$('td').removeClass('tdRed');	//모든 td들 #AAFFAA(연두)색으로 원상 복구
+				$(this).addClass('tdRed');	//클릭한 것만 red로
+				var no = $(this).attr('id');
+				alert(no+'번째를 선택하셨군');
+			});
+		});
+	</script>
+</head>
+<body>
+	<table>
+		<tr>
+			<td id="0"></td>
+			<td id="1"></td>
+		</tr>
+		<tr>
+			<td id="2"></td>
+			<td id="3"></td>
+		</tr>
+	</table>
+</body>
+</html>

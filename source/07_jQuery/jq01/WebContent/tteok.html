@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<style>
+	table td {
+		width: 100px;
+		height: 100px;
+		background-color: #AAFFAA;
+	}
+	.tdRed {
+		background-color: red;
+	}
+	.tdDduk{
+		background-image: url( "img/tteok.jpg" );
+		background-size: contain;
+	}
+	</style>
+	<script>
+		$(document).ready(function() {
+			tteokIdx = parseInt(Math.random()*9);
+			$('td').each(function(idx, item) {
+				$(this).click(function() {
+					if(idx==tteokIdx){
+						$('td').removeClass('tdTteok');
+						$('td').removeClass('tdRed');
+						$(this).addClass('tdTteok');
+						$('.result').text('축하축하');
+						$('input[name="result"]').val('축하축하');
+						result = $('input[name="result"]').val();
+					}else{
+						$('td').removeClass('tdRed');
+						$('td').removeClass('tdTteok');
+						$(this).addClass('tdRed');
+						$('.result').text('땡땡 틀렸어요! 사실은'+(tteokIdx+1)+'번');
+						$('input[name="result"]').val('땡땡 틀렸어요! 사실은'+(tteokIdx+1)+'번');
+						result = $('input[name="result"]').val();
+					}
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+	<table>
+		<caption>떡이 있는 곳을 맞춰라!</caption>
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td>5</td>
+			<td>6</td>
+		</tr>
+		<tr>
+			<td>7</td>
+			<td>8</td>
+			<td>9</td>
+		</tr>
+	</table>
+	<p class="result">선택한 곳이 맞는지 답뿌리는 곳</p>
+	<p><input type="text" name="result" value="선택한 곳이 맞는지 답뿌리는 곳"></p>
+</html>

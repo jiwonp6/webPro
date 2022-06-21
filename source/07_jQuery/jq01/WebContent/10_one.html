@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script	 src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('h1').one('click', function(){
+				$(this).append('<b>♡</b>').prepend('<b>♥</b>').css('color','green');
+			});
+		});
+		/*
+		= $(document).ready(function(){
+			$('h1').click(function(){
+				$(this).append('<b>♡</b>').prepend('<b>♥</b>').css('color','green');
+				$(this).off();
+			});
+		}); */
+	</script>
+</head>
+<body>
+	<h1>NCT지성이 좋아요는 한번만</h1>
+	<h1>NCT제노가 좋아요는 한번만</h1>
+</body>
+</html>

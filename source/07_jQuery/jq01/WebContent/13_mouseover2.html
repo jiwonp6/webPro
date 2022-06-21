@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script	 src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			var outImg = ["img/0out.jpg", "img/1out.jpg", "img/2out.jpg", "img/3out.jpg", ];	//배열로 갖고 옴
+			var overImg = ["img/0over.jpg", "img/1over.jpg", "img/2over.jpg", "img/3over.jpg", ];
+			$('img').each(function(idx, item){
+				$(this).mouseover(function(){
+					$(this).attr('src', 'img/'+idx+'over.jpg');
+				});
+				$(this).mouseout(function(){
+					$(this).attr('src', 'img/'+idx+'out.jpg');
+				});
+			});//img.each
+		});//document.ready
+	</script>
+</head>
+<body>
+	<img src="img/0out.jpg">
+	<img src="img/1out.jpg">
+	<img src="img/2out.jpg">
+	<img src="img/3out.jpg">
+</body>
+</html>
