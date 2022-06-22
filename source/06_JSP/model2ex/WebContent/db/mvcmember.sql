@@ -52,7 +52,6 @@ SELECT * FROM MVC_MEMBER WHERE MID = 'aaa' AND MPW = '1';
 SELECT * FROM MVC_MEMBER WHERE MID = 'aaa';
 -- (3)회원 ID 중복체크
 SELECT mID FROM MVC_MEMBER WHERE MID='aaa';
-SELECT memail FROM MVC_MEMBER WHERE Memail='park@park.com';
 -- (4)회원가입
 INSERT INTO MVC_MEMBER (mID, mPW, mNAME, mEMAIL, mPHOTO, mBIRTH, mADDRESS) 
     VALUES ('aaa', '1', '박박박', 'park@park.com', 'NOIMG.JPG', '1988-08-08', '서울 강남구');

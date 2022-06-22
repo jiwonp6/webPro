@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script	 src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('input#mid').keyup(function(){
+				var mid = $('input#mid').val();
+				//$.post(요청경로, 요청파라미터들, callback)
+				$.post('idConfirm.jsp', 	//post방식이라 url만 침(파라미터값은 따로)
+						{mid : mid}, 
+						function(data, status){
+							if(status == 'success'){
+								$('#result').html(data);
+							}
+						});	
+				
+			});//key up할 때마다 나타나도록
+		});
+	</script>
+</head>
+<body>
+	<p>
+		아이디<input type="text" name="mid" id="mid"> <button>중복체크</button>
+	</p>
+	<span id="result"></span>
+</body>
+</html>

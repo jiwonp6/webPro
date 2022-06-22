@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style>
+		table{
+			border-collapse : collapse;
+		}
+		tr{
+			border-bottom : 1px solid blue;
+		}
+	</style>
+	<script	 src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$.ajax({
+				url : 'ex.json', 	//->'http://www.kbo.co.kr/ddd/dddd.json'
+				dataType : 'json',
+				success : function(data){
+					out = '<tr><th>ID</th><th>NAME</th><th>PRICE</th><th>description</th></tr>';
+					$.each(data, function(idx, item){
+						out +='<tr><td>'+item.id+'</td><td>'+item.name+'</td><td>'+item.price+'</td><td>'+item.description+'</td></tr>';
+					});
+					$('#dataShow').html(out);
+				}
+			});
+			//=> data = [{name:'레몬'},{name:'키위'}, ...]
+		});
+	</script>
+</head>
+<body>
+	<table id="dataShow">
+		
+	</table>
+</body>
+</html>
