@@ -1,4 +1,3 @@
-<%@page import="com.lec.dao.FileBoardDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -12,16 +11,25 @@
 	<link href="${conPath }/css/style.css" rel="stylesheet">
 </head>
 <body>
-	<%
-		FileBoardDao dao = FileBoardDao.getInstance();
-		for (int i=0; i<60; i++){
-			String bname="강강강"+i;
-			String btitle = "글제목"+i;
-			String bcontent = "글본문";
-			String bip = "129.16.126."+i;
-			dao.write(bname, btitle, bcontent, bip);
-		}
-		response.sendRedirect("../list.do");
-	%>
+	<table>
+		<caption>회원탈퇴</caption>
+		<tr>
+			<th>아이디</th>
+			<td>
+				<input type="text" name="mid" value="${member.mid }">
+			</td>
+		</tr>
+		<tr>
+			<th>비번</th>
+			<td>
+				<input type="text" name="mpw" >
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="button" value="회원탈퇴" onclick="location='${conPath}/mdelete.do'">
+			</td>
+		</tr>
+	</table>
 </body>
 </html>
