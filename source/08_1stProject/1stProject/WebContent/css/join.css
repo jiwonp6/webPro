@@ -1,0 +1,34 @@
+@charset "UTF-8";
+#content_form{
+	margin: 0 auto;
+	
+}
+table{
+	margin: 0 auto;
+}
+fieldset {
+	width:800px;
+	margin: 0 auto;
+}
+div.wrap{
+	width:250px;
+	margin: 0 auto;
+}
+div#idConfirmResult,
+div#pwChkResult,
+div#emailConfirmResult{
+	font-size:13px;
+	text-align: left;
+}
+p{
+	height:30px;
+	font-size:13px;
+	text-align: left;
+}
+p.textpool{
+	height:100px;
+	overflow: auto;
+}
+p.agree{
+	text-align: right;
+}

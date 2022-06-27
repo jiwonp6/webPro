@@ -1,0 +1,10 @@
+@charset "UTF-8";
+div.wrap{
+	width:250px;
+	margin: 0 auto;
+}
+p{
+	height:30px;
+	font-size:13px;
+	text-align: left;
+}
