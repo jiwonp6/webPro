@@ -97,27 +97,30 @@
 						<fieldset>
 							<legend>회원가입</legend>
 							<div class="wrap">
-								<p>아이디*</p>
+								<p class="id"> 아이디*</p>
 								<p><input type="text" name="mId" required="required" 
-										placeholder="아이디를 입력해주세요" style="width:250px; height:20px; font-size:12px; "></p>
-								<div id="idConfirmResult">&nbsp;</div>
-								<p>비밀번호*</p>
+										placeholder="아이디를 입력해주세요" 
+										style="width:300px; height:40px; font-size:12px; border:0.5px solid lightgray;"></p>
+								<div id="idConfirmResult">&nbsp; &nbsp;</div>
+								<p class="id"> 비밀번호*</p>
 								<p><input type="password" name="mPw" required="required"
-										placeholder="비밀번호를 입력해주세요" style="width:250px; height:20px; font-size:12px; "></p>
-								<p>비밀번호*</p>
+										placeholder="비밀번호를 입력해주세요" 
+										style="width:300px; height:40px; font-size:12px; border:0.5px solid lightgray;"></p>
+								<p class="id"> 비밀번호확인 *</p>
 								<p><input type="password" name="mPwChk" required="required"
-										placeholder="비밀번호 확인을 위해 입력해주세요" style="width:250px; height:20px; font-size:12px; "></p>
-								<div id="pwChkResult">&nbsp;</div>
-								<p>이름*</p>
+										placeholder="비밀번호 확인을 위해 입력해주세요" 
+										style="width:300px; height:40px; font-size:12px; border:0.5px solid lightgray;"></p>
+								<div id="pwChkResult">&nbsp; &nbsp;</div>
+								<p class="id"> 이름*</p>
 								<p><input type="text" name="mName" required="required"
-										style="width:250px; height:20px; font-size:12px; "></p>
-								<p>생년월일</p>
+										style="width:300px; height:40px; font-size:12px; border:0.5px solid lightgray;"></p>
+								<p class="id"> 생년월일</p>
 								<p><input type="text" name="mBirth" id="mBirth"
-										style="width:250px; height:20px; font-size:12px; "></p>
-								<p>메일*</p>
+										style="width:300px; height:40px; font-size:12px; border:0.5px solid lightgray;"></p>
+								<p class="id"> 메일*</p>
 								<p><input type="email" name="mEmail"
-										style="width:250px; height:20px; font-size:12px; "></p>
-								<div id="emailConfirmResult">&nbsp;</div>
+										style="width:300px; height:40px; font-size:12px; border:0.5px solid lightgray;"></p>
+								<div id="emailConfirmResult">&nbsp; &nbsp;</div>
 							</div>
 						</fieldset>
 					</td>
@@ -133,7 +136,7 @@
 								Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 							</p>
 							<br>							
-							<p class="agree">동의함<input type="checkbox" required="required" ></p>
+							<p class="agree">동의함<input type="checkbox" required="required" > &nbsp; &nbsp; </p>
 						</fieldset>
 					</td>
 				</tr>
@@ -149,7 +152,7 @@
 								Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 							</p>
 							<br>
-							<p class="agree">동의함<input type="checkbox" required="required" ></p>
+							<p class="agree">동의함<input type="checkbox" required="required" > &nbsp; &nbsp; </p>
 						</fieldset>
 					</td>
 				</tr>
