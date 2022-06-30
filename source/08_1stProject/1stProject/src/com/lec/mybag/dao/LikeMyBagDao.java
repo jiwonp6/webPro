@@ -39,13 +39,13 @@ public class LikeMyBagDao {
 		}
 		return conn;
 	}
-
 	//(1) 좋아요 누르기
-	private void LikeUp(String mId, int bId) {
+	private int LikeUp(String mId, int bId) {
+		int result = FAIL;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO myBAGBOARD " + " (lID, mID, bId, lRDATE)" 
-				+ "		VALUES (LIKE_SEQ.NEXTVAL, ?, ?, SYSDATE)";
+		String sql = "INSERT INTO myBAGBOARD " + " (lID, mID, bId)" 
+				+ "		VALUES (LIKE_SEQ.NEXTVAL, ?, ?)";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -64,9 +64,11 @@ public class LikeMyBagDao {
 				System.out.println(e.getMessage());
 			}
 		}
+		return result;
 	}
 	//(2) 좋아요 취소하기
-	private void DisLike(String mId, int bId) {
+	private int DisLike(String mId, int bId) {
+		int result = FAIL;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = "DELETE FROM LIKEmyBAG WHERE mID=? AND bID=?";
@@ -88,24 +90,49 @@ public class LikeMyBagDao {
 				System.out.println(e.getMessage());
 			}
 		}
+		return result;
 	}
-	//(3) 회원이 좋아요 누른 글만 가져오기
-	public ArrayList<MyBagBoardDto> likeListBoard(int startRow, int endRow) {
+	//(3)탈퇴처리위함
+	public void AllDeleteLikeMyBag(String mId) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = "DELETE FROM LikemyBAG WHERE MID = ?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mId);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+		}
+	}
+	//(4) 회원이 좋아요 누른 글만 가져오기
+	public ArrayList<MyBagBoardDto> likeListBoard(String mId, int startRow, int endRow) {
 		ArrayList<MyBagBoardDto> lDtos = new ArrayList<MyBagBoardDto>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT * FROM " + " (SELECT ROWNUM RN, A.* FROM " + " (SELECT B.* FROM myBAGBOARD B, LIKEmyBAG L"
-				+ " WHERE B.MID=L.MID AND B.BID=L.BID ORDER BY lRDATE DESC) A)" + " WHERE RN BETWEEN ? AND ?";
+		String sql = "SELECT * FROM (SELECT ROWNUM RN, A.* FROM (SELECT B.* FROM myBAGBOARD B, LIKEmyBAG L" + 
+				"                                                    WHERE B.BID=L.LID AND L.MID=? ORDER BY lRDATE DESC) A)" + 
+				"        WHERE RN BETWEEN ? AND ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, startRow);
-			pstmt.setInt(2, endRow);
+			pstmt.setString(1, mId);
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, endRow);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				int bId = rs.getInt("bId");
-				String mId = rs.getString("mId");
 				String bName = rs.getString("bName");
 				String bContent = rs.getString("bContent");
 				String bFilename = rs.getString("qFilename");

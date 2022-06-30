@@ -178,7 +178,7 @@ public class ItemBoardDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT iID, mID, iTITLE, iCONTENT, iFILENAME, iHIT, iRDATE, iGROUP, iSTEP, iINDENT, iIP "
+		String sql = "SELECT * "
 				+ " FROM ITEMBOARD " + " WHERE iID=?";
 		try {
 			conn = getConnection();
@@ -193,7 +193,7 @@ public class ItemBoardDao {
 				int iHit = rs.getInt("iHit");
 				Timestamp iRdate = rs.getTimestamp("iRdate");
 				int iGroup = rs.getInt("iGroup");
-				int iStep = rs.getInt("qStep");
+				int iStep = rs.getInt("iStep");
 				int iIndent = rs.getInt("iIndent");
 				String iIp = rs.getString("iIp");
 				iDto = new ItemBoardDto(iId, mId, iTitle, iContent, iFilename, iHit, iRdate, iGroup, iStep, iIndent, iIp);
@@ -221,8 +221,7 @@ public class ItemBoardDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT iID, mID, iTITLE, iCONTENT, iFILENAME, iHIT, iRDATE, iGROUP, iSTEP, iINDENT, iIP "
-				+ " FROM ITEMBOARD " + " WHERE iID=?";
+		String sql = "SELECT * FROM ITEMBOARD " + " WHERE iID=?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -236,7 +235,7 @@ public class ItemBoardDao {
 				int iHit = rs.getInt("iHit");
 				Timestamp iRdate = rs.getTimestamp("iRdate");
 				int iGroup = rs.getInt("iGroup");
-				int iStep = rs.getInt("qStep");
+				int iStep = rs.getInt("iStep");
 				int iIndent = rs.getInt("iIndent");
 				String iIp = rs.getString("iIp");
 				iDto = new ItemBoardDto(iId, mId, iTitle, iContent, iFilename, iHit, iRdate, iGroup, iStep, iIndent, iIp);
@@ -263,9 +262,12 @@ public class ItemBoardDao {
 		int result = FAIL;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "UPDATE ITEMBOARD SET iTITLE = ?, " + "                    iCONTENT = ?, "
-				+ "                    iFILENAME = ?, " + "                    iRDATE = SYSDATE "
-				+ "                    iIP = ?, " + "            WHERE iID = ?";
+		String sql = "UPDATE ITEMBOARD SET iTITLE = ?, " 
+				+ "                    iCONTENT = ?, "
+				+ "                    iFILENAME = ?, " 
+				+ "                    iRDATE = SYSDATE, "
+				+ "                    iIP = ? " 
+				+ "            WHERE iID = ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -322,7 +324,8 @@ public class ItemBoardDao {
 	private void ipreReplyStepA(int iGroup, int iStep) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "UPDATE ITEMBOARD SET iSTEP = iSTEP+1  " + "    WHERE iGROUP = ? AND iSTEP > ?";
+		String sql = "UPDATE ITEMBOARD SET iSTEP = iSTEP+1  " 
+					+ "    WHERE iGROUP = ? AND iSTEP > ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);

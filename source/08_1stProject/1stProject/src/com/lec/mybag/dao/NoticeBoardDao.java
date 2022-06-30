@@ -252,9 +252,12 @@ public class NoticeBoardDao {
 		int result = FAIL;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "UPDATE NOTICEBOARD SET nTITLE = ?, " + "                    nCONTENT = ?, "
-				+ "                    nFILENAME = ?, " + "                    nRDATE = SYSDATE "
-				+ "                    nIP = ?, " + "            WHERE nID = ?";
+		String sql = "UPDATE NOTICEBOARD SET nTITLE = ?, " 
+				+ "                    nCONTENT = ?, "
+				+ "                    nFILENAME = ?, " 
+				+ "                    nRDATE = SYSDATE, "
+				+ "                    nIP = ? " 
+				+ "            WHERE nID = ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);

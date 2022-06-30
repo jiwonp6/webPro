@@ -33,40 +33,40 @@
 </head>
 <body>
 	<header>
-		<div class="header_wrap">
-			<div class="gnb">
-				<c:if test="${customer eq null}">
-					<ul>
-						<li><a href="${conPath }/joinView.do">회원가입</a></li>
-						<li><a href="${conPath }/loginView.do">로그인</a></li>
-					</ul>
-				</c:if>
-				<c:if test="${not empty customer}">
-					<ul>
-						<li><a>MY BAG</a>
-							<ul class="mybag_sub">
-								<li><a>${cname }님</a></li>
-								<li><a href="${conPath }/uploadView.do">MY BAG</a></li>
-								<li><a href="${conPath }/likeyView.do">LIKEY!</a></li>
-								<li><a href="${conPath }/modifyView.do">MODIFY</a></li>
-								<li><a href="${conPath }/logout.do">LOGOUT</a></li>
-							</ul>
-						</li>
-					</ul>
-				</c:if>
-			</div>
-			<div class="logo">
-				<a>What's in My Bag?</a>
-			</div>
-			<div class="lnb">
+		<section class="gnb">
+			<c:if test="${member eq null}">
 				<ul>
-					<li><a href="${conPath }/mainView.do">HOME</a></li>
-					<li><a href="${conPath }/uploadView.do">UPLOADmyBag</a></li>
-					<li><a href="${conPath }/askListView.do">ItemQ&A</a></li>
-					<li><a href="#">?</a></li>
+					<li><a href="${conPath }/joinView.let">JOIN US</a></li>
+					<li><a href="${conPath }/loginView.let">LOGIN</a></li>
 				</ul>
-			</div>
-		</div>
+			</c:if>
+			<c:if test="${not empty member}">
+				<ul>
+					<li class="mybag">
+						<a>MY BAG</a>
+						<ul class="mybag_sub">
+							<li><a>${member.mId }님</a></li>
+							<li><a href="${conPath }/uploadView.do">MY BAG</a></li>
+							<li><a href="${conPath }/likeyView.do">LIKEY!</a></li>
+							<li><a href="${conPath }/modifyView.let">MODIFY</a></li>
+							<li><a href="${conPath }/logout.let">LOGOUT</a></li>
+						</ul>
+					</li>
+				</ul>
+			</c:if>
+		</section>
+		<section class="logo">
+			<p>WHAT'S </p>
+			<p> &nbsp; &nbsp; IN</p>
+			<p> &nbsp; &nbsp; &nbsp; &nbsp; MY BAG</p>
+		</section>
+		<section class="lnb">
+			<ul>
+				<li><a href="${conPath }/main.do">WhatsInMyBag</a></li>
+				<li><a href="${conPath }/itemboardList.do">ITEM</a></li>
+				<li><a href="${conPath }/qnaboardList.do">COMMUNITY</a></li>
+			</ul>
+		</section>
 	</header>
 </body>
 </html>

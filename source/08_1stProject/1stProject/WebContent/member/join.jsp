@@ -9,16 +9,13 @@
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
 	<link href="${conPath }/css/join.css" rel="stylesheet">
-	
-</head>
-<body>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script>
 		$(document).ready(function() {
 			$('input[name="mId"]').keyup(function() {
 				var mId = $('input[name="mId"]').val();
 				$.ajax({
-					url : '${conPath}/idConfirm.do',
+					url : '${conPath}/idConfirm.let',
 					type : 'post',
 					dataType : 'html',
 					data : "mId=" + mId,
@@ -44,7 +41,7 @@
 						'input[name="mEmail"]').val();
 						if (patternMail.test(mEmail)) {
 							$.ajax({
-								url : '${conPath}/emailConfirm.do',
+								url : '${conPath}/emailConfirm.let',
 								type : 'post',
 								dataType : 'html',
 								data : "mEmail="+ mEmail,
@@ -82,7 +79,7 @@
 <body>
 	<jsp:include page="../main/header.jsp" />
 	<div id="content_form">
-		<form action="${conPath }/join.do" method="post">
+		<form action="${conPath }/join.let" method="post">
 			<table>
 				<caption>
 					<br><br><br>
@@ -97,27 +94,30 @@
 						<fieldset>
 							<legend>회원가입</legend>
 							<div class="wrap">
-								<p>아이디*</p>
+								<p class="id"> 아이디*</p>
 								<p><input type="text" name="mId" required="required" 
-										placeholder="아이디를 입력해주세요" style="width:250px; height:20px; font-size:12px; "></p>
-								<div id="idConfirmResult">&nbsp;</div>
-								<p>비밀번호*</p>
+										placeholder="아이디를 입력해주세요" 
+										style="width:300px; height:40px; font-size:12px; border:0.5px solid lightgray;"></p>
+								<div id="idConfirmResult">&nbsp; &nbsp;</div>
+								<p class="id"> 비밀번호*</p>
 								<p><input type="password" name="mPw" required="required"
-										placeholder="비밀번호를 입력해주세요" style="width:250px; height:20px; font-size:12px; "></p>
-								<p>비밀번호*</p>
+										placeholder="비밀번호를 입력해주세요" 
+										style="width:300px; height:40px; font-size:12px; border:0.5px solid lightgray;"></p>
+								<p class="id"> 비밀번호확인 *</p>
 								<p><input type="password" name="mPwChk" required="required"
-										placeholder="비밀번호 확인을 위해 입력해주세요" style="width:250px; height:20px; font-size:12px; "></p>
-								<div id="pwChkResult">&nbsp;</div>
-								<p>이름*</p>
+										placeholder="비밀번호 확인을 위해 입력해주세요" 
+										style="width:300px; height:40px; font-size:12px; border:0.5px solid lightgray;"></p>
+								<div id="pwChkResult">&nbsp; &nbsp;</div>
+								<p class="id"> 이름*</p>
 								<p><input type="text" name="mName" required="required"
-										style="width:250px; height:20px; font-size:12px; "></p>
-								<p>생년월일</p>
+										style="width:300px; height:40px; font-size:12px; border:0.5px solid lightgray;"></p>
+								<p class="id"> 생년월일</p>
 								<p><input type="text" name="mBirth" id="mBirth"
-										style="width:250px; height:20px; font-size:12px; "></p>
-								<p>메일*</p>
+										style="width:300px; height:40px; font-size:12px; border:0.5px solid lightgray;"></p>
+								<p class="id"> 메일*</p>
 								<p><input type="email" name="mEmail"
-										style="width:250px; height:20px; font-size:12px; "></p>
-								<div id="emailConfirmResult">&nbsp;</div>
+										style="width:300px; height:40px; font-size:12px; border:0.5px solid lightgray;"></p>
+								<div id="emailConfirmResult">&nbsp; &nbsp;</div>
 							</div>
 						</fieldset>
 					</td>
@@ -133,7 +133,7 @@
 								Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 							</p>
 							<br>							
-							<p class="agree">동의함<input type="checkbox" required="required" ></p>
+							<p class="agree">동의함<input type="checkbox" required="required" > &nbsp; &nbsp; </p>
 						</fieldset>
 					</td>
 				</tr>
@@ -149,7 +149,7 @@
 								Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 							</p>
 							<br>
-							<p class="agree">동의함<input type="checkbox" required="required" ></p>
+							<p class="agree">동의함<input type="checkbox" required="required" > &nbsp; &nbsp; </p>
 						</fieldset>
 					</td>
 				</tr>
@@ -163,7 +163,7 @@
 				<tr>
 					<td colspan="2">
 						<input type="submit" value="JOIN US" class="btn">
-						<input type="button" value="LOGIN" class="btn" onclick="location.href='${conPath}/loginView.do'">
+						<input type="button" value="LOGIN" class="btn" onclick="location.href='${conPath}/loginView.let'">
 					</td>
 				</tr>
 				<tr>
@@ -178,26 +178,25 @@
 	</div>
 	<jsp:include page="../main/footer.jsp" />
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
-
-	  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-	  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
-	  <script>
-	  $( function() {
-	    $( "#mBirth" ).datepicker({
-			dateFormat : 'yy-mm-dd',
-			changeMonth : true, // 월을 바꿀 수 있는 셀렉트 박스 표시
-			monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월',
-							'7월', '8월', '9월', '10월', '11월', '12월' ],
-			showMonthAfterYear : true,
-			yearSuffix : '년', // "2020년 3월"
-			showOtherMonths : true,
-			dayNamesMin : [ '일', '월', '화', '수', '목', '금', '토' ],
-			changeYear : true, // 년을 바꿀 수 있는 셀렉트 박스 표시
-			minDate : '-100y', // 현재 날짜로부터 100년 이전까지 표시
-			maxDate : 'y', // 현재 날짜이전까지만 표시
-			yearRange : 'c-100:c+100', // 년도 선택 셀렉트 
-		});
-	  } );
-	  </script>
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+	<script>
+		$( function() {
+	    	$( "#mBirth" ).datepicker({
+				dateFormat : 'yy-mm-dd',
+				changeMonth : true, // 월을 바꿀 수 있는 셀렉트 박스 표시
+				monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월',
+								'7월', '8월', '9월', '10월', '11월', '12월' ],
+				showMonthAfterYear : true,
+				yearSuffix : '년', // "2020년 3월"
+				showOtherMonths : true,
+				dayNamesMin : [ '일', '월', '화', '수', '목', '금', '토' ],
+				changeYear : true, // 년을 바꿀 수 있는 셀렉트 박스 표시
+				minDate : '-100y', // 현재 날짜로부터 100년 이전까지 표시
+				maxDate : 'y', // 현재 날짜이전까지만 표시
+				yearRange : 'c-100:c+100', // 년도 선택 셀렉트 
+			});
+	   } );
+	</script>
 </body>
 </html>

@@ -46,7 +46,7 @@ public class MyBagBoardDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = "SELECT * FROM " + " (SELECT ROWNUM RN, A.* FROM " + " (SELECT B.* FROM myBAGBOARD B "
-				+ " ORDER BY bGROUP DESC, bSTEP) A)" + " WHERE RN BETWEEN ? AND ?";
+				+ " ORDER BY bId DESC) A)" + " WHERE RN BETWEEN ? AND ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -189,7 +189,7 @@ public class MyBagBoardDao {
 				int bHit = rs.getInt("bHit");
 				Timestamp bRdate = rs.getTimestamp("bRdate");
 				String bIp = rs.getString("bIp");
-				bDto = new MyBagBoardDto(bId, mId, bName, bContent, bFilename, bHit, bRdate, bIp);
+				bDto = new MyBagBoardDto(bId, mId, bName, bContent, bFilename,  bHit, bRdate, bIp);
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -247,7 +247,6 @@ public class MyBagBoardDao {
 		}
 		return bDto;
 	}
-
 	// (6) 글 수정하기(bId, bName, bContent, bFILENAME, bIp, bRDATE)
 	public int modifyMyBagBoard(int bId, String bName, String bContent, String bFilename, String bIp) {
 		int result = FAIL;
@@ -256,8 +255,8 @@ public class MyBagBoardDao {
 		String sql = "UPDATE myBAGBOARD SET bNAME = ?, " 
 				+ "                    bCONTENT = ?, "
 				+ "                    bFILENAME = ?, " 
-				+ "                    bRDATE = SYSDATE "
-				+ "                    bIP = ?, " 
+				+ "                    bRDATE = SYSDATE, "
+				+ "                    bIP = ? " 
 				+ "            WHERE bID = ?";
 		try {
 			conn = getConnection();
@@ -313,7 +312,6 @@ public class MyBagBoardDao {
 
 	// (8) 회원탈퇴 하기 전 회원이 쓴 글 모두 삭제 후 탈퇴
 	public void AllDeleteMyBagBoard(String mId) {
-		int result = FAIL;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = "DELETE FROM myBAGBOARD WHERE MID = ?";
@@ -335,10 +333,8 @@ public class MyBagBoardDao {
 			}
 		}
 	}
-
 	// (9) 관리자 권한으로 회원글(글번호로) 삭제
 	public void DeleteMyBagBoard(String bId) {
-		int result = FAIL;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = "DELETE FROM myBAGBOARD WHERE bID = ?";

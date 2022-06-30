@@ -1,76 +1,66 @@
 @charset "UTF-8";
-﻿header.*{
+*{
     margin:0;
     padding:0;
 }
 li {
     list-style: none;
 }
-
 a {
     text-decoration: none;
+    color:black;
 }
-
-div {
-   
-    text-align: center;
-    
-}
-header .header_wrap {
+header {
 	width : 100%;
+	height: 300px;
 }
-header .header_wrap .gnb{
+header section.gnb{
 	width : 100%;
 	height :30px;
 }
-header .gnb > ul {
+header section.gnb > ul {
     overflow: hidden;
     width:900px;
     margin : 0 auto;
 }
-header .gnb > ul > li{
+header section.gnb > ul > li{
     float:right;
-    margin:0 19px;
-    font-weight:bold;
+    margin:0 20px;
 }
-header .gnb > ul > li> a{
-    color:black;
-}
-header .mybag li:hover .mybag_sub{
-	display:block;
-}
-header .mybag_sub{
+header section.gnb .mybag > ul.mybag_sub li{
 	display:none;
 }
-header .header_wrap .logo{
-	width:100%;
-	height : 400px;
-	background-image: url('../cssImage/header2.jpg');
-	opacity:0.7;
+header section.gnb .mybag:hover > ul.mybag_sub li{
+	position:relative;
+	display:block;
 }
-header .header_wrap .logo > a{
-	width : 100%;
-	font-size: 40px;
-	line-height : 400px;
-	color : white;
-	font-size: bold;
+header section.logo{
+	margin:0 auto;
+	padding-top:30px;
+	width:200px;
+	height : 200px;
+}
+header section.logo > p{
+	font-size:30px;
+	text-align: center;
 } 
-header .header_wrap .lnb{
+header section.lnb{
 	width : 100%;
 	height :30px;
-	x-index : 1;
 }
-header .lnb > ul {
+header section.lnb > ul {
     overflow: hidden;
     width:500px;
-    border : 1px solid red;
     margin : 0 auto;
+    padding: 2px 10px;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    background-color: white ;
+    opacity:0.7;
 }
-header .lnb > ul > li{
+header section.lnb > ul > li{
+	line-height: 20px;
     float:left;
-    margin:0 19px;
-    font-weight:bold;
-}
-header .lnb > ul > li> a{
-    color:black;
+    margin:0 32px;
+    font-size:13px;
 }

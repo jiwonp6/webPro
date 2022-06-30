@@ -14,30 +14,34 @@
 <body>
 	<jsp:include page="../main/header.jsp" />
 	<div id="content_form">
-		<form action="${conPath }/login.do" method="post">
+		<form action="${conPath }/login.let" method="post">
 			<table>
-				<caption>로그인</caption>
 				<tr>
-					<th>아이디</th>
+					<td><h1>LOGIN</h1></td>
+				</tr>
+				<tr><td><br></td></tr>
+				<tr>
 					<td><input type="text" name="mId" required="required" 
-								placeholder="아이디를 입력해주세요" style="width:250px; height:20px; font-size:12px; ">
+								placeholder="아이디" 
+								style="width:400px; height:50px; font-size:15px; border:0.5px solid lightgray;">
 					</td>
 				</tr>
 				<tr>
-					<td colspan="2">
-						<br>
-					</td>
-				</tr>
-				<tr>
-					<th>비밀번호</th>
 					<td><input type="password" name="mPw" required="required"
-								placeholder="비밀번호를 입력해주세요" style="width:250px; height:20px; font-size:12px; ">
+								placeholder="비밀번호" style="width:400px; height:50px; font-size:15px; border:0.5px solid lightgray;">
 					</td>
 				</tr>
+				<tr><td>&nbsp;</td></tr>
 				<tr>
-					<td colspan="2">
-					<input type="submit" value="로그인" class="btn">
-					<input type="button" value="회원가입" class="btn"	onclick="location.href='${conPath}/joinView.do'">
+					<td><a href="#">아이디/비밀번호 찾기</a></td>
+				</tr>
+				<tr><td>&nbsp;</td></tr>
+				<tr>
+					<td>
+						<input type="submit" value="LOGIN" class="btn">
+						<input type="button" value="JOIN US" class="btn"	onclick="location.href='${conPath}/joinView.let'">
+					</td>
+				</tr>
 			</table>
 		</form>
 	</div>

@@ -44,7 +44,7 @@ public class QnaBoardDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT * FROM " + " (SELECT ROWNUM RN, A.* FROM " + " (SELECT qID, NVL(mID, aID) ID, qTITLE, qCONTENT, qFILENAME, qHIT, qRDATE, qGROUP, qSTEP, qINDENT, qIP FROM QNABOARD "
+		String sql = "SELECT * FROM " + " (SELECT ROWNUM RN, A.* FROM " + " (SELECT * FROM QNABOARD "
 				+ " ORDER BY qGROUP DESC, qSTEP) A)" + " WHERE RN BETWEEN ? AND ?";
 		try {
 			conn = getConnection();
@@ -179,7 +179,7 @@ public class QnaBoardDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT qID, NVL(mID, aID) ID, qTITLE, qCONTENT, qFILENAME, qHIT, qRDATE, qGROUP, qSTEP, qINDENT, qIP "
+		String sql = "SELECT * "
 				+ " FROM QNABOARD " + " WHERE qID=?";
 		try {
 			conn = getConnection();
@@ -224,7 +224,7 @@ public class QnaBoardDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT qID, NVL(mID, aID) ID, qTITLE, qCONTENT, qFILENAME, qHIT, qRDATE, qGROUP, qSTEP, qINDENT, qIP "
+		String sql = "SELECT *  "
 				+ " FROM QNABOARD " + " WHERE qID=?";
 		try {
 			conn = getConnection();
@@ -268,9 +268,12 @@ public class QnaBoardDao {
 		int result = FAIL;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "UPDATE QNABOARD SET qTITLE = ?, " + "                    qCONTENT = ?, "
-				+ "                    qFILENAME = ?, " + "                    qRDATE = SYSDATE "
-				+ "                    qIP = ?, " + "            WHERE qID = ?";
+		String sql = "UPDATE QNABOARD SET qTITLE = ?, " 
+				+ "                    qCONTENT = ?, "
+				+ "                    qFILENAME = ?, " 
+				+ "                    qRDATE = SYSDATE, "
+				+ "                    qIP = ? " 
+				+ "            WHERE qID = ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);

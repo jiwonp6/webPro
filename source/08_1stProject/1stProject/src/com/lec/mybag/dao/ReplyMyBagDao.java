@@ -191,8 +191,8 @@ public class ReplyMyBagDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = "UPDATE REPLYmyBAG SET rCONTENT = ?, "
-					+ "                    rRDATE = SYSDATE "
-					+ "                    rIP = ?, " 
+					+ "                    rRDATE = SYSDATE, "
+					+ "                    rIP = ? " 
 					+ "            WHERE rID = ?";
 		try {
 			conn = getConnection();
@@ -332,28 +332,4 @@ public class ReplyMyBagDao {
 		}
 	}
 
-	// (11) 관리자 권한으로 회원글(글번호로) 삭제
-	public void DeleteReplyMyBag(String rId) {
-		int result = FAIL;
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		String sql = "DELETE FROM REPLYmyBAG WHERE rID = ?";
-		try {
-			conn = getConnection();
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, rId);
-			pstmt.executeUpdate();
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		} finally {
-			try {
-				if (pstmt != null)
-					pstmt.close();
-				if (conn != null)
-					conn.close();
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-			}
-		}
-	}
 }
