@@ -32,8 +32,7 @@
 				<caption>ITEM Q&A</caption>
 				<tr>
 					<td>제목</td>
-					<td><input type="text" name="iTitle" required="required"
-						size="30"></td>
+					<td><input type="text" name="iTitle" required="required" size="30"></td>
 				</tr>
 				<tr>
 					<td>본문</td>

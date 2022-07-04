@@ -53,6 +53,8 @@
 						<input type="submit" value="답변쓰기" class="btn">
 						<input type="reset" value="취소" class="btn"> 
 						<input type="button" value="목록" class="btn" onclick="location.href='${conPath}/itemboardList.do'">
+					</td>
+				</tr>
 			</table>
 		</form>
 	</div>

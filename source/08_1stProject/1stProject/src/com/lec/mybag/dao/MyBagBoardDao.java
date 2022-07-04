@@ -13,6 +13,7 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 import com.lec.mybag.dto.MyBagBoardDto;
+import com.lec.mybag.dto.ReplyMyBagDto;
 
 
 public class MyBagBoardDao {
@@ -80,36 +81,106 @@ public class MyBagBoardDao {
 		}
 		return bDtos;
 	}
-
 	// (2) 글갯수
-	public int getMyBagBoardTotCnt() {
-		int bCnt = 0;
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		String sql = "SELECT COUNT(*) bCNT FROM myBAGBOARD";
-		try {
-			conn = getConnection();
-			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			rs.next();
-			bCnt = rs.getInt(1);
-		} catch (SQLException e) {
-			System.out.println(e.getMessage());
-		} finally {
+		public int getMyBagBoardTotCnt() {
+			int bCnt = 0;
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			String sql = "SELECT COUNT(*) bCNT FROM myBAGBOARD";
 			try {
-				if (rs != null)
-					rs.close();
-				if (pstmt != null)
-					pstmt.close();
-				if (conn != null)
-					conn.close();
+				conn = getConnection();
+				pstmt = conn.prepareStatement(sql);
+				rs = pstmt.executeQuery();
+				rs.next();
+				bCnt = rs.getInt(1);
 			} catch (SQLException e) {
 				System.out.println(e.getMessage());
+			} finally {
+				try {
+					if (rs != null)
+						rs.close();
+					if (pstmt != null)
+						pstmt.close();
+					if (conn != null)
+						conn.close();
+				} catch (SQLException e) {
+					System.out.println(e.getMessage());
+				}
 			}
+			return bCnt;
 		}
-		return bCnt;
+	//
+	public ArrayList<MyBagBoardDto> bMyListBoard(String mId, int bstartRow, int bendRow) {
+	ArrayList<MyBagBoardDto> bDtos = new ArrayList<MyBagBoardDto>();
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+	String sql = "SELECT * FROM " + " (SELECT ROWNUM RN, A.* FROM " + " (SELECT B.* FROM myBAGBOARD B "
+			+ " WHERE mID= ? ORDER BY bId DESC) A)" + " WHERE RN BETWEEN ? AND ?";
+	try {
+		conn = getConnection();
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, mId);
+		pstmt.setInt(2, bstartRow);
+		pstmt.setInt(3, bendRow);
+		rs = pstmt.executeQuery();
+		while (rs.next()) {
+			int bId = rs.getInt("bId");
+			String bName = rs.getString("bName");
+			String bContent = rs.getString("bContent");
+			String bFilename = rs.getString("bFilename");
+			int bHit = rs.getInt("bHit");
+			Timestamp bRdate = rs.getTimestamp("bRDate");
+			String bIp = rs.getString("bIp");
+			bDtos.add(new MyBagBoardDto(bId, mId, bName, bContent, bFilename, bHit, bRdate, bIp));
+		}
+	} catch (SQLException e) {
+		System.out.println(e.getMessage());
+	} finally {
+		try {
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
 	}
+	return bDtos;
+}
+	// 내글갯수
+		public int getMybListTotCnt(String mId) {
+			int bCnt = 0;
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			String sql = "SELECT COUNT(*) bCNT FROM myBAGBOARD WHERE mID=?";
+			try {
+				conn = getConnection();
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, mId);
+				rs = pstmt.executeQuery();
+				rs.next();
+				bCnt = rs.getInt(1);
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			} finally {
+				try {
+					if (rs != null)
+						rs.close();
+					if (pstmt != null)
+						pstmt.close();
+					if (conn != null)
+						conn.close();
+				} catch (SQLException e) {
+					System.out.println(e.getMessage());
+				}
+			}
+			return bCnt;
+		}
 
 	// (3) 글쓰기(원글)
 	public int writeMyBagBoard(String mId, String bName, String bContent, String bFilename, String bIp) {
@@ -174,8 +245,7 @@ public class MyBagBoardDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT bID, mID, bNAME, bCONTENT, bFILENAME, bHIT, bRDATE, bIP "
-				+ " FROM myBAGBOARD " + " WHERE bID=?";
+		String sql = "SELECT * FROM myBAGBOARD WHERE bID=?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -192,7 +262,7 @@ public class MyBagBoardDao {
 				bDto = new MyBagBoardDto(bId, mId, bName, bContent, bFilename,  bHit, bRdate, bIp);
 			}
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+			System.out.println(e.getMessage()+"error1");
 		} finally {
 			try {
 				if (rs != null)
@@ -202,7 +272,7 @@ public class MyBagBoardDao {
 				if (conn != null)
 					conn.close();
 			} catch (SQLException e) {
-				System.out.println(e.getMessage());
+				System.out.println(e.getMessage()+"error2");
 			}
 		}
 		return bDto;
@@ -214,7 +284,7 @@ public class MyBagBoardDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT bID, mID, bNAME, bCONTENT, bFILENAME, bHIT, bRDATE, bIP "
+		String sql = "SELECT * "
 				+ " FROM myBAGBOARD " + " WHERE bID=?";
 		try {
 			conn = getConnection();

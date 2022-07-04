@@ -35,7 +35,7 @@ public class MWithdrawalService implements Service {
 			lDao.AllDeleteLikeMyBag(mId);
 			int result = mDao.withdrawal(mId);
 			if(result == MemberDao.SUCCESS) {
-				request.setAttribute("withdrawalResult", "회원탈퇴가 성공되었습니다. 작성하신 모든 글도 다 지워집니다");
+				request.setAttribute("withdrawalResult", "회원탈퇴가 성공되었습니다");
 			}else {
 				request.setAttribute("withdrawalResult", "회원탈퇴가 실패되었습니다");
 			}

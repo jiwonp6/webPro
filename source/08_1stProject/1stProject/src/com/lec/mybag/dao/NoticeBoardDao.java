@@ -39,7 +39,7 @@ public class NoticeBoardDao {
 	}
 
 	// (1) 글목록(startRow부터 endRow까지) - 글번호, 작성자이름, ...
-	public ArrayList<NoticeBoardDto> qListBoard(int startRow, int endRow) {
+	public ArrayList<NoticeBoardDto> nListBoard(int startRow, int endRow) {
 		ArrayList<NoticeBoardDto> nDtos = new ArrayList<NoticeBoardDto>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -81,7 +81,7 @@ public class NoticeBoardDao {
 	}
 
 	// (2) 글갯수
-	public int getQnaBoardTotCnt() {
+	public int getNoticeBoardTotCnt() {
 		int nCnt = 0;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -116,7 +116,7 @@ public class NoticeBoardDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = "INSERT INTO NOTICEBOARD " + " (nID, aID, nTITLE, nCONTENT, nFILENAME, nIP) "
-				+ " 	VALUES (NOTICE_SEQ.NEXTVAL, ?, ?, ? , ?, " + "		NOTICE_SEQ.CURRVAL, 0, 0, ?)";
+				+ " 	VALUES (NOTICE_SEQ.NEXTVAL, ?, ?, ? , ?, ?)";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -248,7 +248,7 @@ public class NoticeBoardDao {
 	}
 
 	// (6) 글 수정하기(nId, nTitle, nContent, nFILENAME, nIp, nRDATE)
-	public int modifyQnaBoard(int nId, String nTitle, String nContent, String nFilename, String nIp) {
+	public int modifyNoticeBoard(int nId, String nTitle, String nContent, String nFilename, String nIp) {
 		int result = FAIL;
 		Connection conn = null;
 		PreparedStatement pstmt = null;

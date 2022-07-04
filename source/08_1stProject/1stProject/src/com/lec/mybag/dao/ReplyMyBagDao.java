@@ -12,6 +12,8 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import com.lec.mybag.dto.ItemBoardDto;
+import com.lec.mybag.dto.QnaBoardDto;
 import com.lec.mybag.dto.ReplyMyBagDto;
 
 public class ReplyMyBagDao {
@@ -38,24 +40,24 @@ public class ReplyMyBagDao {
 		return conn;
 	}
 
-	// (1) 글목록(startRow부터 endRow까지) - 글번호, 작성자이름, ...
-	public ArrayList<ReplyMyBagDto> rListBoard(int startRow, int endRow) {
+	// (1) 글목록(bId로) - 글번호, 작성자이름, ...
+	public ArrayList<ReplyMyBagDto> rListBoard(int bId, int startRow, int endRow) {
 		ArrayList<ReplyMyBagDto> rDtos = new ArrayList<ReplyMyBagDto>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT * FROM " + " (SELECT ROWNUM RN, A.* FROM " + " (SELECT R.* FROM REPLYmyBAG R, myBAGBOARD B"
-				+ " WHERE R.bID=B.bID ORDER BY rGROUP DESC, rSTEP) A)" + " WHERE RN BETWEEN ? AND ?";
+		String sql = "SELECT * FROM " + " (SELECT ROWNUM RN, A.* FROM " + " (SELECT * FROM REPLYmyBAG "
+				+ " WHERE bID=? ORDER BY rGROUP DESC, rSTEP) A)" + " WHERE RN BETWEEN ? AND ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, startRow);
-			pstmt.setInt(2, endRow);
+			pstmt.setInt(1, bId);
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, endRow);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				int rId = rs.getInt("rId");
 				String mId = rs.getString("mId");
-				int bId = rs.getInt("bId");
 				String rContent = rs.getString("rContent");
 				Timestamp rRdate = rs.getTimestamp("rRDate");
 				int rGroup = rs.getInt("rGroup");
@@ -80,17 +82,19 @@ public class ReplyMyBagDao {
 		}
 		return rDtos;
 	}
-
+	
+	
 	// (2) 글갯수
-	public int getReplyMyBagTotCnt() {
+	public int getReplyMyBagTotCnt(int bId) {
 		int rCnt = 0;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT COUNT(*) rCNT FROM REPLYmyBAG";
+		String sql = "SELECT COUNT(*) rCNT FROM REPLYmyBAG WHERE bID=?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bId);
 			rs = pstmt.executeQuery();
 			rs.next();
 			rCnt = rs.getInt(1);
@@ -111,13 +115,89 @@ public class ReplyMyBagDao {
 		return rCnt;
 	}
 
+	// 내글목록(mId로) - 글번호, 작성자이름, ...
+		public ArrayList<ReplyMyBagDto> rMyListBoard(String mId, int startRow, int endRow) {
+			ArrayList<ReplyMyBagDto> rDtos = new ArrayList<ReplyMyBagDto>();
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			String sql = "SELECT * FROM " + " (SELECT ROWNUM RN, A.* FROM " + " (SELECT * FROM REPLYmyBAG "
+					+ " WHERE mID=? ORDER BY rGROUP DESC, rSTEP) A)" + " WHERE RN BETWEEN ? AND ?";
+			try {
+				conn = getConnection();
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, mId);
+				pstmt.setInt(2, startRow);
+				pstmt.setInt(3, endRow);
+				rs = pstmt.executeQuery();
+				while (rs.next()) {
+					int rId = rs.getInt("rId");
+					int bId = rs.getInt("bId");
+					String rContent = rs.getString("rContent");
+					Timestamp rRdate = rs.getTimestamp("rRDate");
+					int rGroup = rs.getInt("rGroup");
+					int rStep = rs.getInt("rStep");
+					int rIndent = rs.getInt("rIndent");
+					String rIp = rs.getString("rIp");
+					rDtos.add(new ReplyMyBagDto(rId, mId, bId, rContent, rRdate, rGroup, rStep, rIndent, rIp));
+				}
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			} finally {
+				try {
+					if (rs != null)
+						rs.close();
+					if (pstmt != null)
+						pstmt.close();
+					if (conn != null)
+						conn.close();
+				} catch (SQLException e) {
+					System.out.println(e.getMessage());
+				}
+			}
+			return rDtos;
+		}
+		
+		
+		// (2) 글갯수
+		public int getMyrListTotCnt(String mId) {
+			int rCnt = 0;
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			String sql = "SELECT COUNT(*) rCNT FROM REPLYmyBAG WHERE mID=?";
+			try {
+				conn = getConnection();
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, mId);
+				rs = pstmt.executeQuery();
+				rs.next();
+				rCnt = rs.getInt(1);
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			} finally {
+				try {
+					if (rs != null)
+						rs.close();
+					if (pstmt != null)
+						pstmt.close();
+					if (conn != null)
+						conn.close();
+				} catch (SQLException e) {
+					System.out.println(e.getMessage());
+				}
+			}
+			return rCnt;
+		}
+	
+	
 	// (3) 글쓰기(댓글)
-	public int writeReplyMyBag(String mId, int bId, String rContent, Timestamp rDate, String rGroup, String rStep, String rIndent, String rIp) {
+	public int writeReplyMyBag(String mId, int bId, String rContent, String rIp) {
 		int result = FAIL;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = "INSERT INTO REPLYmyBAG " + " (rID, mID, bID, rCONTENT, rGROUP, rSTEP, rINDENT, rIP) " 
-					+ "		VALUES (REPLY_SEQ.NEXTVAL, ?, ?, ? , ?, "
+					+ "		VALUES (REPLY_SEQ.NEXTVAL, ?, ?, ? , "
 					+ "		REPLY_SEQ.CURRVAL, 0, 0, ?)";
 		try {
 			conn = getConnection();
@@ -125,7 +205,7 @@ public class ReplyMyBagDao {
 			pstmt.setString(1, mId);
 			pstmt.setInt(2, bId);
 			pstmt.setString(3, rContent);
-			pstmt.setString(5, rIp);
+			pstmt.setString(4, rIp);
 			result = pstmt.executeUpdate();
 			System.out.println(result == SUCCESS ? "댓글 글쓰기성공" : "댓글 글쓰기실패");
 		} catch (SQLException e) {
@@ -142,16 +222,13 @@ public class ReplyMyBagDao {
 		}
 		return result;
 	}
-
-	// (4) rId로 글 dto보기 : 글 상세보기(rid로 dto리턴)
-	public ReplyMyBagDto rContentView(int rId) {
+	//글수정
+	public ReplyMyBagDto modifyView_replyView(int rId) {
 		ReplyMyBagDto rDto = null;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT * "
-					+ " FROM REPLYmyBAG " 
-					+ " WHERE rID=?";
+		String sql = "SELECT * FROM REPLYmyBAG " + " WHERE rID=?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -186,7 +263,7 @@ public class ReplyMyBagDao {
 	}
 
 	// (5) 글 수정하기(rId, rContent, rRdate, rGroup, rStep, rIndent, rIp)
-	public int modifyReplyMyBag(int rId, String rContent, Timestamp rRdate, String rIp) {
+	public int modifyReplyMyBag(int rId, String rContent, String rIp) {
 		int result = FAIL;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -271,8 +348,7 @@ public class ReplyMyBagDao {
 	}
 
 	// (9) 댓글의 댓글 쓰기
-	public int replyReplyMyBag(String mId, String rContent, int rGroup,
-			int rStep, int rIndent, String rIp) {
+	public int replyReplyMyBag(String mId, String rContent, int rGroup, int rStep, int rIndent, String rIp) {
 		rpreReplyStepA(rGroup, rStep); // 답변글 저장전 step A 먼저 실행
 		// qgroup, qstep, qindent 원글정보
 		// aid, qtitle, qcontent, qip 답변글 정보

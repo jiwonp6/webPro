@@ -42,15 +42,15 @@ public class ItemBoardModifyService implements Service {
 			int result = iDao.modifyItemBoard(iId, iTitle, iContent, iFilename, iIp);
 			// joinMember결과에 따라 적절히 request.setAttribute
 			if(result == ItemBoardDao.SUCCESS) { // 회원가입 진행
-				request.setAttribute("itemboaredResult", "item글수정 성공");
+				request.setAttribute("itemboardResult", "item글수정 성공");
 			}else {
-				request.setAttribute("itemboaredResult", "item글수정 실패");
+				request.setAttribute("itemboardResult", "item글수정 실패");
 			}
 			// mRequest에서 넘어온 pageNum(mRequest를 사용하면 request의 파라미터들이 다 null이 됨)을 request에 set
 			request.setAttribute("pageNum", mRequest.getParameter("pageNum"));
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
-			request.setAttribute("itemboaredResult", "item글수정 실패");
+			request.setAttribute("itemboardResult", "item글수정 실패");
 		}
 		// 서버에 올라간 fileboardUp 파일을 소스폴더에 filecopy (파일 수정을 안 했거나, 예외가 떨어질 경우 복사 안 함)
 		if(dbFilename!=null && !iFilename.equals(dbFilename)) { 
@@ -59,7 +59,7 @@ public class ItemBoardModifyService implements Service {
 			try {
 				File serverFile = new File(path+"/"+iFilename);
 				is = new FileInputStream(serverFile);
-				os = new FileOutputStream("D:\\webPro\\source\\08_1stProject\\personal\\WebContent\\itemBoardFileUp\\"+iFilename);
+				os = new FileOutputStream("D:\\webPro\\source\\08_1stProject\\1stProject\\WebContent\\itemBoardFileUp\\"+iFilename);
 				byte[] bs = new byte[(int)serverFile.length()];
 				while(true) {
 					int nByteCnt = is.read(bs);

@@ -45,16 +45,16 @@ public class ItemBoardWriteService implements Service {
 				int result = iDao.writeItemBoard(mId, iTitle, iContent, iFilename, iIp);
 				// joinMember결과에 따라 적절히 request.setAttribute
 				if(result == ItemBoardDao.SUCCESS) { // 회원가입 진행
-					request.setAttribute("itemboaredResult", "글쓰기 성공");
+					request.setAttribute("itemboardResult", "글쓰기 성공");
 				}else {
-					request.setAttribute("itemboaredResult", "글쓰기 실패");
+					request.setAttribute("itemboardResult", "글쓰기 실패");
 				}
 			}else {
-				request.setAttribute("itemboaredResult", "로그인 한 사람만 글쓸 수 있어요");
+				request.setAttribute("itemboardResult", "로그인 한 사람만 글쓸 수 있어요");
 			}
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
-			request.setAttribute("itemboaredResult", "글쓰기 실패");
+			request.setAttribute("itemboardResult", "글쓰기 실패");
 		}
 		// 서버에 올라간 fileboardUp 파일을 소스폴더에 filecopy
 		if(iFilename!=null) {

@@ -169,7 +169,7 @@ public class MemberDao {
 		String sql = "UPDATE MEMBER SET mPw = ?," + 
 				"                    mName = ?," + 
 				"                    mBirth = ?," + 
-				"                    mEmail = ?," + 
+				"                    mEmail = ?" + 
 				"        WHERE mId=?";
 		try {
 			conn = getConnection();

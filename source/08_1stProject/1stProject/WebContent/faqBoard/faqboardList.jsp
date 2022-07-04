@@ -14,7 +14,7 @@
 		$(document).ready(function(){
 			$('tr').click(function(){
 				var fId = Number($(this).children().eq(0).text()); // 0번째 td안의 있는 text;
-				if(!isNaN(qId)){
+				if(!isNaN(fId)){
 					location.href = '${conPath}/faqboardContent.do?fId='+fId+'&pageNum=${pageNum}';
 				}
 			});
@@ -44,7 +44,7 @@
 			<h1>FAQ BOARD</h1>
 			<p>자주 묻는 질문들</p>
 		</header>
-		<section class="qna">
+		<section class="faq">
 			<table>
 				<tr>
 					<td colspan="4">

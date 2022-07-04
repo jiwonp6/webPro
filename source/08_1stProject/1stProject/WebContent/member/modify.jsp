@@ -15,13 +15,13 @@
 			$('input[name="oldmPw"]').keyup(
 					function() {
 						var oldmPw = $('input[name="oldmPw"]').val();
-						var mPw = ${member.mId };
+						var mPw = ${member.mPw };
 						if (oldmPw == mPw) {
-							$('#pwChkResult').text('확인');
+							$('#oldpwChkResult').text('확인');
 						} else {
-							$('#pwChkResult').html('<b>비밀번호 불일치</b>');
+							$('#oldpwChkResult').html('<b>비밀번호 불일치</b>');
 						}
-					}); // new pw check
+					}); //pw check
 			$('input[name="newmPw"], input[name="mPwChk"]').keyup(
 				function() {
 					var newmPw = $('input[name="newmPw"]').val();
@@ -35,8 +35,7 @@
 			$('input[name="mEmail"]').keyup(
 				function() {
 					var patternMail = /^[a-zA-Z0-9_]+@[a-zA-Z0-9]+(\.[a-zA-Z]+){1,2}$/; // 메일 패턴
-					var mEmail = $(
-						'input[name="mEmail"]').val();
+					var mEmail = $('input[name="mEmail"]').val();
 						if (patternMail.test(mEmail)) {
 							$.ajax({
 								url : '${conPath}/emailConfirm.let',
@@ -54,14 +53,15 @@
 						}//if
 				});// mEmail keyup 이벤트
 			$('form').submit(function() {
-				var pwChkResult = $('#pwChkResult').text().trim();
+				var oldpwChkResult = $('#oldpwChkResult').text().trim();
 				var newpwChkResult = $('#newpwChkResult').text().trim();
 				var emailConfirmResult = $('#emailConfirmResult').text().trim();
+				var mEmail = $('input[name="mEmail"]').val();
 				if (pwChkResult != '확인') {
 					alert('비밀번호를 확인하세요');
 					$('input[name="oldmPw"]').focus();
 					return false;
-				}else if (newpwChkResult != '비밀번호 일치') {
+				} else if (newpwChkResult != '비밀번호 일치') {
 					alert('비밀번호를 확인하세요');
 					$('input[name="newmPw"]').focus();
 					return false;
@@ -69,7 +69,7 @@
 					alert('이메일을 확인하세요');
 					$('input[name="mEmail"]').focus();
 					return false;
-				}
+				} 
 			});
 		});//mIdConfirm의 click이벤트
 	</script>
@@ -120,7 +120,7 @@
 										placeholder="비밀번호 확인을 위해 입력해주세요"
 										style="width: 300px; height: 40px; font-size: 12px; border: 0.5px solid lightgray;">
 								</p>
-								<div id="pwChkResult">&nbsp; &nbsp;</div>
+								<div id="newpwChkResult">&nbsp; &nbsp;</div>
 								<p class="id">이름*</p>
 								<p>
 									<input type="text" name="mName" required="required" value="${member.mName }"
@@ -149,7 +149,7 @@
 					<td colspan="2">
 						<input type="submit" value="MODIFY" class="btn">
 						<input type="reset" value="RESET" class="btn">
-						<input type="button" value="회원탈퇴" onclick="location.href='${conPath}/withdrawal.do'" class="btn">	
+						<input type="button" value="회원탈퇴" onclick="location.href='${conPath}/withdrawalagreeView.let'" class="btn">	
 					</td>
 				</tr>
 				<tr>

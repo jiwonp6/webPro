@@ -34,7 +34,7 @@
 					<td colspan="2">
 						<input type="submit" value="글쓰기" class="btn">
 						<input type="reset" value="취소" class="btn"> 
-						<input type="button" value="목록" class="btn" onclick="location.href='${conPath}/mybagboardList.do'">
+						<input type="button" value="목록" class="btn" onclick="location.href='${conPath}/main.do'">
 					</td>
 				</tr>
 			</table>

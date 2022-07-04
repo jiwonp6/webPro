@@ -14,9 +14,9 @@ public class ItemBoardDeleteService implements Service {
 		ItemBoardDao iDao = ItemBoardDao.getInstance();
 		int result = iDao.deleteItemBoard(iId);
 		if(result == iDao.SUCCESS) {
-			request.setAttribute("itemboaredResult", "item글삭제 성공");
+			request.setAttribute("itemboardResult", "item글삭제 성공");
 		}else {
-			request.setAttribute("itemboaredResult", "item글삭제 실패");
+			request.setAttribute("itemboardResult", "item글삭제 실패");
 		}
 	}
 

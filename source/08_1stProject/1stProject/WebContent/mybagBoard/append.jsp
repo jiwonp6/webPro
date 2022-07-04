@@ -25,9 +25,9 @@
 			</c:forEach>
 		</div>
 		<input type="hidden" name="pageNum" class="pageNum" value="${pageNum }">
-		<c:if test="${pageCnt<=pageNum }">
-			<jsp:include page="../main/footer.jsp"/>
-		</c:if>
+	</c:if>
+	<c:if test="${pageCnt<=pageNum }">
+		<jsp:include page="../main/footer.jsp"/>
 	</c:if>
 </body>
 </html>

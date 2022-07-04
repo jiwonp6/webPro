@@ -22,14 +22,8 @@
 	</script>
 </head>
 <body>
-	<c:if test="${empty member }">
-		<script>
-			alert('로그인 이후 이용가능 합니다');
-			history.back();
-		</script>
-	</c:if>
-	<c:if test="${not empty qnaboaredResult }">
-		<script>alert('${qnaboaredResult}');</script>
+	<c:if test="${not empty qnaboardResult }">
+		<script>alert('${qnaboardResult}');</script>
 	</c:if>
 	<jsp:include page="../main/header.jsp"/>
 	<article>

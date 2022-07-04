@@ -42,16 +42,15 @@ public class MyBagBoardWriteService implements Service {
 				int result = bDao.writeMyBagBoard(mId, bName, bContent, bFilename, bIp);
 				// joinMember결과에 따라 적절히 request.setAttribute
 				if(result == MyBagBoardDao.SUCCESS) { // 회원가입 진행
-					request.setAttribute("mybagboaredResult", "글쓰기 성공");
+					request.setAttribute("mybagboardResult", "글쓰기 성공");
 				}else {
-					request.setAttribute("mybagboaredResult", "글쓰기 실패");
+					request.setAttribute("mybagboardResult", "글쓰기 실패");
 				}
-			}else {
-				request.setAttribute("mybagboaredResult", "로그인 한 사람만 글쓸 수 있어요");
+				request.setAttribute("pageNum", mRequest.getParameter("pageNum"));
 			}
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
-			request.setAttribute("mybagboaredResult", "글쓰기 실패");
+			request.setAttribute("mybagboardResult", "글쓰기 실패");
 		}
 		// 서버에 올라간 fileboardUp 파일을 소스폴더에 filecopy
 		if(bFilename!=null) {
@@ -60,7 +59,7 @@ public class MyBagBoardWriteService implements Service {
 			try {
 				File serverFile = new File(path+"/"+bFilename);
 				is = new FileInputStream(serverFile);
-				os = new FileOutputStream("D:\\webPro\\source\\08_1stProject\\1stProject\\WebContent\\mybagBoardFileUp\\"+bFilename);
+				os = new FileOutputStream("D:\\webPro\\source\\personalProject\\1stProject\\WebContent\\mybagBoardFileUp\\"+bFilename);
 				byte[] bs = new byte[(int)serverFile.length()];
 				while(true) {
 					int nByteCnt = is.read(bs);

@@ -14,7 +14,7 @@
     <script>
      	function fun(bId){
     	  if(!isNaN(bId)){
-				location.href = '${conPath}/mybagboardContent.do?bId='+bId+'&pageNum=${pageNum}';
+				location.href = '${conPath}/mybagboardContent.do?bId='+bId+'&pageNum='+Number($('.pageNum').last().val());
 			}
       	}
 	</script>
@@ -49,14 +49,39 @@
 </head>
 <body>
 	<jsp:include page="../main/header.jsp"/>
+<!-- main으로 오기 전 처리사항 -->
 	<c:if test="${not empty mybagboardResult }">
-		<script>alert('${mybagboardResult}')</script>
+		<script>alert('${mybagboardResult}');</script>
+	</c:if>
+	<c:if test="${modifyResult eq '회원정보 수정 실패' }">
+		<script>
+			alert('${modifyResult }');
+			history.back();
+		</script>
+	</c:if>
+	<c:if test="${modifyResult eq '회원정보 수정 성공' }">
+		<script>
+			alert('${modifyResult }');
+		</script>
+	</c:if>
+	<c:if test="${withdrawalResult eq '회원탈퇴가 실패되었습니다' }">
+		<script>
+			alert('${withdrawalResult }');
+			history.back();
+		</script>
+	</c:if>
+	<c:if test="${withdrawalResult eq '회원탈퇴가 성공되었습니다' }">
+		<script>
+			alert('${withdrawalResult }');
+		</script>
 	</c:if>
 <article class="mybagBoard">
 	<div>
 		<p class="hit_menu">
-			<a href="${conPath }/mybagboardWriteView.do">글쓰기</a> |
-			<a href="${conPath }/mybagboardList.do">위로</a>
+			<c:if test="${not empty member or not empty admin }">
+				<a href="${conPath }/mybagboardWriteView.do">글쓰기</a> |
+			</c:if>
+			<a href="#top">위로</a>
 		</p>
 		<br>
 	</div>
