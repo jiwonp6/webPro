@@ -50,13 +50,23 @@
 				<tr class="btn">
 					<td>
 						<c:if test="${empty member and not empty admin}">
-							<button onclick="location='${conPath}/qnaboardReplyView.do?qId=${qnaboard.qId }&pageNum=${param.pageNum }'">REPLY</button>
+							<button  class="btn" onclick="location='${conPath}/qnaboardReplyView.do?qId=${qnaboard.qId }&pageNum=${param.pageNum }'">REPLY</button>
 						</c:if>
-					</td>
-				</tr>
-				<tr class="btn">
-					<td>
-						<input type="button" value="LIST" class="btn" onclick="location='${conPath}/qnaboardList.do?pageNum=${param.pageNum }'">
+						<c:if test="${qnaboard.mId eq null and not empty admin }">
+							<input type="button" value="삭제" class="btn" onclick="location='${conPath}/qnaboardreplyDelete.do?qId=${qnaboard.qId }'">
+							<c:if test="${not empty admin }">
+								<input type="button" value="수정" class="btn" onclick="location='${conPath}/qnaboardModifyView.do?qId=${qnaboard.qId }'">
+							</c:if>
+						</c:if>
+						<c:if test="${not empty param.pageNum }">
+							<input type="button" value="LIST" class="btn" onclick="location='${conPath}/qnaboardList.do?pageNum=${param.pageNum }'">
+						</c:if>
+						<c:if test="${empty param.pageNum && not empty member}">
+							<input type="button" value="LIST" class="btn" onclick="location='${conPath}/myboardList.let'">
+						</c:if>
+						<c:if test="${empty param.pageNum && not empty admin}">
+							<input type="button" value="뒤로가기" class="btn" onclick="history.back()">
+						</c:if>
 					</td>
 				</tr>
 			</table>
