@@ -22,16 +22,16 @@
 			</div>
 			<table>
 				<tr class="pic">
-					<td>이미지</td>
+					<td><img src="${conPath }/qnaBoardFileUp/${qnaboard.qFilename}" style="width: 280px; height: 300px; border-radius:20px; padding:5px;"></td>
 				</tr>
 				<tr>
-					<td><input type="text" name="bName" class="title" value="${mybagboard.bName }" required="required" size="30"></td>				</tr>
+					<td><input type="text" name="bName" class="title" value="${mybagboard.bName }" required="required" size="30"></td>
 				<tr>
 				<tr>
 					<td><textarea name="bContent" rows="5" cols="32">${mybagboard.bContent }</textarea></td>
 				</tr>
 				<tr>
-					<td>
+					<td style="font-size: 13px;">
 						<c:if test="${not empty mybagboard.bFilename }">
 							원첨부파일 : <a>${mybagboard.bFilename}</a>
 						</c:if> 
@@ -39,6 +39,9 @@
 						 	원첨부파일 : 첨부파일없음
 						</c:if>
 					</td>
+				</tr>
+				<tr>
+					<td style="padding-top:10px;"><input type="file" name="bFilename"></td>
 				</tr>
 				<tr class="write">
 					<td>

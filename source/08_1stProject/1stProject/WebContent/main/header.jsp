@@ -63,6 +63,7 @@
 							<li><a href="${conPath }/allView.let">회원관리</a></li>
 							<c:if test="${admin.aKing eq 1 }">
 								<li><a href="${conPath }/allAdminView.let">관리자관리</a></li>
+								<li><a href="${conPath }/adminjoinView.let">관리자등록</a></li>
 							</c:if>
 							<li><a href="${conPath }/adminmodifyView.let">MODIFY</a></li>
 							<li><a href="${conPath }/adminlogout.let">LOGOUT</a></li>

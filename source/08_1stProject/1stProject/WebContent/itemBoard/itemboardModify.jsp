@@ -23,7 +23,7 @@
 			</div>
 			<table>
 				<tr class="pic">
-					<td>이미지</td>
+					<td><img src="${conPath }/itemBoardFileUp/${itemboard.iFilename}" style="width: 280px; height: 300px; border-radius:20px; padding:5px;"></td>
 				</tr>
 				<tr>
 					<td><input type="text" name="iTitle" class="title" value="${itemboard.iTitle }" required="required" size="30"></td>
@@ -40,6 +40,9 @@
 						 	원첨부파일 : 첨부파일없음
 						</c:if>
 					</td>
+				</tr>
+				<tr>
+					<td style="padding-top:10px;"><input type="file" name="iFilename"></td>
 				</tr>
 				<tr class="write">
 					<td colspan="2">

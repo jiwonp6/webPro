@@ -12,16 +12,6 @@
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script>
 		$(document).ready(function() {
-			$('input[name="oldmPw"]').keyup(
-					function() {
-						var oldmPw = $('input[name="oldmPw"]').val();
-						var mPw = ${member.mPw };
-						if (oldmPw == mPw) {
-							$('#oldpwChkResult').text('확인');
-						} else {
-							$('#oldpwChkResult').html('<b>비밀번호 불일치</b>');
-						}
-					}); //pw check
 			$('input[name="newmPw"], input[name="mPwChk"]').keyup(
 				function() {
 					var newmPw = $('input[name="newmPw"]').val();
@@ -32,6 +22,16 @@
 						$('#newpwChkResult').html('<b>비밀번호 불일치</b>');
 					}
 				}); // new pw check
+			$('input[name="oldmPw"]').keyup(
+				function() {
+					var oldmPw = $('input[name="oldmPw"]').val();
+					var mPw = ${member.mPw };
+					if (oldmPw == mPw) {
+						$('#oldpwChkResult').text('확인');
+					} else {
+						$('#oldpwChkResult').html('<b>비밀번호 불일치</b>');
+					}
+				}); //pw check
 			$('input[name="mEmail"]').keyup(
 				function() {
 					var patternMail = /^[a-zA-Z0-9_]+@[a-zA-Z0-9]+(\.[a-zA-Z]+){1,2}$/; // 메일 패턴
@@ -57,7 +57,7 @@
 				var newpwChkResult = $('#newpwChkResult').text().trim();
 				var emailConfirmResult = $('#emailConfirmResult').text().trim();
 				var mEmail = $('input[name="mEmail"]').val();
-				if (pwChkResult != '확인') {
+				if (oldpwChkResult != '확인') {
 					alert('비밀번호를 확인하세요');
 					$('input[name="oldmPw"]').focus();
 					return false;

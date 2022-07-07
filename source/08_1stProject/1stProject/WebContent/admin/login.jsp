@@ -42,9 +42,6 @@
 					</td>
 				</tr>
 				<tr><td>&nbsp;</td></tr>
-				<tr class="search">
-					<td><a href="${conPath }/adminjoinView.let">관리자 회원가입</a></td>
-				</tr>
 				<tr><td>&nbsp;</td></tr>
 				<tr>
 					<td>
