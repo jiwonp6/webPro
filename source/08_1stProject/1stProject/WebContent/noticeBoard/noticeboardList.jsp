@@ -69,7 +69,7 @@
 					<c:forEach items="${noticeboardList }" var="noticeboard">
 						<tr>
 							<td>${noticeboard.nId }</td>
-							<td class="left">
+							<td class="left" style="text-align: left;">
 								${noticeboard.nTitle } <!-- 글제목에 a태그를 걸지 말고 query로 tr을 클릭하면 상세보기 페이지로 가기 -->
 								<c:if test="${not empty noticeboard.nFilename }">
 									<img src="https://cdn-icons-png.flaticon.com/512/5088/5088374.png" width="10">

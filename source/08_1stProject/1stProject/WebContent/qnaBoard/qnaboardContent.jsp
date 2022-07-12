@@ -35,7 +35,7 @@
 					</td>
 				</tr>
 				<tr class="content">
-					<td><pre>${qnaboard.qContent}</pre></td>
+					<td>${qnaboard.qContent}</td>
 				</tr>
 				<tr class="file">
 					<td>

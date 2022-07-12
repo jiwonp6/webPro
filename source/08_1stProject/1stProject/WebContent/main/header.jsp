@@ -73,9 +73,7 @@
 			</c:if>
 		</section>
 		<section class="logo">
-			<p>WHAT'S </p>
-			<p> &nbsp; &nbsp; IN</p>
-			<p> &nbsp; &nbsp; &nbsp; &nbsp; MY BAG</p>
+			<img src="${conPath }/img/logo.png" style="width: 450px; height: 280px;">
 		</section>
 		<section class="lnb">
 			<ul>

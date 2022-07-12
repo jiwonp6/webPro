@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="cal" class="com.lec.ch02.ex1_cal.Calculator"/>
+	
+	<bean id="myCal" class="com.lec.ch02.ex1_cal.MyCalculator">
+		<property name="calculator">
+			<ref bean="cal"></ref>	<!-- ref : 객체 참조할 때 사용 (참조되는 bean태그의 이름이랑 같아야함)-->
+		</property>
+		<property name="num1">
+			<value>50</value>	<!-- 기초데이터 타입, String -->
+		</property>
+		<property name="num2" value="10"/>
+	</bean>
+</beans>

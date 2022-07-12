@@ -1,5 +1,6 @@
 package com.lec.service;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,9 +15,9 @@ public class MemberJoinService implements Service {
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 		String name = request.getParameter("name");
-		Timestamp birth = null;
+		Date birth = null;
 		if(!request.getParameter("birth").equals("")) {
-			birth = Timestamp.valueOf(request.getParameter("birth")+" 00:00:00");
+			birth = Date.valueOf(request.getParameter("birth"));
 		}
 		MemberDto member = new MemberDto(id, pw, name, birth, null);
 		MemberDao mDao = MemberDao.getInstance();

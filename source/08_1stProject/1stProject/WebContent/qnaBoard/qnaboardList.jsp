@@ -65,7 +65,7 @@
 					<c:forEach items="${qnaboardList }" var="qnaboard">
 						<tr>
 							<td>${qnaboard.qId }</td>
-							<td class="left">
+							<td class="left" style="text-align: left;">
 								<c:forEach var="n" begin="1" end="${qnaboard.qIndent }">
 									<c:if test="${n==qnaboard.qIndent }">└</c:if>
 									<c:if test="${n!=qnaboard.qIndent }"> &nbsp; &nbsp; </c:if>

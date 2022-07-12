@@ -46,7 +46,6 @@
 				<tr>
 					<td>
 						<input type="submit" value="LOGIN" class="btn" style="height:30px;">
-						<input type="button" value="JOIN US" class="btn"	onclick="location.href='${conPath}/adminjoinView.let'" style="height:30px;">
 					</td>
 				</tr>
 			</table>

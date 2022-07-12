@@ -14,7 +14,6 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 import com.lec.dto.MemberDto;
-import com.mysql.cj.x.protobuf.MysqlxConnection.Close;
 
 public class MemberDao {
 	public static final int SUCCESS = 1; // 회원가입시
@@ -49,7 +48,7 @@ public class MemberDao {
 			pstmt.setString(1, member.getId());
 			pstmt.setString(2, member.getPw());
 			pstmt.setString(3, member.getName());
-			pstmt.setTimestamp(4, member.getBirth());
+			pstmt.setDate(4, member.getBirth());
 			result = pstmt.executeUpdate();
 		}catch (SQLException e) {
 			System.out.println(e.getMessage() + member);
@@ -78,8 +77,8 @@ public class MemberDao {
 				String id    = rs.getString("id");
 				String pw    = rs.getString("pw");
 				String name  = rs.getString("name");
-				Timestamp birth = rs.getTimestamp("birth");
-				Date rdate   = rs.getDate("rdate");
+				Date birth = rs.getDate("birth");
+				Timestamp rdate   = rs.getTimestamp("rdate");
 				members.add(new MemberDto(id, pw, name, birth, rdate));
 			}
 		}catch (SQLException e) {

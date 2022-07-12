@@ -65,7 +65,7 @@
 					<c:forEach items="${itemboardList }" var="itemboard">
 						<tr>
 							<td>${itemboard.iId }</td>
-							<td class="left">
+							<td class="left" style="text-align: left;">
 								<c:forEach var="n" begin="1" end="${itemboard.iIndent }">
 									<c:if test="${n==itemboard.iIndent }">└</c:if>
 									<c:if test="${n!=itemboard.iIndent }"> &nbsp; &nbsp; </c:if>
