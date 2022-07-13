@@ -1,0 +1,34 @@
+◎JSTL(JSP Standard Tag Library)
+1. JSTL
+	: jsp의 html태그와 혼용되어 가독성↓ 단점 보완
+2. JSTL 라이브러리
+	lib		uri		prefix		ex
+	------------------	--------------------	--------------------	-------------------
+	Core 		변수선언유사	
+			실행흐름제어기능	  c		<c:tag
+			제어이동기능
+	
+	XML Processing	xml 문서 처리 시
+			필요한기능제공	  x		<x:tag
+			
+	formatting	숫자, 날짜, 시간
+			포맷팅하는 기능	  fmt		<fmt:tag
+			다국어지원기능
+
+	SQL		DB 데이터 
+			입력/수정/삭제/조회  Sql		<sql:tag
+			기능 제공
+
+	functions		문자열 처리함수	  fn		fn:function()
+
+3. Core 태그
+	① 출력 태그 : <c:out>
+	② 변수 설정 태그 : <c:set>
+	③ 변수를 제거하는 태그 : <c:remove>
+	④ 예외 처리 태그 : <c:catch>
+	⑤ 제어문(if)태그 : <c:if>
+	⑥ 제어문 태그 : <c:choose>
+	⑦ 반복문(for) 태그 : <c:forEach>
+	⑧ 페이지 이동태그 <c:redirect url=”url”>
+4. fmt
+	

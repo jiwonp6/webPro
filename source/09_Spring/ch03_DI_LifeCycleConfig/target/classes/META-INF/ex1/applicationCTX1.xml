@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+	
+	<context:annotation-config/>	<!-- @Autowired 있다고 언급 / Namespaces의 context 체크!(사용가능하도록) -->
+	<bean id="student" class="com.lec.ch03.ex1.Student">
+		<constructor-arg value="홍길동"/>
+		<constructor-arg value="11"/>
+		<constructor-arg>
+			<list>
+				<value>코딩</value>
+				<value>개발</value>
+				<value>공부</value>
+			</list>
+		</constructor-arg>
+		<property name="height" value="170"/>
+		<property name="weight" value="60"/>
+	</bean>
+	<bean id="studentInfo" class="com.lec.ch03.ex1.StudentInfo"/>	
+	<!-- 
+		<property name="student" ref="student"/> @Autowired 처리를 안해주면 의존하는 객체 찾아가라고 언급해주기 위해 필요했음 
+	</bean>	-->
+</beans>

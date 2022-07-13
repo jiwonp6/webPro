@@ -1,0 +1,21 @@
+◎EL(Expression Language)
+1. EL
+	: 표현식을 좀 더 간략하게
+2. EL 연산자
+	- 산술 : + - * / %
+	- 관계 : ==(eq) !=(ne) <(&lt;) >(&gt) <= >=
+	- 조건 : a ? b : c
+	- 논리 : && ||
+	- ${ empty 값  } : 공백 or NULL O → true
+	- ${ not empty 값  } : 공백 or NULL X → true
+3. 내장객체
+	- Scope
+		① pageScope : page attribute 집합
+		② requestScope : request attribute 집합
+		③ sessionScope : session attribute 집합
+		④ applicationScope :  application attribute 집합
+	- 그 외 
+		① param : 요청 파라미터 참조 객제
+		② paramValues : 요청 파라미터(배열) 참조 객제
+		③ initParam : 초기화 파라미터 참조 객체
+		④ cookie : cookie객체 참조 객체

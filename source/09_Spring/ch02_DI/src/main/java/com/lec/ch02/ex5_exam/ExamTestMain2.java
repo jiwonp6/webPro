@@ -8,9 +8,13 @@ public class ExamTestMain2 {
 	public static void main(String[] args) {
 		String location = "classpath:applicationCTX5.xml";
 		AbstractApplicationContext ctx = new GenericXmlApplicationContext(location);
-		ExamConsole console = ctx.getBean("examConsole2", ExamConsole.class);
+		System.out.println("수정전");
+		ExamConsole console = ctx.getBean("examConsole", ExamConsole.class);
 		console.print();
 		ctx.close();
+		System.out.println("\n수정후");
+		ExamConsole console2 = ctx.getBean("examConsole2", ExamConsole.class);
+		console2.print();
+		ctx.close();
 	}
-
 }
