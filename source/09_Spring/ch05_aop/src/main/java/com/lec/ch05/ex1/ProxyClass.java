@@ -22,18 +22,18 @@ public class ProxyClass {
 	}
 	//beforeAdvice
 	public void beforeAdvice() {
-		System.out.println("핵심기능 수행하기 전 알아서 beforeAdvice(공통기능) 수행");
+		System.out.println("● ● ● ● ● 핵심기능 수행하기 전 알아서 beforeAdvice(공통기능) 수행");
 	}
 	//afterAdvice
 	public void afterAdvice() {
-		System.out.println("핵심기능 수행하고 알아서 afterAdvice(공통기능) 수행");
+		System.out.println("◆ ◆ ◆ ◆ ◆ 핵심기능 수행하고 알아서 afterAdvice(공통기능) 수행");
 	}
 	//after-returning Advice
 	public void afterReturningAdvice() {
-		System.out.println("정상적으로(예외발생X) 핵심기능이 수행된 후 이 afterReturningAdvice 수행");
+		System.out.println("▲ ▲ ▲ ▲ ▲ 정상적으로(예외발생X) 핵심기능이 수행된 후 이 afterReturningAdvice 수행");
 	}
 	//after-throwing Advice
 	public void afterThrowingAdvice() {
-		System.out.println("예외가 발생된 핵심기능이 수행된 후 이 afterThrowingAdvice 수행");
+		System.out.println("■ ■ ■ ■ ■ 예외가 발생된 핵심기능이 수행된 후 이 afterThrowingAdvice 수행");
 	}
 }

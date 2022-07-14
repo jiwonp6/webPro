@@ -21,7 +21,28 @@
 		<aop:aspect id="aroundAspect" ref="proxyClass">
 			<!-- 핵심기능 연결하는 것 (aroundAdvice 연결)-->
 			<aop:pointcut expression="within(com.lec.ch05.ex1.*)" id="aroundM"/>
+								  <!--within(클래스) -->
 			<aop:around method="aroundAdvice" pointcut-ref="aroundM"/>	
 		</aop:aspect>
+		<aop:aspect id="beforeAspect" ref="proxyClass">
+											 <!-- ↓ 핵심기능의 type이 void형-->
+			<aop:pointcut expression="execution(void com.lec.ch05.ex1.Worker.get*())" id="beforeM"/>
+								  <!--execution(메소드) -->
+			<aop:before method="beforeAdvice" pointcut-ref="beforeM"/>	
+		</aop:aspect>
+		<aop:aspect id="afterAspect" ref="proxyClass">
+			<aop:pointcut expression="bean(stud*)" id="afterM"/>
+								  <!--bean(bean태그 이름) -->
+			<aop:after method="afterAdvice" pointcut-ref="afterM"/>	
+		</aop:aspect>
+		<aop:aspect id="afterReturnAspect" ref="proxyClass">
+			<aop:pointcut expression="within(com.lec.ch05.ex1.Worker)" id="afterReturnM"/>
+			<aop:after-returning method="afterReturningAdvice" pointcut-ref="afterReturnM"/>	
+		</aop:aspect>
+		<aop:aspect id="afterThrowingAspect" ref="proxyClass">
+			<aop:pointcut expression="execution(void com.lec.ch05.ex1.Student.*())" id="afterThrowM"/>
+			<aop:after-throwing method="afterThrowingAdvice" pointcut-ref="afterThrowM"/>	
+		</aop:aspect>
+		
 	</aop:config>
 </beans>
