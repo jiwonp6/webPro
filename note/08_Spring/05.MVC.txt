@@ -1,0 +1,34 @@
+◎ MVC
+1. Spring MVC의 웹 요청 처리과정 
+	: Client → DispatcherServlet → <<spring bean>>
+				     HandlerMaping
+			            ↔ <<spring bean>> ↔ ModelAndView ↔ <<spring bean>> ↔ Service ↔ DAO
+				     HandlerMaping			            Controller
+			            ↔ <<spring bean>>
+				      ViewResolver
+			            →       View(.jsp)
+2. MVC 구조 살펴보기
+	▶ src/main/java : 개발되는 Java 코드의 경로
+	▶ com.lec.ch06
+		> HomeController.java : 컨트롤러(Dispatcher에서 전달된 요청을 처리)
+	▶ src/main/resources : 서버가 실행될 때 필요한 파일들의 경로
+	▶ src/test/java : 테스트 전용 경로 (각 테스트 코드 작성 경로)
+	▶ src/test/resources : 테스트 시에만 사용되는 파일들 경로
+	▶ JRE System Library
+	▶ Maven Dependencies
+	▶ src
+	▶ main
+	   ▶ webapp : web root
+		▶ resources
+		▶ WEB-INF
+		    ▶ classes
+		    ▶ spring : 스프링 설정 파일의 경로
+		         ▶ appServlet
+			>servlet-context.xml : 스프링 컨테이너 설정 파일
+		         ▶ root-context.xm : 스프링 컨테이너 설정 파일
+		     ▶ views : 뷰(.jsp)
+			>home.jsp
+ 		     > web.xml : Maven의 설정 파일 (DispatcherServlet 서블릿 맵핑)
+                     			스프링 설정 파일(servlet-context.xml, root-context.xml) 위치 정의
+
+

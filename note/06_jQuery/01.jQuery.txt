@@ -1,0 +1,118 @@
+◎ jQuery
+	: js 라이브러리 중 하나 (이벤트 대응, 애니메이션, 메뉴효과 등의 제작에 유용)
+
+1. 기능
+	- 문서 객체 모델과 관련된 처리
+	- 일관된 이벤트 연결
+	- 시각적 효과
+	- aJax 애플리케이션
+2. 문법
+	- $('선택자').함수();
+		① html()  해당 선택자 안에 html코드 삽입 
+		② text()   해당 선택자 안에 text 삽입 
+		③ hide()
+		④ show()
+		⑤ toggle()
+		⑥ val('변형될 value') ; value값 변형
+		⑦ css('속성', '속성값')
+		⑧ each ; 배열 처리함수 
+		⑨ addClass ; 클래스 추가
+		⑩ removeClass ; 클래스 삭제
+		⑪ append
+	 	⑫ prepend
+		⑬ attr 
+		⑭ 이벤트 관련 함수들
+	     		- click(콜백함수), focus(콜백함수), etc...
+    			- off(), trigger()..
+		⑮ aJax관련 함수들 : $.get(), $.post(), $.ajax()
+		
+	* eg) $(‘selector’).action()
+		$(this).hide();
+		$("p").hide();
+		$(".test").hide(); - 클래스 : 여러개
+		$("#test").hide(); - ID : 한개
+
+		Document Ready Event
+		$(document).ready(function(){
+			// 웹문서(document) onload 시 jQuery의 ready이벤트 = onload이벤트
+			// $ : jQuery 의미 $(“선택자”).css(“속성”,”속성값”);
+			// jQuery 메소드 위치
+		});
+		이미지 로드 후 사이즈 변경 or Element가 만들어진 이후 hide etc... 등의 에러 막기 위해 ready이벤트에 언급
+		$(function(){
+			// 위와 동일한 효과
+			// jQuery 메소드 위치
+		});
+3. jQuery 선택자
+	: jQuery 라이브러리, HTML element 다루거나 찾을 때 이용(Id나 class, 태그이름에 기초하여 선택)
+	* 기본 CSS 셀렉터
+		$(*) 모든 엘리먼트
+		$(this) 현재 선택된 HTML 엘리먼트
+		$(“p.intro”) p태그 중 intro class
+		$(“p:first”) p 태그 중 첫번째 엘리먼트
+		$(“ul li:first-child”) ul마다의 처음 li만
+		$(“[href]”) 웹문서 내의 href속성을 갖는 모든 엘리먼트 link, a등
+		$(“a[target=’_blank’]”) target속성으로 _blank를 갖는 a태그만
+		$(“a[target!=’_blank’]”) target속성으로 _blank가 아닌 a태그만
+
+		$(“:button”) 문서내 button. input안의 type이 button
+		$(“tr:even”) 테이블에서 짝수번째 행
+		$(“tr:odd”) 테이블에서 홀수번째 행
+
+		$(‘input[name=”name01”]’).val(“xx”); input태그 중 name이 “name01”
+		$(“input[type!=’password’]”).val(“”);
+
+	* E[A=v]
+		E[A~=v] 해당 값이 특정 단어로 시작
+		E[A^=v] attribute가 v로 시작하는 E
+		E[A$=v] attribute가 v로 끝나는 E
+
+		E>F E의 바로 아래 F 엘리먼트
+		E+F E의 형제 엘리먼트로 바로 다음 형제 F 엘리먼트
+		E~F E의 형제 엘리먼트로 다음에 나오는 모든 F 엘리먼트
+		E:has(F) 엘리먼트 F의 자손을 하나 이상 가지고 있는 E 모든 엘리먼트
+		E.C       클래스명 C를 가지고 있는 모든 E 엘리먼트
+
+		$(“select > option:selected”).val(“”); 선택되어진 것만 값을 변경
+
+	* 기타 filter 요소들
+		- 요소:disabled → 비활성화된 입력 양식 선택
+			$(“input:disabled”)
+		- 요소:enabled → 활성화된 입력 양식 선택
+			$(“input:enabled”).val(“입력준비완료”)
+		- 요소:focus → 포커스 즉 클릭하는 순간 처리할 내용
+			$(input:focus).val(“”); //포커스하면 기존 데이터 사라짐
+
+		* 주로 list 형식 : tr, td, h1, li 등과 관련된 선택자 사용 시 쓰임
+			- 요소:odd → 홀수 번째 위치한 문서 객체 선택
+				$(“tr:odd”).css(“background”,”red”);
+			- 요소:even → 짝수 번째 위치한 문서 객체 선택
+			- 요소:fist → 첫번째 위치한 문서 객체 선택
+			- 요소:last → 첫번째 위치한 문서 객체 선택
+		* 함수 필터 선택자
+			- 요소:eq(n): 요소들 중 n번째
+			- 요소:contains(‘문자열’) : 특정 문자열을 포함한 내용의 객체를 선택
+			- 요소:nth-child(Kn+1) : k단위로 해당요소의 내용을 반복으로 처리하고자 할 때 활용
+4. 배열 객체 관리
+	① for, for-in
+	② .each()메서드 (배열관리에 최적)
+		$.each(배열객체, function(index, item){
+			index 활용, 배열 안에 있는 단위 item로 활용
+		});
+		(= $(배열객체).each(function(index, item){	}); )
+5. jQuery 이벤트 메소드
+	- 이벤트
+		: 각 개인 방문자들이 하는 행동에 따라 웹 페이지 다르게 응대 시 어떤 행동이 일어나는 순간 
+		* eg.
+			- Mouse events : click, dbclick, mouseenter, mouseleave, hover(mouseenter, mouseleave 한번에)
+			- Keyboard events : keypress, keydown, keyup
+			- Form events : submit, change, focus, blur(포커스를 잃었을 때)
+			- Document/window event : load, resize, scroll, unload
+
+	- 이벤트 연결 제거
+		: $(객체).off( )
+
+	
+
+
+

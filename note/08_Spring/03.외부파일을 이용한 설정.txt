@@ -1,0 +1,22 @@
+◎ 외부파일을 이용한 설정
+1. Environment 객체 이용 → 스프링 빈 설정
+	① Context 객체 얻음
+		: ConfigurableApplicationContext ctx = new GenericXmlApplicationContext();
+	② Context 객체 → ctx.getEnvironment() → Environment 객체 얻음
+		: ConfigurableEnvironment env = ctx.getEnvironment();
+	③ Environment객체 ⊃ PropertySource 객체 ⊃ 여러 정보(환경설정 위함)
+	   = Environment객체 → env.getPropertySources() → PropertySources객체(데이터 관리) 얻음
+		: MutablePropertySources propertySources = env.getPropertySources();
+	④ 추가 : propertySources.addLast()
+		: propertySources.addLast(new ResourcePropertySource("classpath:admin.properties"));
+		// 외부 설정파일 → ResourcePropertySource로 만듦 → propertySources에 추가
+	⑤ 추출 : env.getProperty() 
+		= 필요한 정보 있을 때까지 검색 → 정보값 리턴
+		System.out.println(env.getProperty("admin.id"));
+2. 프로퍼티 파일 이용 → 스프링 빈 설정
+	//스프링 설정 XML 파일에 프로퍼티 파일 명시
+	eg.
+	: applicationCTX.xml ⊃ admin.properties, sub_admin.properties
+3. 프로파일(profile) 속성 이용 → 스프링 빈 설정
+	//동일한 스프링 빈을 여러 개 만들어 놓음 → 환경에 따라 적절한 스프링 빈 사용
+	: setActiveProfiles(config)

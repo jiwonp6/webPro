@@ -1,0 +1,69 @@
+◎ AOP
+1. AOP
+	: 비즈니스 로직은 아니지만 필요한 기능들
+	 (핵심 기능과 공통 기능 분리 → 공통 기능을 필요로 하는 핵심 기능들에서 사용하는 방식)
+2. 용어
+	① Aspect 
+		: 공통 기능, 기능 자체에 대한 용어
+	② Advice 
+		: 공통기능을 구현한 객체 메소드
+	③ Join Point 
+		: 핵심기능, 공통 기능을 적용할 수 있는 대상
+	④ PointCuts 
+		: Join Point의 부분, 실제 Advice 적용 부분
+	⑤ Proxy 
+		: Advice가 적용되었을 때 만들어지는 객체
+	⑥ Weaving 
+		: Advice + target → 프록시 객체 생성 과정
+		 (advice를 핵심기능에 적용하는 행위)
+3. Spring에서의 구현
+	- proxy 이용
+		① XML이용
+		② @Aspect 어노테이션 이용
+	- Advice 종류
+		① Before : 업무 로직 전 실행
+		② After : 업무 로직 후 실행(예외 발생 여부 관계X)
+		③ After returnning : 업무 로직 후 실행
+		④ After throwing : 예외 처리
+		⑤ Around : 업무 로직 앞 뒤 모두 실행
+	- Weaving 방식
+		① XML을 이용
+		② @Aspect 어노테이션 이용
+
+
+4. XML 이용
+	- 순서
+		① Pom.xml에서 의존 설정
+		② Proxy 클래스 제작(공통기능의 클래스 제작 – Advice 역할 클래스)
+5. @Aspect 어노테이션 이용
+	- 순서
+		① 의존 설정
+		② @Aspect 어노테이션을 이용한 Aspect class 제작
+		   (@pointcut/@Around, @Before, @After, @AfterReurning, @AfterThrowing)
+		③ XML 설정 파일에 <aop:aspectj-autoproxy/>설정
+6. AspectJ Pointcut 표현식
+	: Pointcut 지정 시 사용하는 표현식(AspectJ 문법 사용)
+	- AspectJ 문법( * : 모든,  . : 현재,  .. : 0개 이상)
+		① execution("메소드 위치")
+			@Pointcut("execution(public void get*(..))") 
+				// public void인 모든 get메소드
+			@Pointcut("execution(* com.lec.ch05.ex.*.*())") 
+				// com.ch.ex 패키지에 파라미터가 없는 모든 메소드
+			@Pointcut("execution(* com.lec.ch05.ex..*.*())")
+				// com.ch.ex 패키지 & com.ch.ex 하위 패키지에 파라미터가 없는 모든 메소드
+			@Pointcut("execution(* com.lec.ch05.ex.Worker.*())")
+				// com.ch.ex.Worker 안의 모든 메소드
+		② within("클래스 위치")
+			@Pointcut("within(com.lec.ch05.ex.*)")	
+				//com.ch.ex 패키지 안 모든 클래스의 메소드
+			@Pointcut("within(com.lec.ch05.ex..*)")  
+				// com.ch.ex 패키지 및 하위 패키지 안 모든 클래스의 메소드
+			@Pointcut("within(com.lec.ch05.ex.Worker)") 
+				// com.ch.ex.Worker 클래스의 모든 메소드
+		③ bean("빈태그 이름")
+			@Pointcut("bean(student)") 
+				//student 빈에만 적용
+			@Pointcut("bean(*ker)") 
+				//~ker로 끝나는 빈에만 적용
+
+	

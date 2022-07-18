@@ -1,0 +1,39 @@
+◎ Controller
+1. Controller 제작
+	① @Controller 어노테이션 클래스 적용
+		* 컨트롤러 역할의 클래스 파일은 
+		  servlet-context.xml에 
+		  <context:component-scan base-package="com.lec.ch09con" /> 
+		  명시된 패키지 아래에만 위치가능
+	② @requestMapping 어노테이션 이용해 요청 경로 지정
+	③ 웹브라우저의 요청 처리할 메서드 구현
+	④ 뷰이름 리턴
+2. 요청 처리 메소드 제작
+	① 클라이언트의 요청 처리 메소드 제작
+	② 뷰페이지 이름 생성(조합) 방법
+		servlet-context.xml
+			↓
+		<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+			<beans:property name="prefix" value="/WEB-INF/views/" />
+			<beans:property name="suffix" value=".jsp" />
+		</beans:bean>
+	③ 뷰페이지 이름 = prefix + 요청처리 메소드 반환값 +suffix
+3. 뷰에 데이터 전달
+	(1) 컨트롤러에서 로직 수행 후 뷰페이지에 반환 (뷰의 사용데이터 객체로 전달 가능)
+		@RequestMapping("/board/write") //요청경로
+		public String content() {
+			return "/board/write";	// 뷰이름
+		}
+	(2) Model 클래스 이용한 데이터 전달 (@RequestMapping어노테이션 붙은 메소드 → Model형 객체 매개변수로 가능)
+		① Model 객체 ← 파라미터 받음 
+		② Model 객체 ← 데이터 담음
+		③ 컨트롤러에서 전달받은 Model 객체의 속성 이용
+	(3) ModelAndView 클래스 이용한 데이터 전달 (매개변수로 데이터X, 매소드 안 직접 생성)
+		① ModelAndView 객체생성
+		② Model 객체에 데이터 담음
+		③ 뷰이름 설정
+		④ 컨트롤러에서 전달받은 객체 속성 이용
+4. 클래스에 @requestMapping 적용
+	(1) 메소드마다 @RequestMapping 어노테이션 적용하여 요청경로 얻음
+	(2) 메소드에 @RequestMapping 어노테이션 적용하여 요청경로 얻음
+	   (@RequestMapping 어노테이션 클래스에 적용하여 요청경로 얻는 방법)
