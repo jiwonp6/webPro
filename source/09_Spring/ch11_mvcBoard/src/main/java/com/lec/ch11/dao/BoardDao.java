@@ -132,14 +132,14 @@ public class BoardDao {
 		return result;
 	}
 	// hit수 올리기
-	private void hitUp(int bid) {
+	private void hitUp(int bId) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = "UPDATE MVC_BOARD SET BHIT = BHIT+1 WHERE BID=?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, bid);
+			pstmt.setInt(1, bId);
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("조회수 올리기 예외 : "+e.getMessage());
