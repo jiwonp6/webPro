@@ -1,0 +1,11 @@
+◎ FileUpload
+1. 순서
+	① Pom.xml에 의존추가
+	② Web.xml 한글필터처리부분 추가
+	③ Servlet-context.xml (웹과 관련된 설정부분)  
+		> multipartResolver Bean생성
+	    cf.웹이외의 설정부분은 root-context.xml
+	④ Servlet-context.xml 에 추가
+	⑤ view
+	⑥ Controller
+	⑦ Service

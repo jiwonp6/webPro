@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Dept">
+	<resultMap type="Dept" id="DeptResult">		<!-- Dept로 DeptResult 타입 생성 -->
+		<result property="deptno" column="deptno"/>
+		<result property="dname" column="dname"/>
+		<result property="loc" column="loc"/>
+	</resultMap>
+	<select id="deptList" resultMap="DeptResult">	<!-- sql : select문 (resultMap필요)-->
+		<!-- CDATA : 비교연산자 <, > 사용 시 필요 -->
+		<![CDATA[	
+			SELECT * FROM DEPT
+		]]>
+	</select>
+</mapper>

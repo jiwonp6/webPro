@@ -1,0 +1,12 @@
+◎ From Data
+1. form 데이터 전송받기
+	① HttpServletRequest 클래스 이용
+		: 주소창 http://localhost:8181	/ch18		/member/result	?id=aa&pw=11
+          			서버IP주소     	 켄텍스트path   	요청경로     	httpServletRequest
+	② @RequesParam 어노테이션 이용
+	③ 데이터(커맨드) 객체 이용(데이터 많을 경우 유용)
+	④ @ModelAttribute 
+		: 모든 요청경로에 공통으로 필요한 model attribute가 있을 경우 사용
+	⑤ @PathVariable
+		: 경로(path)에 변수 넣어 요청 메소드 → 파라미터로 이용
+	

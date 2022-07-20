@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 별칭설정 -->
+	<typeAliases>
+		<typeAlias type="com.lec.ch14_practice.model.Dept" alias="Dept"/>
+		<typeAlias type="com.lec.ch14_practice.model.Emp" alias="Emp"/>
+	</typeAliases>
+	
+	<!-- DB에 사용되는 쿼리문들을 담은 mapper파일 등록 -->
+	<mappers>
+		<mapper resource="META-INF/sqlmap/mappers/Dept.xml"/>
+		<mapper resource="META-INF/sqlmap/mappers/Emp.xml"/>
+	</mappers>
+</configuration>

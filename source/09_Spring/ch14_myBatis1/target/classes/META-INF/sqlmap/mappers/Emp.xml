@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Emp">
+	<resultMap type="Emp" id="EmpResult">
+		<result property="empno" column="empno"/>
+		<result property="ename" column="ename"/>
+		<result property="job" column="job"/>
+		<result property="mgr" column="mgr"/>
+		<result property="hiredate" column="hiredate"/>
+		<result property="sal" column="sal"/>
+		<result property="comm" column="comm"/>
+		<result property="deptno" column="deptno"/>
+	</resultMap>
+					<!-- parameterType : input타입 -->
+	<select id="empList" parameterType="Emp" resultMap="EmpResult">		<!-- sql : select문 (resultMap필요)-->
+		SELECT * FROM EMP WHERE 1=1
+		<!-- core 라이브러리 아님 -> ${}필요X -->
+		<if test="ename!=null and ename!=''">
+			AND ENAME LIKE '%'||#{ename}||'%'
+		</if>
+		<if test="job!=null and job!=''">
+			AND JOB LIKE '%'||#{job}||'%'
+		</if>
+		<if test="deptno!=0">
+			AND DEPTNO = #{deptno}
+		</if>
+	</select>
+</mapper>
+

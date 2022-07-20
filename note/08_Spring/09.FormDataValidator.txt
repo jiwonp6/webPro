@@ -1,0 +1,32 @@
+◎ FormDataValidator
+1. Validator(Interface) 이용한 검증
+	: 서버에서 검사하는 방법
+	 (cf. javascript 이용 → 클라이언트에서 검사하는 방법)
+2. 과정
+	| 클라이언트 |    커맨드객체    |    컨트롤러     |   검증결과yes    |   다음단계로   |
+	|  <form>	    |        ↔           | Validaotr 객체 |        →           | (Service/View) |
+
+	① 클라이언트 측 
+		: form에 데이터를 넣고, submit에 의해 전송
+	② 데이터량 ↑ 
+		: 커맨트 객체에 담아서 컨트롤러로 전송됨
+	③ 컨트롤러에서 처리, 뷰에 응답 전(유효성 검사 실행)
+		① Validator 인터페이스 구현한 객체 생성 → 유효성 검사
+		② 검증결과 뷰 쪽으로 응답
+3. ValidationUtils 클래스
+	: validate()메소드를 더 편리하게 사용 할 수 있도록 고안된 클래스
+	eg.
+	String studentName = student.getName();
+		if(studentName==null || studentName.trim().isEmpty()){
+			System.out.println("studentName is null or empty");
+			errors.rejectValue("name", "trouble");
+		}
+
+			↓
+
+	ValidationUrils.rejectIfEmptyOrWhitespace(errors, “name”,”trouble”);
+4. @Valid와 @InitBinder
+	: 데이터 검증을 위함
+	  Validator 인터페이스를 구현한 클래스 제작 
+			→ 어노테이션 이용 (validate()메소드 직접 호출X, 스프링 프레임워크에서 호출)
+

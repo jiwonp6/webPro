@@ -1,0 +1,22 @@
+◎ JDBC Template
+1. JDBC Template
+	: 반복코드 줄이기 위함
+
+	* JDBC Template 하나로 해결 가능 
+		① JDBC 드라이버 로드 – DriverManager
+		② 데이터 베이스 연결 – Connection 
+		③ SQL문 실행 – PreparedStatement, ResultSet
+		④ DB 연결 해제 - *.close()
+2. Spring 빈 → 코드 간소화
+	: DataBase관련 클래스 간소화, 스프링 설정파일에서 JdbcTemplate 빈 생성하여 사용
+
+	|  JdbcTemplate빈 |		→  	 |         Java에서        |
+	|   Datasource빈   |			 | JdbcTemplate빈 이용 |
+
+3. JDBC 이용 → list, Insert, update, delete 처리
+	: Pom.xml 에 JDBC Template 사용 위해 dependencies 추가
+
+	* Controller의 template에 bean이 담겨야 함
+		: 자동으로 setter 호출 
+			→ jdbcTemplate이 들어오도록 자동 autoscan 시 
+				→ @AutoWired : 자동으로 빈이 생성,  setting되어 할당
