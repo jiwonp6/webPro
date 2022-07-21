@@ -24,7 +24,7 @@
 
 	<!-- sqlSessionTemplate빈 (sqlSessionFactoryBean 빈 의존) -->
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
-		<constructor-arg index="0" ref="sqlSessionTemplate"/>
+		<constructor-arg index="0" ref="sqlSessionFactoryBean"/>
 	</bean>
 	
 </beans>

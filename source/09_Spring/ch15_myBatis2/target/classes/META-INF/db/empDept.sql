@@ -1,30 +1,32 @@
--- Dept.xml의 id=deptList
+-- ● Dept.xml의 id=deptList
 	SELECT * FROM DEPT;
--- Emp.xml의 id=empList
+-- ○ Emp.xml의 id=empList
 	SELECT * FROM EMP ORDER BY EMPNO DESC; -- 출력조건
-	SELECT ROWNUM RN, A.* FROM (SELECT * FROM EMP ORDER BY EMPNO DESC) A;
+	--ver.1
+    SELECT ROWNUM RN, A.* FROM (SELECT * FROM EMP ORDER BY EMPNO DESC) A;
 	SELECT * 
         FROM (SELECT ROWNUM RN, A.* FROM (SELECT * FROM EMP ORDER BY EMPNO DESC) A)
         WHERE RN BETWEEN 4 AND 6;
--- Emp.xml의 id=total
-	SELECT COUNT(*) FROM EMP;
--- Emp.xml의 id=detail
-	SELECT * FROM EMP WHERE EMPNO=7863;
--- Emp.xml의 id=managerList
-	SELECT * FROM EMP WHERE EMPNO IN (SELECT MGR FROM EMP);
--- Emp.xml의 id=insert
-	INSERT INTO EMP VALUES (9000, 'HONG', 'IT', 7566, '22/07/20', 8000, 200, 40);
--- Emp.xml의 id=update
-	UPDATE EMP SET ENAME='홍', JOB='개발', MGR=7566,HIREDATE='2018-02-01',SAL=9000, COMM=900, DEPTNO=30
-   		WHERE EMPNO=9000;
-	SELECT * FROM EMP;
-	ROLLBACK;
--- Emp.xml의 id=delete
-	DELETE FROM EMP WHERE EMPNO=9000;
--- EmpDept.xml의 id=empDeptList
+-- ○ Emp.xml의 id=empDeptList
+    --ver.2
     SELECT E.*, DNAME, LOC FROM EMP E, DEPT D WHERE E.DEPTNO=D.DEPTNO ORDER BY EMPNO DESC;
 	SELECT * 
         FROM (SELECT ROWNUM RN, A.* 
                 FROM (SELECT E.*, DNAME, LOC FROM EMP E, DEPT D WHERE E.DEPTNO=D.DEPTNO ORDER BY EMPNO DESC) A)
         WHERE RN BETWEEN 4 AND 6;
+-- ○ Emp.xml의 id=total
+	SELECT COUNT(*) FROM EMP;
+-- ○ Emp.xml의 id=detail
+	SELECT * FROM EMP WHERE EMPNO=7863;
+-- ○ Emp.xml의 id=managerList
+	SELECT * FROM EMP WHERE EMPNO IN (SELECT MGR FROM EMP);
+-- ○ Emp.xml의 id=insert
+	INSERT INTO EMP VALUES (9000, 'HONG', 'IT', 7566, '22/07/20', 8000, 200, 40);
+-- ○ Emp.xml의 id=update
+	UPDATE EMP SET ENAME='홍', JOB='개발', MGR=7566,HIREDATE='2018-02-01',SAL=9000, COMM=900, DEPTNO=30
+   		WHERE EMPNO=9000;
+	SELECT * FROM EMP;
+	ROLLBACK;
+-- ○ Emp.xml의 id=delete
+	DELETE FROM EMP WHERE EMPNO=9000;
 
