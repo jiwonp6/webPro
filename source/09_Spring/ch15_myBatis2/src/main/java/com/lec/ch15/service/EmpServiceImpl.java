@@ -1,5 +1,6 @@
 package com.lec.ch15.service;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -84,8 +85,7 @@ public class EmpServiceImpl implements EmpService {
 			emp.setEname("박박"+i);
 			emp.setJob("IT");
 			emp.setMgr(7566);
-			emp.setHiredate(Timestamp.valueOf("2022-07-21 14:00:00"));
-			//Date형 일 경우 : emp.setHiredate(Date.valueOf("2022-07-21"));
+			emp.setHiredate(Date.valueOf("2022-07-21"));
 			emp.setSal(i);
 			emp.setComm(i/10);
 			emp.setDeptno(40);

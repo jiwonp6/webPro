@@ -12,7 +12,14 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script>
 	$(document).ready(function() {
-		frm.onsubmit();
+		$('form').submit(function() {
+			var msg = $('span').text();
+			if(msg != '사용가능 사번'){
+				alert('사용가능한 사번으로 등록하세요');
+				frm.empno.focus();
+				return false;
+			}
+		});
 		
 	});
 	function chk() {
@@ -21,7 +28,23 @@
 			frm.empno.focus();
 		}else{
 			var empno = frm.empno.value;
-			location.href='confirmNo.do?empno='+empno;
+			var ename = frm.ename.value;
+			var job = frm.job.value;
+			var mgr = frm.mgr.value;
+			var hiredate = frm.hiredate.value;
+			if(! hiredate){
+				hiredate = '<%=new Date(System.currentTimeMillis()) %>';
+			}
+			var sal = frm.sal.value;
+			if(! sal){
+				sal = 0;
+			}
+			var comm = frm.comm.value;
+			if(! comm){
+				comm = 0;
+			}
+			var deptno = frm.deptno.value;
+			location.href='confirmNo.do?empno='+empno+"&ename="+ename+"&job="+job+"&mgr="+mgr+"&hiredate="+hiredate+"&sal="+sal+"&comm="+comm+"&deptno="+deptno;
 		}
 	}
 </script>
@@ -38,52 +61,57 @@
 			<tr>
 				<th>사번</th>
 				<td>
-					<input type="number" name="empno" required="required" value="${param.empno }">
+					<input type="number" name="empno" required="required" value="${emp.empno }">
 					<input type="button" value="중복확인" onclick="chk()" class="btn">
 					<br>
-					<span>
-						<c:if test="${not empty msg }">
-							${msg }
-						</c:if>
-					</span>
+					<!-- span태그 안의 띄어쓰기는 다 인식하기 때문에 붙여 써야함! -->
+					<span><c:if test="${not empty msg }">${msg }</c:if></span>
 				</td>
 			</tr>
 			<tr>
 				<th>이름</th>
-				<td><input type="text" name="ename"></td>
+				<td><input type="text" name="ename" value="${emp.ename }"></td>
 			</tr>
 			<tr>
 				<th>업무</th>
-				<td><input type="text" name="job"></td>
+				<td><input type="text" name="job" value="${emp.job }"></td>
 			</tr>
 			<tr>
 				<th>상사</th>
 				<td>
 					<select name="mgr">
 						<c:forEach items="${managerList }" var="mgrEmp">
-							<option value="${mgrEmp.empno }">${mgrEmp.ename }(${mgrEmp.empno })</option>
+							<option value="${mgrEmp.empno }" 
+								<c:if test="${mgrEmp.empno eq emp.mgr }">selected="selected"</c:if> 
+							>
+								${mgrEmp.ename }(${mgrEmp.empno })
+							</option>
 						</c:forEach>
 					</select>
 				</td>
 			</tr>
 			<tr>
 				<th>입사일</th>
-				<td><input type="date" name="tempHiredate" value="<%=new Date(System.currentTimeMillis()) %>"></td>
+				<td><input type="date" name="hiredate" value="${emp.hiredate }" required="required"></td>
 			</tr>
 			<tr>
 				<th>급여</th>
-				<td><input type="number" name="sal" value="800"></td>
+				<td><input type="number" name="sal" value="${emp.sal==0?'':emp.sal }" required="required"></td>
 			</tr>
 			<tr>
 				<th>상여</th>
-				<td><input type="number" name="comm" value="0"></td>
+				<td><input type="number" name="comm" value="${emp.comm==0?'':emp.comm }" required="required"></td>
 			</tr>
 			<tr>
 				<th>부서번호</th>
 				<td>
 					<select name="deptno">
 						<c:forEach items="${deptList }" var="dept">
-							<option value="${dept.deptno }">${dept.dname }(${dept.deptno }/${dept.loc })</option>
+							<option value="${dept.deptno }" 
+								<c:if test="${dept.deptno eq emp.deptno }">selected="selected"</c:if> 
+							>
+								${dept.dname }(${dept.deptno }/${dept.loc })
+							</option>
 						</c:forEach>
 					</select>
 				</td>
@@ -91,8 +119,7 @@
 			<tr>
 				<td colspan="2">
 					<input type="submit" value="등록">
-					<input type="reset" value="취소">
-					<input type="button" value="목록" onclick="location='empDeptList.do?pageNum=${param.pageNum }'">
+					<input type="button" value="목록" onclick="location='empDeptList.do'">
 				</td>
 			</tr>
 		</table>

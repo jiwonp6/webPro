@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lec.ch17.dao.BoardDao">
+	<resultMap type="Board" id="BoardResult">
+		<result column="bid" property="bid"/>
+		<result column="bname" property="bname"/>
+		<result column="btitle" property="btitle"/>
+		<result column="bcontent" property="bcontent"/>
+		<result column="bdate" property="bdate"/>
+		<result column="bhit" property="bhit"/>
+		<result column="bgroup" property="bgroup"/>
+		<result column="bstep" property="bstep"/>
+		<result column="bindent" property="bindent"/>
+		<result column="bip" property="bip"/>
+	</resultMap>
+	
+	<!-- DAO Query -->
+	<!-- boardList -->
+	<select id="boardList" resultMap="BoardResult" parameterType="Board">
+		SELECT * FROM (SELECT ROWNUM RN, A.* 
+        	    FROM (SELECT * FROM MVC_BOARD ORDER BY BGROUP DESC, BSTEP) A)
+        	WHERE RN BETWEEN #{startRow} AND #{endRow}
+	</select>
+	<!-- totCnt -->
+	<select id="totCnt" resultType="int">
+		SELECT COUNT(*) FROM MVC_BOARD
+	</select>
+	<!-- write -->
+	<insert id="write" parameterType="Board" >
+		INSERT INTO MVC_BOARD (bID, bNAME, bTITLE, bCONTENT, bGROUP, bSTEP, bINDENT, bIP)
+   			 VALUES (MVC_BOARD_SEQ.NEXTVAL, #{bname},#{btitle},#{bcontent},MVC_BOARD_SEQ.CURRVAL, 0, 0, #{bip})
+	</insert>
+	<!-- hitUp -->
+	<update id="hitUp" parameterType="int">
+		UPDATE MVC_BOARD SET bHIT = bHIT+1 WHERE bID=#{bid}
+	</update>
+	<!-- detail -->
+	<select id="detail" parameterType="int" resultMap="BoardResult">
+		SELECT * FROM MVC_BOARD WHERE BID=#{bid}
+	</select>
+	<!-- update -->
+	<update id="update" parameterType="Board">
+		UPDATE MVC_BOARD SET BNAME = #{bname},
+                    		 BTITLE = #{btitle},
+                    		 BCONTENT = #{bcontent},
+                    		 BIP = #{bip}
+       		 			 WHERE BID = #{bid}
+	</update>
+	<!-- delete -->
+	<delete id="delete" parameterType="int">
+		DELETE FROM MVC_BOARD WHERE BID=#{bid}
+	</delete>
+	<!-- preReply -->
+	<!-- <update id="preReply" parameterType="Board">
+		<![CDATA[	
+			UPDATE MVC_BOARD SET bSTEP = bSTEP+1 WHERE BGROUP=#{bgroup} AND BSTEP > #{bstep}	
+		]]>
+	</update> -->
+	<!-- reply -->
+	<insert id="reply" parameterType="Board">
+		INSERT INTO MVC_BOARD (bID, bNAME, bTITLE, bCONTENT, bGROUP, bSTEP, bINDENT, bIP)
+    		VALUES (MVC_BOARD_SEQ.NEXTVAL, #{bname}, #{btitle}, #{bcontent}, #{bgroup}, #{bstep}, #{bindent}, #{bip})
+	</insert>
+</mapper>

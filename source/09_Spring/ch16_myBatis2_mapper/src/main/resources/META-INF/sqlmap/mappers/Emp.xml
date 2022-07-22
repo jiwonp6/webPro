@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lec.ch16.dao.EmpDao">	<!-- namespace <= Alias에 쓴 이름 -->
+	<resultMap type="Emp" id="EmpResult">
+		<result column="empno" property="empno"/>
+		<result column="ename" property="ename"/>
+		<result column="job" property="job"/>
+		<result column="mgr" property="mgr"/>
+		<result column="hiredate" property="hiredate"/>
+		<result column="sal" property="sal"/>
+		<result column="comm" property="comm"/>
+		<result column="deptno" property="deptno"/>
+		<result column="dname" property="dname"/>
+		<result column="loc" property="loc"/>
+	</resultMap>
+	
+	<!-- ★ ★ ★ SQL Query ★ ★ ★ -->	
+	<!-- empList -->
+	<select id="empList" parameterType="Emp" resultMap="EmpResult">	
+		<!-- parameterType="Emp" 으로부터 startrow, endrow 받음 (입력받는 객체값의 타입)-->
+		<!-- parameterType이 class면 alias준 것만 가능 -->
+		<!-- list리턴할 때는 보통 resultMap씀 -->
+		SELECT * 
+       		FROM (SELECT ROWNUM RN, A.* FROM (SELECT * FROM EMP ORDER BY EMPNO DESC) A)
+        	WHERE RN BETWEEN #{startrow} AND #{endrow}
+	</select>
+	
+	<!-- empDeptList -->
+	<select id="empDeptList" parameterType="Emp" resultMap="EmpResult">	
+		SELECT * 
+        FROM (SELECT ROWNUM RN, A.* 
+                FROM (SELECT E.*, DNAME, LOC FROM EMP E, DEPT D WHERE E.DEPTNO=D.DEPTNO ORDER BY EMPNO DESC) A)
+        WHERE RN BETWEEN #{startrow} AND #{endrow}
+	</select>
+	
+	<!-- totCnt -->
+	<select id="totCnt" resultType="int">	<!-- int타입으로 반환 (반환하는 객체값의 타입)-->
+		SELECT COUNT(*) FROM EMP
+	</select>
+	
+	<!-- detail -->
+	<select id="detail" parameterType="int" resultType="Emp">	
+		<!-- 둘다가능) 한줄 반환 : emp(resultType) / 입력 받을때 : int타입 (parameterType) -->
+		SELECT * FROM EMP WHERE EMPNO=#{empno}
+	</select>
+	
+	<!-- managerList -->
+	<select id="managerList" resultMap="EmpResult">
+		SELECT * FROM EMP WHERE EMPNO IN (SELECT MGR FROM EMP)
+	</select>
+	
+	<!-- insert -->
+	<insert id="insert" parameterType="Emp">	<!-- insert/update/delete 는 resultType 필요X(무조건 int임) -->
+		INSERT INTO EMP VALUES (#{empno}, #{ename}, #{job}, #{mgr}, #{hiredate}, #{sal}, #{comm}, #{deptno})
+	</insert>
+	
+	<!-- update -->
+	<update id="update" parameterType="Emp">
+		UPDATE EMP SET ENAME=#{ename}, 
+				   JOB=#{job}, 
+				   MGR=#{mgr},
+				   HIREDATE=#{hiredate},
+				   SAL=#{sal}, 
+				   COMM=#{comm}, 
+				   DEPTNO=#{deptno}
+   			WHERE EMPNO=#{empno}
+	</update>
+	
+	<!-- delete -->
+	<delete id="delete" parameterType="int">
+		DELETE FROM EMP WHERE EMPNO=#{empno}
+	</delete>
+	
+</mapper>

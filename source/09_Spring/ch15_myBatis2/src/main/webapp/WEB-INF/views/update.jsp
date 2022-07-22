@@ -43,7 +43,7 @@
 			</tr>
 			<tr>
 				<th>입사일</th>
-				<td><input type="date" name="tempHiredate" value="${empDto.hiredate.toString().substring(0,10) }"></td>
+				<td><input type="date" name="hiredate" value="${empDto.hiredate }"></td>
 			</tr>
 			<tr>
 				<th>급여</th>
