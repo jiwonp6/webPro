@@ -61,13 +61,20 @@ public class BoardServiceImpl implements BoardService {
 	public int delete(int bid) {
 		return bDao.delete(bid);
 	}
-
+	
+	@Override
+	public int preReply(Board board) {
+		return bDao.preReply(board);
+	}
+	
 	@Override
 	public int reply(Board board, HttpServletRequest request) {
+		preReply(board);
 		board.setBip(request.getRemoteAddr());
 		board.setBstep(board.getBstep()+1);
 		board.setBindent(board.getBindent()+1);
 		return bDao.reply(board);
 	}
+	
 
 }

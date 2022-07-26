@@ -14,5 +14,6 @@ public interface BoardService {
 	public Board detail(int bid);
 	public int update(Board board, HttpServletRequest request);
 	public int delete(int bid);
+	public int preReply(Board board);
 	public int reply(Board board, HttpServletRequest request);
 }

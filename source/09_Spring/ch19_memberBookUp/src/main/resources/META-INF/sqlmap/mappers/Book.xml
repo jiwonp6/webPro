@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lec.ch19.dao.BookDao">
+	<resultMap type="Book" id="BookResult">
+		<result column="bnum" property="bnum"/>
+		<result column="btitle" property="btitle"/>
+		<result column="bwriter" property="bwriter"/>
+		<result column="brdate" property="brdate"/>
+		<result column="bimg1" property="bimg1"/>
+		<result column="bimg2" property="bimg2"/>
+		<result column="binfo" property="binfo"/>
+	</resultMap>
+	<!-- mainList -->
+	<select id="mainList" resultType="Book">
+		SELECT ROWNUM RM, A.* FROM (SELECT * FROM BOOK ORDER BY bRDATE DESC) A
+	</select>
+	<!-- bookList -->
+	<select id="bookList" parameterType="Book" resultType="Book">
+		<!--(검색기능X) 
+		SELECT * 
+        	FROM (SELECT ROWNUM RN, A.* FROM (SELECT * FROM BOOK ORDER BY bTITLE) A) 
+        	WHERE RN BETWEEN #{startRow} AND #{endRow} -->
+        <if test="schItem=='all'">
+				SELECT * FROM (SELECT ROWNUM RN, A.* FROM (SELECT * FROM BOOK where btitle like '%'||#{schWord}||'%' or bwriter like '%'||#{schWord}||'%' ORDER BY BTITLE) A)
+	   		WHERE RN BETWEEN #{startRow} AND #{endRow}
+		</if>
+		<if test="schItem=='btitle'">
+			SELECT * FROM (SELECT ROWNUM RN, A.*
+				FROM ( SELECT * FROM BOOK WHERE BTITLE LIKE '%'||#{schWord}||'%' order by btitle) A)
+					WHERE RN BETWEEN #{startRow} AND #{endRow}
+		</if>
+		<if test="schItem=='bwriter'">
+			SELECT * FROM (SELECT ROWNUM RN, A.*
+				FROM ( SELECT * FROM BOOK WHERE bwriter LIKE '%'||#{schWord}||'%' order by btitle) A)
+					WHERE RN BETWEEN #{startRow} AND #{endRow}
+		</if>
+		<if test="schItem=='' or schItem==null">
+			SELECT * FROM (SELECT ROWNUM RN, A.*
+				FROM ( SELECT * FROM BOOK order by btitle) A)
+					WHERE RN BETWEEN #{startRow} AND #{endRow}
+		</if>
+	</select>
+	<!-- totCntBook -->
+	<select id="totCntBook" resultType="int">
+		SELECT COUNT(*) FROM BOOK
+	</select>
+	<!-- getDetailBook -->
+	<select id="getDetailBook" parameterType="int" resultType="Book">
+		SELECT * FROM BOOK WHERE bNUM=#{bnum}
+	</select>
+	<!-- registerBook -->
+	<insert id="registerBook" parameterType="Book">
+		<if test="bimg1=='' and bimg2==''">
+			INSERT INTO BOOK (bNUM, bTITLE, bWRITER, bRDATE, bINFO) VALUES
+        		(BOOK_SQ.NEXTVAL, #{btitle}, #{bwriter}, #{brdate}, #{binfo})
+		</if>
+		<if test="bimg1!='' and bimg2==''">
+			INSERT INTO BOOK (bNUM, bTITLE, bWRITER, bRDATE, bIMG1, bINFO) VALUES
+        		(BOOK_SQ.NEXTVAL, #{btitle}, #{bwriter}, #{brdate}, #{bimg1}, #{binfo})
+		</if>
+		<if test="bimg1=='' and bimg2!=''">
+			INSERT INTO BOOK (bNUM, bTITLE, bWRITER, bRDATE, bIMG2, bINFO) VALUES
+        		(BOOK_SQ.NEXTVAL, #{btitle}, #{bwriter}, #{brdate}, #{bimg2}, #{binfo})
+		</if>
+		<if test="bimg1!='' and bimg2!=''">
+			INSERT INTO BOOK VALUES
+	        	(BOOK_SQ.NEXTVAL, #{btitle}, #{bwriter}, #{brdate}, #{bimg1}, #{bimg2}, #{binfo})
+		</if>
+	</insert>
+	<!-- modifyBook -->
+	<update id="modifyBook" parameterType="Book">
+		UPDATE BOOK SET bTITLE=#{btitle},
+	                    bWRITER=#{bwriter},
+	                    bRDATE=#{brdate},
+	                    <if test="bimg1!=''">
+		                    bIMG1=#{bimg1},
+	                    </if>
+	                    <if test="bimg2!=''">
+		                    bIMG2=#{bimg2},
+	                    </if>
+	                    bINFO=#{binfo}
+	                WHERE bNUM=#{bnum}
+	</update>
+	<!-- deleteBook -->
+	<delete id="deleteBook" parameterType="int">
+		 DELETE FROM BOOK WHERE bNUM=#{bnum}
+	</delete>
+	<!-- cntBook(검색기능 페이징) -->
+	<select id="cntBook" parameterType="Book" resultType="int">
+		<if test="schItem=='all'">
+			SELECT COUNT(*) FROM BOOK WHERE BTITLE LIKE '%'||#{schWord, jdbcType = VARCHAR}||'%' or BWRITER LIKE '%'||#{schWord}||'%'
+		</if>
+		<if test="schItem=='btitle'">
+			SELECT COUNT(*) FROM BOOK WHERE BTITLE LIKE '%'||#{schWord}||'%'
+		</if>
+		<if test="schItem=='bwriter'">
+			SELECT COUNT(*) FROM BOOK WHERE BWRITER LIKE '%'||#{schWord}||'%'
+		</if>
+		<if test="schItem=='' or schItem==null">
+			SELECT COUNT(*) FROM BOOK
+		</if>
+	</select>
+</mapper>

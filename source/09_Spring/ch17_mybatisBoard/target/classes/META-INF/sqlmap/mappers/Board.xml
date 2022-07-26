@@ -53,11 +53,11 @@
 		DELETE FROM MVC_BOARD WHERE BID=#{bid}
 	</delete>
 	<!-- preReply -->
-	<!-- <update id="preReply" parameterType="Board">
+	<update id="preReply" parameterType="Board">
 		<![CDATA[	
 			UPDATE MVC_BOARD SET bSTEP = bSTEP+1 WHERE BGROUP=#{bgroup} AND BSTEP > #{bstep}	
 		]]>
-	</update> -->
+	</update>
 	<!-- reply -->
 	<insert id="reply" parameterType="Board">
 		INSERT INTO MVC_BOARD (bID, bNAME, bTITLE, bCONTENT, bGROUP, bSTEP, bINDENT, bIP)

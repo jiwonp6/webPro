@@ -11,6 +11,5 @@
 </head>
 <body>
 	<jsp:forward page="mvcboard/boardList.do"/>
-	
 </body>
 </html>
